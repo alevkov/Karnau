@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lantinghei.ttc">
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+            <string>FZLTXHK--GBK1-0</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MenuViewController" customModule="KK" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u79-yG-Jxj">
+                                <rect key="frame" x="238" y="302" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="G9u-oi-v72"/>
+                                    <constraint firstAttribute="height" constant="50" id="q9I-y4-Nit"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Tutorial"/>
+                                <connections>
+                                    <action selector="tutorialPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2O-3W-y98"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb1-ul-d7b">
+                                <rect key="frame" x="238" y="371" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aXz-Yh-Z23"/>
+                                    <constraint firstAttribute="width" constant="125" id="udv-cz-cNG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Engineer">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="engineerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjK-T1-7vp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmZ-rg-lE9">
+                                <rect key="frame" x="238" y="439" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="IEk-a9-P5a"/>
+                                    <constraint firstAttribute="height" constant="50" id="MWf-4f-nnf"/>
+                                    <constraint firstAttribute="width" constant="125" id="PJI-pt-Yqv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="SfC-n1-Ltp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Casual">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="casualPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vjk-JA-AKf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bb1-ul-d7b" firstAttribute="leading" secondItem="u79-yG-Jxj" secondAttribute="leading" id="Eaf-Ji-PXo"/>
+                            <constraint firstItem="SmZ-rg-lE9" firstAttribute="leading" secondItem="bb1-ul-d7b" secondAttribute="leading" id="KIj-qA-hjV"/>
+                            <constraint firstItem="SmZ-rg-lE9" firstAttribute="top" secondItem="bb1-ul-d7b" secondAttribute="bottom" constant="18" id="hKE-tz-Y5n"/>
+                            <constraint firstItem="u79-yG-Jxj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ijG-hc-mJf"/>
+                            <constraint firstItem="bb1-ul-d7b" firstAttribute="top" secondItem="u79-yG-Jxj" secondAttribute="bottom" constant="19" id="pQE-pu-gai"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u79-yG-Jxj" secondAttribute="bottom" constant="248" id="vm3-LA-ewW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kca-FW-5oj"/>
+                    <connections>
+                        <outlet property="casualButton" destination="SmZ-rg-lE9" id="l0J-rJ-Poc"/>
+                        <outlet property="engineerButton" destination="bb1-ul-d7b" id="An1-vP-L83"/>
+                        <outlet property="tutorialButton" destination="u79-yG-Jxj" id="per-ea-Lzj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1351" y="416"/>
+        </scene>
+        <!--Config View Controller-->
+        <scene sceneID="Otn-w3-5Kw">
+            <objects>
+                <viewController storyboardIdentifier="ConfigView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="POE-BC-vZG" customClass="ConfigViewController" customModule="KK" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KRb-LF-qgx"/>
+                        <viewControllerLayoutGuide type="bottom" id="ffM-74-rlX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uig-Z1-fNe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A2-bT-5eK">
+                                <rect key="frame" x="238" y="109" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="c9S-W9-fOT"/>
+                                    <constraint firstAttribute="width" constant="125" id="ubL-HP-MTf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="26"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Variables:"/>
+                                <connections>
+                                    <action selector="tutorialPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QMo-wv-sWx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Laa-j1-iDM">
+                                <rect key="frame" x="238" y="295" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BRZ-nm-tCu"/>
+                                    <constraint firstAttribute="width" constant="125" id="cVn-ea-ddX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="26"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Difficulty:"/>
+                                <connections>
+                                    <action selector="tutorialPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kJ-GH-czW"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="92x-4x-jNM">
+                                <rect key="frame" x="196" y="384" width="209" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="205" id="XeZ-HC-gKN"/>
+                                    <constraint firstAttribute="height" constant="30" id="rir-AE-WNV"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" red="0.35686274509999999" green="1" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Y-lb-naF">
+                                <rect key="frame" x="249" y="480" width="103" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="Cp1-dX-Y3G"/>
+                                    <constraint firstAttribute="width" constant="103" id="fKI-Lp-fDl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="26"/>
+                                <state key="normal" title="&gt;&gt;">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButtonAction:" destination="POE-BC-vZG" eventType="touchUpInside" id="wAc-pY-0yB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1A2-bT-5eK" firstAttribute="top" secondItem="KRb-LF-qgx" secondAttribute="bottom" constant="89" id="66A-cK-HWT"/>
+                            <constraint firstItem="Laa-j1-iDM" firstAttribute="leading" secondItem="1A2-bT-5eK" secondAttribute="leading" id="RSQ-ZA-PlG"/>
+                            <constraint firstItem="1A2-bT-5eK" firstAttribute="centerX" secondItem="uig-Z1-fNe" secondAttribute="centerX" id="RzO-xU-cm4"/>
+                            <constraint firstItem="92x-4x-jNM" firstAttribute="centerX" secondItem="Laa-j1-iDM" secondAttribute="centerX" id="VO0-8l-p29"/>
+                            <constraint firstItem="v8Y-lb-naF" firstAttribute="centerX" secondItem="92x-4x-jNM" secondAttribute="centerX" id="h8c-QX-G7n"/>
+                            <constraint firstItem="92x-4x-jNM" firstAttribute="top" secondItem="Laa-j1-iDM" secondAttribute="bottom" constant="39" id="q7Z-a8-rWk"/>
+                            <constraint firstItem="Laa-j1-iDM" firstAttribute="centerY" secondItem="uig-Z1-fNe" secondAttribute="centerY" constant="20" id="tWT-f7-iLo"/>
+                            <constraint firstItem="v8Y-lb-naF" firstAttribute="top" secondItem="92x-4x-jNM" secondAttribute="bottom" constant="66" id="vE2-3X-LYO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="diffSlider" destination="92x-4x-jNM" id="HaJ-tE-iMS"/>
+                        <outlet property="goButton" destination="v8Y-lb-naF" id="xgx-gq-Fwk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eb3-OU-jna" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2024" y="416"/>
+        </scene>
+    </scenes>
+</document>
