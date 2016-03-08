@@ -12,5 +12,6 @@
 
 #import "CKCircleView.h"
 #import "CKCircleLabel.h"
+#import "StepSlider.h"
 
 #endif /* KK_Bridging_Header_h */

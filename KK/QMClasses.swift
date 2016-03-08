@@ -8,7 +8,7 @@
 
 import Foundation
 
-let MAX_MAGNITUDE : UInt = 5
+let MAX_MAGNITUDE : UInt = 6
 let IMPLICANT_FLAG : UInt  = 999
 let PRIME_FLAG : UInt = 888
 
@@ -16,7 +16,7 @@ let PRIME_FLAG : UInt = 888
 class QMMinterm : NSObject
 	/***************************************/
 {
-	let vars = ["A", "B", "C", "D", "E"]
+	let vars = ["A", "B", "C", "D", "E", "F"]
 	var intValue: UInt = 0;
 	var stringValue: String = "";
 	var letters: String = "";
@@ -77,7 +77,7 @@ class QMMinterm : NSObject
 class QMProductSum : NSObject
 	/***************************************/
 {
-	let vars = ["A", "B", "C", "D", "E"]
+	let vars = ["A", "B", "C", "D", "E", "F"]
 	var products : [QMMinterm] = []
 	/* format: "ABC + ABC + ABC + . . ." */
 	var stringValue : String;

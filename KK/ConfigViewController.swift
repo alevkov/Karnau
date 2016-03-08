@@ -19,7 +19,9 @@ class ConfigViewController: UIViewController {
 	
 	@IBOutlet weak var goButton: UIButton!
 	@IBOutlet weak var diffSlider: UISlider!
-
+	@IBOutlet weak var backButton: UIButton!
+	
+	
 	override func viewDidLoad() {
 		/// Dial view setup
 		self.vardialView = CKCircleView(frame: CGRectMake(0, 0, 150, 150))
@@ -49,8 +51,6 @@ class ConfigViewController: UIViewController {
 				self.vardialView.transform = CGAffineTransformMakeScale(1, 1)
 				})
 			self.count = count + 1
-			print (self.count)
-	
 		}
 		self.view.addSubview(vardialView)
 		
@@ -58,9 +58,13 @@ class ConfigViewController: UIViewController {
 		goButton.layer.borderWidth = 1
 		goButton.layer.borderColor = UIColor.whiteColor().CGColor
 		
+		backButton.layer.borderWidth = 1
+		backButton.layer.borderColor = UIColor.whiteColor().CGColor
+
+		
 		/// Slider setup
 		let thumb = UIImage(named: "SiderThumb")
-		let size = CGSizeApplyAffineTransform(thumb!.size, CGAffineTransformMakeScale(0.2, 0.2))
+		let size = CGSizeApplyAffineTransform(thumb!.size, CGAffineTransformMakeScale(0.1, 0.1))
 		let hasAlpha = false
 		let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
 		
@@ -71,34 +75,73 @@ class ConfigViewController: UIViewController {
 		UIGraphicsEndImageContext()
 		diffSlider.setThumbImage(scaledImage, forState: UIControlState.Normal)
 		
+		
+		let numberOfSteps = Float(6.0)
+		diffSlider.maximumValue = numberOfSteps;
+		diffSlider.minimumValue = 1;
+		diffSlider.continuous = true;
+		
+//		diffSlider.layer.borderWidth = 1
+//		diffSlider.layer.borderColor = UIColor.whiteColor().CGColor
+		
+		var slider = StepSlider(frame: CGRectMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame)-300, 200, 20))
+		slider.maxCount = 6
+		self.view.addSubview(slider)
+		
 	}
 	
+	
 	override func viewDidAppear(animated: Bool) {
-		UIView.animateWithDuration(0.8, animations: { () -> Void in
+		UIView.animateWithDuration(0.6, animations: { () -> Void in
 			self.vardialView.moveCircleToAngle(15, with: nil)
 			}) { (flag) -> Void in
-				UIView.animateWithDuration(0.8, animations: { () -> Void in
+				UIView.animateWithDuration(0.6, animations: { () -> Void in
 					self.vardialView.moveCircleToAngle(0, with: nil)
 					}) { (flag) -> Void in
 						
 				}
 		}
-		
-		
 	}
 	
 	@IBAction func goButtonAction(sender: AnyObject) {
-		let table = makeList(Int(self.count) + difficulty)
+		
+		let count = (Double(self.count) * Double(diffSlider.value)) / 1.7
+		let table = makeList(Int(count), cap: 2^^Int(self.count))
+		
+		
+		let mapView = MapViewController()
+		mapView.table = table
+		mapView.magnitude = Int(self.count)
+		
+		let  trans = UIViewAnimationTransition.FlipFromRight
+		UIView.beginAnimations("trans", context: nil)
+		UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
+		UIView.setAnimationDuration(0.3)
+		
+		self.presentViewController(mapView, animated: false, completion: nil)
+		UIView.commitAnimations()
+		
+		print(table)
+		
+	}
+	
+	
+	@IBAction func backButton(sender: AnyObject) {
+		self.dismissViewControllerAnimated(false, completion: nil)
+	}
+
+	@IBAction func diffsliderShifted(sender: AnyObject) {
+		sender.setValue(Float(lroundf(diffSlider.value)), animated: true)
 	}
 	
 	override func prefersStatusBarHidden() -> Bool {
 		return true
 	}
 	
-	func makeList(n:Int ) -> [Int] {
+	func makeList(n:Int, cap: Int) -> [Int] {
 		var result:[Int] = []
 		for _ in 0..<n {
-			result.append(Int(arc4random_uniform(20) + 1))
+			result.append(Int(arc4random_uniform(UInt32(cap))))
 		}
 		result.sortInPlace({ $1 > $0 })
 		

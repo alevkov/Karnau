@@ -32,10 +32,8 @@ class QMCore: NSObject {
 	
 	let tags = "abcdefghklmnpqrstuvwxyz"
 	
-	var magnitude :UInt = 0
-	
+	var magnitude : UInt = 0
 	lazy var solutions = [GroupType]()
-	
 	lazy var equations = [QMProductSum]()
 	
 	/*----------------------------------------------------------*/
@@ -92,6 +90,7 @@ class QMCore: NSObject {
 	private func deriveNthOrder(buffer: [AnyObject], var order: OrderType, inout residual: OrderType, magnitude: UInt) -> OrderType {
 		/*----------------------------------------------------------*/
 		
+		
 		if buffer.count == 0 {
 			return order
 		}
@@ -141,8 +140,8 @@ class QMCore: NSObject {
 	/*----------------------------------------------------------*/
 	func computePrimeProducts (var withMinterms: [UInt], magnitude: UInt) -> [QMProductSum]? {
 		/*----------------------------------------------------------*/
+		let timer = ParkBenchTimer() // start timer for algoithm
 		
-		print(Error.UnknownType)
 		let order = OrderType()
 		var residual = OrderType()
 		var primes = PrimeType()
@@ -167,11 +166,12 @@ class QMCore: NSObject {
 		for (_, min) in primes {
 			primesArray.append(min)
 		}
+		print(primesArray.count)
 		if primesArray.count > 1 {
 			reducePrimes(&primesArray, table: &withMinterms, ePrimes: &ePrimes)
 		}
 		
-		
+		print(primesArray.count)
 		var em = GroupType()
 		
 		if primesArray.count >= 1 && withMinterms.count > 0 {
@@ -179,8 +179,6 @@ class QMCore: NSObject {
 			
 			for (_, v) in primes {
 				v.tag = String(tags[tags.startIndex.advancedBy(primeCount)])
-				
-				
 				primeCount++
 			}
 			
@@ -197,10 +195,18 @@ class QMCore: NSObject {
 			}
 			
 			var exp = [String]()
+			//print (petrick)
+			let ccf = petrickify(&petrick)
 			
-			petrickify(&petrick)
+			// if encountered cyclical cover
+			if ccf == nil {
+				return equations
+			}
+			
+		
 			for s in petrick[0] {
-				exp.append(String(s.characters.sort()))
+				let ss = s.characters.sort()
+				exp.append(String(ss))
 			}
 			
 			exp.sortInPlace({ $1.characters.count > $0.characters.count })
@@ -235,7 +241,7 @@ class QMCore: NSObject {
 					print(primeDict[String(c)]!.stringValue)
 					key += countVars(primeDict[String(c)]!)
 				}
-				print("---")
+	
 				if extrasByCountOfTerms[key] == nil {
 					extrasByCountOfTerms[key] = [String]()
 				}
@@ -247,7 +253,8 @@ class QMCore: NSObject {
 			
 			for (k, v) in extrasByCountOfTerms {
 				if (UInt(k) == minkey) {
-					for term in v {
+			
+					for term in uniq(v) {
 						var x = GroupType()
 						for c in term.characters {
 							x.append(primeDict[String(c)]!)
@@ -256,8 +263,7 @@ class QMCore: NSObject {
 					}
 				}
 			}
-			
-			print(extrasByCountOfTerms.debugDescription)
+	
 			
 			for p in petrickPrimes {
 				var solution = GroupType()
@@ -270,19 +276,23 @@ class QMCore: NSObject {
 				solutions.append(uniq(solution))
 			}
 			
+			
+			print("The task took \(timer.stop()) seconds")
 			for s in solutions {
 				let eq = QMProductSum(withProducts: s, magnitude: magnitude)
 				equations.append(eq)
 			}
 			
+			
 			return equations
 			
 			// TRIVIAL SOLUTION
 		} else { // if there is only one non-essential prime or none left in the table, return the final solution
+			
 			for (_, e) in ePrimes {
 				em.append(e)
 			}
-			
+			print("The task took \(timer.stop()) seconds")
 			let eq = QMProductSum(withProducts: em, magnitude: magnitude)
 			equations.append(eq)
 			
@@ -354,10 +364,16 @@ class QMCore: NSObject {
 		
 	}
 	
-	func petrickify(inout expression: [[String]]) -> [[String]] {
+	func petrickify(inout expression: [[String]]) -> [[String]]? {
+		
 		if expression.count == 1  {
 			return expression
 		}
+		if expression[0].count > 100000 {
+			return nil
+		}
+		print(expression)
+		print("----")
 		expression[0] &= expression[1]
 		expression.removeAtIndex(1)
 		

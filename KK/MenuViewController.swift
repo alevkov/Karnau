@@ -17,6 +17,8 @@ class MenuViewController: UIViewController {
 	@IBOutlet weak var engineerButton: UIButton!
 	@IBOutlet weak var casualButton: UIButton!
 	
+	var mesh = Mesh()
+	
 	let sB = UIStoryboard(name: "Main", bundle: nil)
 	
 	func setup () {
@@ -36,23 +38,18 @@ class MenuViewController: UIViewController {
 
 		self.view.addSubview(logoView)
 		
-		let mesh = Mesh(frame: CGRectMake(logoView.frame.origin.x, logoView.frame.origin.y, logoView.frame.width, logoView.frame.height))
-	
+		self.mesh = Mesh(frame: CGRectMake(logoView.frame.origin.x, logoView.frame.origin.y, logoView.frame.width, logoView.frame.height), magnitude: 0, table: [])
+		
 		self.view.addSubview(mesh)
-	
 		
 		tutorialButton.layer.borderWidth = 1
 		tutorialButton.layer.borderColor = UIColor.whiteColor().CGColor
 
-
-		
 		engineerButton.layer.borderColor = UIColor.whiteColor().CGColor
 		engineerButton.layer.borderWidth = 1
 		
-		
 		casualButton.layer.borderColor = UIColor.whiteColor().CGColor
 		casualButton.layer.borderWidth = 1
-		
 		
 		self.view.backgroundColor = UIColor(hex: 0x5499CB, alpha: 1.0)
 
@@ -65,16 +62,23 @@ class MenuViewController: UIViewController {
 		
 		let core = QMCore()
 		
-		let equations = core.computePrimeProducts([2,	4,	5,	6,	10,	11,	13,	14,	17,	18, 20,	22,	23,	24,	25,	26,	28	], magnitude: 5) // Number of variables (size of K-map)
+		let equations = core.computePrimeProducts([ 3, 4,5,6, 7,8, 10,11,12,13,14], magnitude: 4) // Number of variables (size of K-map)
 		
-		for e in equations! {
-			e.print()
+		//let equations = core.computePrimeProducts([0,1, 3, 4, 5,6, 7, 8,9, 10, 11, 12, 13, 14], magnitude: 4) // Number of variables (size of K-map)
+		
+		if equations?.count != 0 {
+			for e in equations! {
+				e.print()
+			}
+		} else {
+			print("No solutions.");
 		}
+		
 	}
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(true)
-
+		self.mesh.animateMesh()
 
 	}
 
@@ -91,6 +95,7 @@ class MenuViewController: UIViewController {
 		
 		animateMenuButton(casualButton) { (data: Bool) -> Void in
 			
+			self.casualButton.selected = false
 			let  trans = UIViewAnimationTransition.FlipFromRight
 			UIView.beginAnimations("trans", context: nil)
 			UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
@@ -105,6 +110,7 @@ class MenuViewController: UIViewController {
 	
 	@IBAction func engineerPressed(sender: AnyObject) {
 		animateMenuButton(engineerButton) { (data: Bool) -> Void in
+			self.casualButton.selected = false
 			let  trans = UIViewAnimationTransition.FlipFromRight
 			UIView.beginAnimations("trans", context: nil)
 			UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
@@ -135,8 +141,8 @@ class MenuViewController: UIViewController {
 			
 			UIView.animateWithDuration(0.3, animations: { () -> Void in
 				button.transform = CGAffineTransformMakeScale(1.2, 1.2)
-				}, completion: completion)
-
+			}, completion:completion)
+			
 
 		} else {
 			button.selected = false
@@ -145,11 +151,8 @@ class MenuViewController: UIViewController {
 
 			UIView.animateWithDuration(0.3, animations: { () -> Void in
 				button.transform = CGAffineTransformMakeScale(1, 1)
-				}, completion: completion)
+			}, completion: completion)
 		}
 		
 	}
-	
-
 }
-

@@ -47,6 +47,11 @@ func * (left: String, right: UInt) -> String {
 	return result
 }
 
+infix operator ^^ { }
+func ^^ (radix: Int, power: Int) -> Int {
+	return Int(pow(Double(radix), Double(power)))
+}
+
 func ^ (left: String, right: String) -> UInt {
 	if left.characters.count != right.characters.count {
 		return 0
@@ -94,7 +99,9 @@ func & (left: String, right: String) -> String {
 				result.append(r)
 			}
 		}
-		
+//		if result.characters.count > 4 {
+//			return ""
+//		}
 		return result
 	}
 }
@@ -193,6 +200,30 @@ func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source:
 		}
 	}
 	return buffer
+}
+
+class ParkBenchTimer {
+	
+	let startTime:CFAbsoluteTime
+	var endTime:CFAbsoluteTime?
+	
+	init() {
+		startTime = CFAbsoluteTimeGetCurrent()
+	}
+	
+	func stop() -> CFAbsoluteTime {
+		endTime = CFAbsoluteTimeGetCurrent()
+		
+		return duration!
+	}
+	
+	var duration:CFAbsoluteTime? {
+		if let endTime = endTime {
+			return endTime - startTime
+		} else {
+			return nil
+		}
+	}
 }
 
 

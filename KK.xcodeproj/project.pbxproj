@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A39579E1C8643A0006079F6 /* QMCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B981C724244006DFAD7 /* QMCore.swift */; };
 		3A8A0B731C72420E006DFAD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B721C72420E006DFAD7 /* AppDelegate.swift */; };
 		3A8A0B751C72420E006DFAD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B741C72420E006DFAD7 /* MenuViewController.swift */; };
 		3A8A0B781C72420E006DFAD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0B761C72420E006DFAD7 /* Main.storyboard */; };
@@ -31,11 +32,11 @@
 		3A8A0BBA1C724721006DFAD7 /* PEPSI_pl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0BB71C7246DF006DFAD7 /* PEPSI_pl.ttf */; };
 		3A8A0BBC1C724893006DFAD7 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0BBB1C724893006DFAD7 /* LogoView.swift */; };
 		3A8A0BBE1C7249D7006DFAD7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0BBD1C7249D7006DFAD7 /* MapView.swift */; };
-		3A8BF4F91C7587D100732C93 /* CKCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BF4F81C7587D100732C93 /* CKCircleView.m */; };
-		3A8BF4FC1C7587D900732C93 /* CKCircleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BF4FB1C7587D900732C93 /* CKCircleLabel.m */; };
-		3A8BF5051C761BEA00732C93 /* ThermometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BF5041C761BEA00732C93 /* ThermometerView.swift */; };
 		3A8F86061C740F63001231B5 /* Logo@2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F86051C740F63001231B5 /* Logo@2.xib */; };
 		3A8FDD921C753B930007CF02 /* MeshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FDD911C753B930007CF02 /* MeshView.swift */; };
+		3AC76ACC1C76AFD400B485C9 /* CKCircleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC76AC91C76AFD400B485C9 /* CKCircleLabel.m */; };
+		3AC76ACD1C76AFD400B485C9 /* CKCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC76ACB1C76AFD400B485C9 /* CKCircleView.m */; };
+		3ADFE1A01C7A61180041861E /* StepSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE19F1C7A61180041861E /* StepSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,14 +78,15 @@
 		3A8A0BB71C7246DF006DFAD7 /* PEPSI_pl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PEPSI_pl.ttf; sourceTree = "<group>"; };
 		3A8A0BBB1C724893006DFAD7 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		3A8A0BBD1C7249D7006DFAD7 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		3A8BF4F71C7587C700732C93 /* CKCircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKCircleView.h; sourceTree = "<group>"; };
-		3A8BF4F81C7587D100732C93 /* CKCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleView.m; sourceTree = "<group>"; };
-		3A8BF4FA1C7587D900732C93 /* CKCircleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCircleLabel.h; sourceTree = "<group>"; };
-		3A8BF4FB1C7587D900732C93 /* CKCircleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleLabel.m; sourceTree = "<group>"; };
-		3A8BF5021C7588F200732C93 /* KK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KK-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A8BF5041C761BEA00732C93 /* ThermometerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThermometerView.swift; sourceTree = "<group>"; };
 		3A8F86051C740F63001231B5 /* Logo@2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Logo@2.xib"; sourceTree = "<group>"; };
 		3A8FDD911C753B930007CF02 /* MeshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshView.swift; sourceTree = "<group>"; };
+		3AC76AC51C76AF1100B485C9 /* KK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KK-Bridging-Header.h"; sourceTree = "<group>"; };
+		3AC76AC81C76AFD400B485C9 /* CKCircleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCircleLabel.h; sourceTree = "<group>"; };
+		3AC76AC91C76AFD400B485C9 /* CKCircleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleLabel.m; sourceTree = "<group>"; };
+		3AC76ACA1C76AFD400B485C9 /* CKCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCircleView.h; sourceTree = "<group>"; };
+		3AC76ACB1C76AFD400B485C9 /* CKCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleView.m; sourceTree = "<group>"; };
+		3ADFE19E1C7A61180041861E /* StepSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepSlider.h; sourceTree = "<group>"; };
+		3ADFE19F1C7A61180041861E /* StepSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		3A8A0B711C72420E006DFAD7 /* KK */ = {
 			isa = PBXGroup;
 			children = (
+				3AC76AC51C76AF1100B485C9 /* KK-Bridging-Header.h */,
 				3A8A0BB31C724640006DFAD7 /* Resources */,
 				3A8A0B9E1C72425A006DFAD7 /* Common */,
 				3A8A0B971C72422E006DFAD7 /* UI */,
@@ -137,7 +140,6 @@
 				3A8A0B7E1C72420E006DFAD7 /* LaunchScreen.storyboard */,
 				3A8A0B811C72420E006DFAD7 /* Info.plist */,
 				3A8A0B791C72420E006DFAD7 /* KK.xcdatamodeld */,
-				3A8BF5021C7588F200732C93 /* KK-Bridging-Header.h */,
 			);
 			path = KK;
 			sourceTree = "<group>";
@@ -174,9 +176,9 @@
 		3A8A0B971C72422E006DFAD7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3A8BF5031C758B1D00732C93 /* obj-c */,
+				3ADFE19D1C7A61000041861E /* StepSlider-objc */,
+				3A8BF5031C758B1D00732C93 /* CKCircleView-objc */,
 				3A8A0BBD1C7249D7006DFAD7 /* MapView.swift */,
-				3A8BF5041C761BEA00732C93 /* ThermometerView.swift */,
 				3A8FDD911C753B930007CF02 /* MeshView.swift */,
 				3A8A0BBB1C724893006DFAD7 /* LogoView.swift */,
 				3A8A0BB01C7244EF006DFAD7 /* Labels */,
@@ -232,15 +234,24 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		3A8BF5031C758B1D00732C93 /* obj-c */ = {
+		3A8BF5031C758B1D00732C93 /* CKCircleView-objc */ = {
 			isa = PBXGroup;
 			children = (
-				3A8BF4FA1C7587D900732C93 /* CKCircleLabel.h */,
-				3A8BF4FB1C7587D900732C93 /* CKCircleLabel.m */,
-				3A8BF4F71C7587C700732C93 /* CKCircleView.h */,
-				3A8BF4F81C7587D100732C93 /* CKCircleView.m */,
+				3AC76AC81C76AFD400B485C9 /* CKCircleLabel.h */,
+				3AC76AC91C76AFD400B485C9 /* CKCircleLabel.m */,
+				3AC76ACA1C76AFD400B485C9 /* CKCircleView.h */,
+				3AC76ACB1C76AFD400B485C9 /* CKCircleView.m */,
 			);
-			name = "obj-c";
+			name = "CKCircleView-objc";
+			sourceTree = "<group>";
+		};
+		3ADFE19D1C7A61000041861E /* StepSlider-objc */ = {
+			isa = PBXGroup;
+			children = (
+				3ADFE19E1C7A61180041861E /* StepSlider.h */,
+				3ADFE19F1C7A61180041861E /* StepSlider.m */,
+			);
+			name = "StepSlider-objc";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,15 +366,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A8BF4FC1C7587D900732C93 /* CKCircleLabel.m in Sources */,
+				3AC76ACC1C76AFD400B485C9 /* CKCircleLabel.m in Sources */,
 				3A8A0B751C72420E006DFAD7 /* MenuViewController.swift in Sources */,
 				3A8FDD921C753B930007CF02 /* MeshView.swift in Sources */,
 				3A8A0BBE1C7249D7006DFAD7 /* MapView.swift in Sources */,
+				3AC76ACD1C76AFD400B485C9 /* CKCircleView.m in Sources */,
 				3A8A0B9D1C724256006DFAD7 /* Extensions.swift in Sources */,
+				3ADFE1A01C7A61180041861E /* StepSlider.m in Sources */,
 				3A8A0BBC1C724893006DFAD7 /* LogoView.swift in Sources */,
 				3A8A0BA61C724364006DFAD7 /* TutorialViewController.swift in Sources */,
-				3A8BF5051C761BEA00732C93 /* ThermometerView.swift in Sources */,
-				3A8BF4F91C7587D100732C93 /* CKCircleView.m in Sources */,
 				3A8A0B7B1C72420E006DFAD7 /* KK.xcdatamodeld in Sources */,
 				3A8A0BA01C72427E006DFAD7 /* UserSession.swift in Sources */,
 				3A8A0B991C724244006DFAD7 /* QMCore.swift in Sources */,
@@ -378,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A39579E1C8643A0006079F6 /* QMCore.swift in Sources */,
 				3A8A0B8B1C72420E006DFAD7 /* KKUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,13 @@ class MapViewController: UIViewController {
 	lazy var equations = [QMProductSum]()
 
 	override func viewDidLoad() {
-		//..
+		self.view.backgroundColor = UIColor(hex: 0x5499CB, alpha: 1.0)
+		
+		
+		let map = MapView(frame: CGRectMake(CGRectGetMidX(self.view.frame) - 100, CGRectGetMidY(self.view.frame) - 100, 320, 320), magnitude: self.magnitude, table: table as! [Int])
+		self.view.addSubview(map)
+		
+		
+		print("Map view loaded")
 	}
 }
