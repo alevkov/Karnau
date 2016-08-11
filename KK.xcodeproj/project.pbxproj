@@ -34,6 +34,10 @@
 		3A8A0BBE1C7249D7006DFAD7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0BBD1C7249D7006DFAD7 /* MapView.swift */; };
 		3A8F86061C740F63001231B5 /* Logo@2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8F86051C740F63001231B5 /* Logo@2.xib */; };
 		3A8FDD921C753B930007CF02 /* MeshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FDD911C753B930007CF02 /* MeshView.swift */; };
+		3ABEEAC01CF0E6EA00190452 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABEEABF1CF0E6EA00190452 /* Constants.swift */; };
+		3ABEEAC31CF0FFF900190452 /* StoryBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABEEAC21CF0FFF900190452 /* StoryBoardManager.swift */; };
+		3ABEEAC51CF16B3300190452 /* QMCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABEEAC41CF16B3300190452 /* QMCoordinate.swift */; };
+		3ABEEAC71CF16CC900190452 /* QMMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABEEAC61CF16CC900190452 /* QMMap.swift */; };
 		3AC76ACC1C76AFD400B485C9 /* CKCircleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC76AC91C76AFD400B485C9 /* CKCircleLabel.m */; };
 		3AC76ACD1C76AFD400B485C9 /* CKCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC76ACB1C76AFD400B485C9 /* CKCircleView.m */; };
 		3ADFE1A01C7A61180041861E /* StepSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE19F1C7A61180041861E /* StepSlider.m */; };
@@ -80,6 +84,10 @@
 		3A8A0BBD1C7249D7006DFAD7 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3A8F86051C740F63001231B5 /* Logo@2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Logo@2.xib"; sourceTree = "<group>"; };
 		3A8FDD911C753B930007CF02 /* MeshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshView.swift; sourceTree = "<group>"; };
+		3ABEEABF1CF0E6EA00190452 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3ABEEAC21CF0FFF900190452 /* StoryBoardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardManager.swift; sourceTree = "<group>"; };
+		3ABEEAC41CF16B3300190452 /* QMCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMCoordinate.swift; sourceTree = "<group>"; };
+		3ABEEAC61CF16CC900190452 /* QMMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMMap.swift; sourceTree = "<group>"; };
 		3AC76AC51C76AF1100B485C9 /* KK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KK-Bridging-Header.h"; sourceTree = "<group>"; };
 		3AC76AC81C76AFD400B485C9 /* CKCircleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCircleLabel.h; sourceTree = "<group>"; };
 		3AC76AC91C76AFD400B485C9 /* CKCircleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCircleLabel.m; sourceTree = "<group>"; };
@@ -133,7 +141,7 @@
 				3A8A0B9E1C72425A006DFAD7 /* Common */,
 				3A8A0B971C72422E006DFAD7 /* UI */,
 				3A8A0B961C724227006DFAD7 /* QM */,
-				3A8A0B951C724215006DFAD7 /* Views */,
+				3A8A0B951C724215006DFAD7 /* View Controllers */,
 				3A8A0B721C72420E006DFAD7 /* AppDelegate.swift */,
 				3A8A0B761C72420E006DFAD7 /* Main.storyboard */,
 				3A8A0B7C1C72420E006DFAD7 /* Assets.xcassets */,
@@ -153,7 +161,7 @@
 			path = KKUITests;
 			sourceTree = "<group>";
 		};
-		3A8A0B951C724215006DFAD7 /* Views */ = {
+		3A8A0B951C724215006DFAD7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				3A8A0B741C72420E006DFAD7 /* MenuViewController.swift */,
@@ -161,7 +169,7 @@
 				3A8A0BA31C724357006DFAD7 /* ConfigViewController.swift */,
 				3A8A0BA51C724364006DFAD7 /* TutorialViewController.swift */,
 			);
-			name = Views;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		3A8A0B961C724227006DFAD7 /* QM */ = {
@@ -169,6 +177,8 @@
 			children = (
 				3A8A0B981C724244006DFAD7 /* QMCore.swift */,
 				3A8A0B9A1C72424E006DFAD7 /* QMClasses.swift */,
+				3ABEEAC41CF16B3300190452 /* QMCoordinate.swift */,
+				3ABEEAC61CF16CC900190452 /* QMMap.swift */,
 			);
 			name = QM;
 			sourceTree = "<group>";
@@ -190,7 +200,9 @@
 		3A8A0B9E1C72425A006DFAD7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3ABEEAC11CF0FFE000190452 /* Singletons */,
 				3A8A0B9C1C724256006DFAD7 /* Extensions.swift */,
+				3ABEEABF1CF0E6EA00190452 /* Constants.swift */,
 				3A8A0B9F1C72427E006DFAD7 /* UserSession.swift */,
 			);
 			name = Common;
@@ -243,6 +255,14 @@
 				3AC76ACB1C76AFD400B485C9 /* CKCircleView.m */,
 			);
 			name = "CKCircleView-objc";
+			sourceTree = "<group>";
+		};
+		3ABEEAC11CF0FFE000190452 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				3ABEEAC21CF0FFF900190452 /* StoryBoardManager.swift */,
+			);
+			name = Singletons;
 			sourceTree = "<group>";
 		};
 		3ADFE19D1C7A61000041861E /* StepSlider-objc */ = {
@@ -304,7 +324,7 @@
 				TargetAttributes = {
 					3A8A0B6E1C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = K7Z768Y9KY;
+						DevelopmentTeam = 4SB3F2S2K3;
 					};
 					3A8A0B851C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
@@ -367,9 +387,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AC76ACC1C76AFD400B485C9 /* CKCircleLabel.m in Sources */,
+				3ABEEAC01CF0E6EA00190452 /* Constants.swift in Sources */,
+				3ABEEAC31CF0FFF900190452 /* StoryBoardManager.swift in Sources */,
 				3A8A0B751C72420E006DFAD7 /* MenuViewController.swift in Sources */,
 				3A8FDD921C753B930007CF02 /* MeshView.swift in Sources */,
 				3A8A0BBE1C7249D7006DFAD7 /* MapView.swift in Sources */,
+				3ABEEAC71CF16CC900190452 /* QMMap.swift in Sources */,
 				3AC76ACD1C76AFD400B485C9 /* CKCircleView.m in Sources */,
 				3A8A0B9D1C724256006DFAD7 /* Extensions.swift in Sources */,
 				3ADFE1A01C7A61180041861E /* StepSlider.m in Sources */,
@@ -378,6 +401,7 @@
 				3A8A0B7B1C72420E006DFAD7 /* KK.xcdatamodeld in Sources */,
 				3A8A0BA01C72427E006DFAD7 /* UserSession.swift in Sources */,
 				3A8A0B991C724244006DFAD7 /* QMCore.swift in Sources */,
+				3ABEEAC51CF16B3300190452 /* QMCoordinate.swift in Sources */,
 				3A8A0B9B1C72424E006DFAD7 /* QMClasses.swift in Sources */,
 				3A8A0B731C72420E006DFAD7 /* AppDelegate.swift in Sources */,
 				3A8A0BA21C724344006DFAD7 /* MapViewController.swift in Sources */,
@@ -509,10 +533,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
 			};
 			name = Debug;
@@ -521,10 +548,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
 			};
 			name = Release;

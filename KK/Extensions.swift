@@ -10,6 +10,16 @@ import Foundation
 import SpriteKit
 import UIKit
 
+/* TYPES */
+
+typealias GroupType = Array<QMMinterm>
+typealias OrderType = Dictionary<UInt, GroupType>
+typealias PrimeType = Dictionary<String, QMMinterm>
+
+enum Error : ErrorType {
+	case UnknownType
+}
+
 extension String {
 	
 	subscript (i: Int) -> Character {
@@ -19,7 +29,7 @@ extension String {
 	subscript (r: Range<Int>) -> String {
 		let start = startIndex.advancedBy(r.startIndex)
 		let end = start.advancedBy(r.endIndex - r.startIndex)
-		return self[Range(start: start, end: end)]
+		return self[start..<end]
 	}
 }
 
@@ -140,6 +150,57 @@ func | (left: String, right: String) -> String? {
 }
 
 // ------------------------------
+
+extension UIView {
+	func addDashedBorder() {
+		let color = UIColor(hex: 0x50E3C2, alpha: 1.0).CGColor
+		
+		let shapeLayer:CAShapeLayer = CAShapeLayer()
+		let frameSize = self.frame.size
+		let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+		
+		shapeLayer.bounds = shapeRect
+		shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+		shapeLayer.fillColor = UIColor.clearColor().CGColor
+		shapeLayer.strokeColor = color
+		shapeLayer.lineWidth = 1
+		shapeLayer.lineJoin = kCALineJoinRound
+		//shapeLayer.lineDashPattern = [4,3]
+		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
+		
+		self.layer.addSublayer(shapeLayer)
+		
+	}
+}
+
+extension CALayer {
+	
+	func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+		
+		let border = CALayer()
+		
+		switch edge {
+		case UIRectEdge.Top:
+			border.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), thickness)
+			break
+		case UIRectEdge.Bottom:
+			border.frame = CGRectMake(0, CGRectGetHeight(self.frame) - thickness, CGRectGetWidth(self.frame), thickness)
+			break
+		case UIRectEdge.Left:
+			border.frame = CGRectMake(0, 0, thickness, CGRectGetHeight(self.frame))
+			break
+		case UIRectEdge.Right:
+			border.frame = CGRectMake(CGRectGetWidth(self.frame) - thickness, 0, thickness, CGRectGetHeight(self.frame))
+			break
+		default:
+			break
+		}
+		
+		border.backgroundColor = color.CGColor;
+		
+		self.addSublayer(border)
+	}
+}
 
 
 // ***************************

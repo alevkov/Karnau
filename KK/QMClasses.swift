@@ -8,15 +8,12 @@
 
 import Foundation
 
-let MAX_MAGNITUDE : UInt = 6
-let IMPLICANT_FLAG : UInt  = 999
-let PRIME_FLAG : UInt = 888
 
 /***************************************/
-class QMMinterm : NSObject
-	/***************************************/
-{
-	let vars = ["A", "B", "C", "D", "E", "F"]
+class QMMinterm : NSObject {
+/***************************************/
+	private let vars = ["A", "B", "C", "D", "E", "F"]
+	
 	var intValue: UInt = 0;
 	var stringValue: String = "";
 	var letters: String = "";
@@ -43,7 +40,7 @@ class QMMinterm : NSObject
 				self.stringValue = "0" * (m - UInt(self.stringValue.characters.count)) + self.stringValue
 				for s in self.stringValue.characters {
 					if s == "1" { self.letters += vars[self.count] } else { self.letters += (vars[self.count].lowercaseString) }
-					self.count++;
+					self.count = self.count + 1
 				}
 			}
 		}
@@ -74,25 +71,23 @@ class QMMinterm : NSObject
 
 /* This is the class to store the final equation */
 /***************************************/
-class QMProductSum : NSObject
-	/***************************************/
-{
-	let vars = ["A", "B", "C", "D", "E", "F"]
+class QMProductSum : NSObject {
+/***************************************/
+	private let vars = ["A", "B", "C", "D", "E", "F"]
 	var products : [QMMinterm] = []
 	/* format: "ABC + ABC + ABC + . . ." */
-	var stringValue : String;
+	var stringValue : String
+	var magnitude: UInt = 0
 	
 	init(withProducts: [QMMinterm], magnitude: UInt) {
-		stringValue = "";
-		
-		for p in withProducts {
-			products.append(p)
-		}
+		self.magnitude = 0
+		self.stringValue = ""
+		self.products = withProducts
 	}
 	
-	func convertToLetters () {
+	func convertToLetters() -> String {
 		for p in products {
-			for var i = 0; i < p.stringValue.characters.count; i++ {
+			for i in 0 ..< p.stringValue.characters.count {
 				if p.stringValue[i] == Character("1") {
 					self.stringValue += vars[i]
 				}
@@ -105,7 +100,7 @@ class QMProductSum : NSObject
 			}
 			self.stringValue += " + "
 		}
-		
+		return self.stringValue
 	}
 	
 	func print () {

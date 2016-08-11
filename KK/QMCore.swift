@@ -20,17 +20,16 @@ import Foundation
 -- Must be completely abstracted away from the GameScene, except for the instance
 -- Application can have multiple instances running, but one per level/scene
 */
-typealias GroupType = Array<QMMinterm>
-typealias OrderType = Dictionary<UInt, GroupType>
-typealias PrimeType = Dictionary<String, QMMinterm>
 
-enum Error : ErrorType {
-	case UnknownType
-}
+private let qm = QMCore()
 
 class QMCore: NSObject {
 	
-	let tags = "abcdefghklmnpqrstuvwxyz"
+	class var minimizer: QMCore {
+		return qm
+	}
+	
+	private let tags = "abcdefghklmnpqrstuvwxyz"
 	
 	var magnitude : UInt = 0
 	lazy var solutions = [GroupType]()
@@ -89,30 +88,25 @@ class QMCore: NSObject {
 	/*----------------------------------------------------------*/
 	private func deriveNthOrder(buffer: [AnyObject], var order: OrderType, inout residual: OrderType, magnitude: UInt) -> OrderType {
 		/*----------------------------------------------------------*/
-		
-		
 		if buffer.count == 0 {
 			return order
 		}
-		
 		order = OrderType()
-		
 		var temp = [AnyObject]()
-		
 		order = splitBuffer(buffer, order: order, magnitude: magnitude) // O(n)
 		
 		for key in sortedKeys(order) {
 			guard let group = order[key] as GroupType?
 				else { print("error"); break}
-			for m1 in group {
+			for minterm1 in group {
 				if order[key + 1] != nil {
-					for m2 in order[key + 1]! {
+					for minterm2 in order[key + 1]! {
 						do {
-							let im = try grayCodeDiff(m1, value2: m2)
+							let im = try grayCodeDiff(minterm1, value2: minterm2)
 							if im != nil {
 								temp.append(im!)
-								m1.paired = true
-								m2.paired = true
+								minterm1.paired = true
+								minterm2.paired = true
 							}
 						}
 						catch _ {
@@ -122,14 +116,13 @@ class QMCore: NSObject {
 				}
 			}
 		}
-		
 		for (_, v) in order {
-			for m in v {
-				if !m.paired {
-					if residual[hashBitCount(nonnul: m.stringValue)] == nil {
-						residual[hashBitCount(nonnul: m.stringValue)] = GroupType()
+			for minterm in v {
+				if !minterm.paired {
+					if residual[hashBitCount(nonnul: minterm.stringValue)] == nil {
+						residual[hashBitCount(nonnul: minterm.stringValue)] = GroupType()
 					}
-					residual[hashBitCount(nonnul: m.stringValue)]?.append(m)
+					residual[hashBitCount(nonnul: minterm.stringValue)]?.append(minterm)
 				}
 			}
 		}
@@ -146,7 +139,6 @@ class QMCore: NSObject {
 		var residual = OrderType()
 		var primes = PrimeType()
 		var ePrimes = PrimeType()
-		
 		var primesArray = GroupType()
 		var petrick = [[String]]()
 		
@@ -179,7 +171,7 @@ class QMCore: NSObject {
 			
 			for (_, v) in primes {
 				v.tag = String(tags[tags.startIndex.advancedBy(primeCount)])
-				primeCount++
+				primeCount = primeCount + 1
 			}
 			
 			for min in withMinterms {
@@ -253,7 +245,6 @@ class QMCore: NSObject {
 			
 			for (k, v) in extrasByCountOfTerms {
 				if (UInt(k) == minkey) {
-			
 					for term in uniq(v) {
 						var x = GroupType()
 						for c in term.characters {
@@ -394,14 +385,14 @@ class QMCore: NSObject {
 			while(num != 0)
 			{
 				num = num & (num - 1);
-				count++;
+				count = count + 1;
 			}
 			return count;
 		} else if let s = value as? String {
 			var count: UInt = 0
 			for c in s.characters {
 				if c == "1" {
-					count++
+					count = count + 1;
 				}
 			}
 			return count

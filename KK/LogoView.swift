@@ -12,7 +12,6 @@ class LogoView: UIView {
 	
 	lazy var mesh = UIView()
 	
-	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		let v = (UINib(nibName: "Logo@3", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView)!

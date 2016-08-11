@@ -1,0 +1,85 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "StoryBoardManager"
+provides-nominal:
+- "C2KK17StoryBoardManager"
+provides-member:
+- ["C2KK17StoryBoardManager", ""]
+provides-dynamic-lookup:
+- "sharedManager"
+depends-top-level:
+- "StringLiteralType"
+- "StoryBoardManager"
+- "UIStoryboard"
+- "NSObject"
+- !private "sB"
+depends-member:
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "sB"]
+- ["Ps9AnyObject", "sharedManager"]
+- ["Ps9AnyObject", ""]
+- ["Ps11CVarArgType", "init"]
+- !private ["Ps11CVarArgType", "sB"]
+- ["Ps11CVarArgType", "sharedManager"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "sB"]
+- ["Ps28CustomDebugStringConvertible", "sharedManager"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "sB"]
+- ["Ps23CustomStringConvertible", "sharedManager"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "sB"]
+- ["Ps9Equatable", "sharedManager"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "sB"]
+- ["Ps8Hashable", "sharedManager"]
+- ["Ps8Hashable", ""]
+- ["CSo8NSObject", "UIStoryboard"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "sB"]
+- ["CSo8NSObject", "sharedManager"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "sB"]
+- ["PSo16NSObjectProtocol", "sharedManager"]
+- ["PSo16NSObjectProtocol", ""]
+- ["C2KK17StoryBoardManager", "UIStoryboard"]
+- ["C2KK17StoryBoardManager", "deinit"]
+- ["C2KK17StoryBoardManager", "init"]
+- !private ["C2KK17StoryBoardManager", "sB"]
+- ["C2KK17StoryBoardManager", "sharedManager"]
+- ["CSo12UIStoryboard", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "C2KK17StoryBoardManager"
+- "CSo12UIStoryboard"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
+- "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
+- "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "7b5da81a6e70f5303b4474d59fa13056"

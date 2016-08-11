@@ -186,7 +186,7 @@ void withoutCAAnimation(withoutAnimationBlock code)
             if (!CGColorEqualToColor(newColor, trackCircle.fillColor)) {
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animationTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    trackCircle.fillColor = newColor;
+                    //trackCircle.fillColor = newColor;
                     CABasicAnimation *basicTrackCircleAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
                     basicTrackCircleAnimation.duration = [CATransaction animationDuration] / 2.f;
                     basicTrackCircleAnimation.fromValue = (__bridge id _Nullable)(oldColor);
