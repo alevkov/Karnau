@@ -10,7 +10,6 @@ import UIKit
 import Foundation
 
 class MapViewController: UIViewController {
-	
 	@IBOutlet weak var equationLabel: UILabel!
 	@IBOutlet weak var backButton: UIButton!
 	@IBOutlet weak var resetTableButton: UIButton!

@@ -44,7 +44,6 @@ class QMCore: NSObject {
 			for (k, _) in (mingroup) {
 				keys.append(k)
 			}
-			
 			keys.sortInPlace({ $1 > $0 })
 			
 			return keys

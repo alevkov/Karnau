@@ -1,6 +1,6 @@
 version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
 options: "6e55d46d9a9ea9eb01ce89a37a5df9c5"
-build_time: [523671909, 391899000]
+build_time: [527694733, 348136000]
 inputs:
   "/Users/lexlevi/Desktop/dev/KK/KK/Constants.swift": [519008777, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/StoryBoardManager.swift": [517178857, 0]
@@ -12,9 +12,9 @@ inputs:
   "/Users/lexlevi/Desktop/dev/KK/KK/LogoView.swift": [518894454, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/TutorialViewController.swift": [508873633, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/UserSession.swift": [508872573, 0]
-  "/Users/lexlevi/Desktop/dev/KK/KK/QMCore.swift": [519006997, 0]
+  "/Users/lexlevi/Desktop/dev/KK/KK/QMCore.swift": [524539713, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/QMCoordinate.swift": [517259305, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/QMClasses.swift": [519076134, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/AppDelegate.swift": [508872462, 0]
-  "/Users/lexlevi/Desktop/dev/KK/KK/MapViewController.swift": [519076240, 0]
+  "/Users/lexlevi/Desktop/dev/KK/KK/MapViewController.swift": [527694732, 0]
   "/Users/lexlevi/Desktop/dev/KK/KK/ConfigViewController.swift": [518899548, 0]
