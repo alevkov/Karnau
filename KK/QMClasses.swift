@@ -78,7 +78,11 @@ class QMProductSum : NSObject {
 	/* format: "ABC + ABC + ABC + . . ." */
 	var stringValue : String
 	var magnitude: UInt = 0
-	
+	var minCount: Int {
+		get {
+			return products.count
+		}
+	}
 	init(withProducts: [QMMinterm], magnitude: UInt) {
 		self.magnitude = 0
 		self.stringValue = ""
@@ -87,6 +91,9 @@ class QMProductSum : NSObject {
 	
 	func convertToLetters() -> String {
 		for p in products {
+			if stringValue != "" {
+				self.stringValue += " + "
+			}
 			for i in 0 ..< p.stringValue.characters.count {
 				if p.stringValue[i] == Character("1") {
 					self.stringValue += vars[i]
@@ -98,7 +105,7 @@ class QMProductSum : NSObject {
 					self.stringValue += ""
 				}
 			}
-			self.stringValue += " + "
+			
 		}
 		return self.stringValue
 	}
@@ -106,9 +113,13 @@ class QMProductSum : NSObject {
 	func print () {
 		convertToLetters()
 		// remove trailing plus sign
-		stringValue.removeAtIndex(stringValue.startIndex.advancedBy(stringValue.characters.count - 1))
-		stringValue.removeAtIndex(stringValue.startIndex.advancedBy(stringValue.characters.count - 1))
+		//stringValue.removeAtIndex(stringValue.startIndex.advancedBy(stringValue.characters.count - 1))
+		//stringValue.removeAtIndex(stringValue.startIndex.advancedBy(stringValue.characters.count - 1))
 		Swift.print(self.stringValue)
+	}
+	
+	func getMinCount() -> Int {
+		return minCount
 	}
 }
 

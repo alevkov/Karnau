@@ -6,59 +6,59 @@ provides-nominal:
 provides-member:
 - ["C2KK20ConfigViewController", ""]
 provides-dynamic-lookup:
-- "slider"
-- "vardialView"
-- "backButton"
-- "backButton"
 - "difficulty"
-- "makeList"
-- "viewDidLoad"
-- "viewDidAppear"
-- "diffdialView"
-- "prefersStatusBarHidden"
-- "goButton"
+- "vardialView"
 - "viewWillDisappear"
-- "count"
+- "slider"
+- "viewDidAppear"
+- "backButton"
+- "backButton"
 - "goButtonAction"
+- "viewDidLoad"
+- "diffdialView"
+- "count"
+- "goButton"
+- "makeList"
+- "prefersStatusBarHidden"
 depends-top-level:
-- !private "*"
-- !private "UIViewAnimationTransition"
-- !private "UInt32"
-- "ConfigViewController"
-- !private "arc4random_uniform"
-- "Bool"
-- !private "BooleanLiteralType"
-- !private "-"
-- !private "UIColor"
-- !private "MapViewController"
+- "StepSlider"
 - !private "CGPointMake"
-- "Int32"
-- "Int"
-- !private "CGRectGetMidX"
-- !private "UIView"
-- !private "^^"
-- "UIViewController"
-- !private "Void"
 - !private "<="
-- !private "/"
-- !private "StringLiteralType"
+- "Int32"
+- !private "UIColor"
+- !private "BACKGROUND_COLOR"
+- !private "UIApplication"
 - !private "CGAffineTransformMakeScale"
-- !private "uniq"
+- !private "Void"
+- !private ">"
+- !private "arc4random_uniform"
+- !private "MapViewController"
 - !private "UIScreen"
 - !private "StoryBoardManager"
-- !private "CGRectGetMidY"
-- !private "UIFont"
-- !private "+"
-- "UIButton"
+- !private "StringLiteralType"
+- "ConfigViewController"
+- !private "*"
 - !private "Double"
-- !private "BACKGROUND_COLOR"
+- !private "UInt32"
 - !private "..<"
-- "StepSlider"
+- !private "+"
 - !private "CGRectMake"
-- !private "UIApplication"
-- !private ">"
-- "CKCircleView"
+- "Bool"
+- !private "BooleanLiteralType"
+- !private "uniq"
+- !private "-"
+- !private "CGRectGetMidY"
+- !private "UIViewAnimationTransition"
+- !private "/"
 - "AnyObject"
+- "UIViewController"
+- !private "UIFont"
+- "CKCircleView"
+- "UIButton"
+- "Int"
+- !private "UIView"
+- !private "^^"
+- !private "CGRectGetMidX"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "BACKGROUND_COLOR"]
@@ -168,6 +168,32 @@ depends-member:
 - !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
 - !private ["CSo7CALayer", "borderColor"]
 - !private ["CSo7CALayer", "borderWidth"]
+- !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "animateWithDuration"]
+- !private ["PSo15CALayerDelegate", "arcColor"]
+- !private ["PSo15CALayerDelegate", "arcRadius"]
+- !private ["PSo15CALayerDelegate", "backColor"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "beginAnimations"]
+- !private ["PSo15CALayerDelegate", "commitAnimations"]
+- !private ["PSo15CALayerDelegate", "dialColor"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- !private ["PSo15CALayerDelegate", "index"]
+- ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "labelColor"]
+- !private ["PSo15CALayerDelegate", "labelFont"]
+- !private ["PSo15CALayerDelegate", "layer"]
+- !private ["PSo15CALayerDelegate", "letterScale"]
+- !private ["PSo15CALayerDelegate", "maxCount"]
+- !private ["PSo15CALayerDelegate", "maxNum"]
+- !private ["PSo15CALayerDelegate", "minNum"]
+- !private ["PSo15CALayerDelegate", "moveCircleToAngle"]
+- !private ["PSo15CALayerDelegate", "setAnimationDuration"]
+- !private ["PSo15CALayerDelegate", "setAnimationTransition"]
+- !private ["PSo15CALayerDelegate", "switchCompletion"]
+- !private ["PSo15CALayerDelegate", "tintColor"]
+- !private ["PSo15CALayerDelegate", "trackColor"]
+- !private ["PSo15CALayerDelegate", "transform"]
 - !private ["PSo13CAMediaTiming", "borderColor"]
 - !private ["PSo13CAMediaTiming", "borderWidth"]
 - !private ["V12CoreGraphics7CGFloat", "deinit"]
@@ -1344,6 +1370,32 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", "viewWillDisappear"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "animateWithDuration"]
+- !private ["PSo11UIFocusItem", "arcColor"]
+- !private ["PSo11UIFocusItem", "arcRadius"]
+- !private ["PSo11UIFocusItem", "backColor"]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "beginAnimations"]
+- !private ["PSo11UIFocusItem", "commitAnimations"]
+- !private ["PSo11UIFocusItem", "dialColor"]
+- !private ["PSo11UIFocusItem", "frame"]
+- !private ["PSo11UIFocusItem", "index"]
+- ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "labelColor"]
+- !private ["PSo11UIFocusItem", "labelFont"]
+- !private ["PSo11UIFocusItem", "layer"]
+- !private ["PSo11UIFocusItem", "letterScale"]
+- !private ["PSo11UIFocusItem", "maxCount"]
+- !private ["PSo11UIFocusItem", "maxNum"]
+- !private ["PSo11UIFocusItem", "minNum"]
+- !private ["PSo11UIFocusItem", "moveCircleToAngle"]
+- !private ["PSo11UIFocusItem", "setAnimationDuration"]
+- !private ["PSo11UIFocusItem", "setAnimationTransition"]
+- !private ["PSo11UIFocusItem", "switchCompletion"]
+- !private ["PSo11UIFocusItem", "tintColor"]
+- !private ["PSo11UIFocusItem", "trackColor"]
+- !private ["PSo11UIFocusItem", "transform"]
 - !private ["CSo6UIFont", "init"]
 - ["CSo11UIResponder", "AnyObject"]
 - !private ["CSo11UIResponder", "BACKGROUND_COLOR"]
@@ -1419,6 +1471,75 @@ depends-member:
 - ["CSo11UIResponder", "viewDidAppear"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["CSo11UIResponder", "viewWillDisappear"]
+- !private ["PSo30UIResponderStandardEditActions", "BACKGROUND_COLOR"]
+- !private ["PSo30UIResponderStandardEditActions", "CGAffineTransformMakeScale"]
+- !private ["PSo30UIResponderStandardEditActions", "CGPointMake"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMidX"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMidY"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectMake"]
+- ["PSo30UIResponderStandardEditActions", "CKCircleView"]
+- !private ["PSo30UIResponderStandardEditActions", "Double"]
+- !private ["PSo30UIResponderStandardEditActions", "Int"]
+- ["PSo30UIResponderStandardEditActions", "StepSlider"]
+- !private ["PSo30UIResponderStandardEditActions", "StoryBoardManager"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- !private ["PSo30UIResponderStandardEditActions", "UIFont"]
+- !private ["PSo30UIResponderStandardEditActions", "UIScreen"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
+- !private ["PSo30UIResponderStandardEditActions", "UIViewAnimationTransition"]
+- !private ["PSo30UIResponderStandardEditActions", "UInt32"]
+- !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "animateWithDuration"]
+- !private ["PSo30UIResponderStandardEditActions", "arc4random_uniform"]
+- !private ["PSo30UIResponderStandardEditActions", "arcColor"]
+- !private ["PSo30UIResponderStandardEditActions", "arcRadius"]
+- ["PSo30UIResponderStandardEditActions", "backButton"]
+- !private ["PSo30UIResponderStandardEditActions", "backColor"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "beginAnimations"]
+- !private ["PSo30UIResponderStandardEditActions", "commitAnimations"]
+- ["PSo30UIResponderStandardEditActions", "count"]
+- !private ["PSo30UIResponderStandardEditActions", "dialColor"]
+- ["PSo30UIResponderStandardEditActions", "diffdialView"]
+- ["PSo30UIResponderStandardEditActions", "diffdialView.storage"]
+- ["PSo30UIResponderStandardEditActions", "difficulty"]
+- !private ["PSo30UIResponderStandardEditActions", "dismissViewControllerAnimated"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "goButton"]
+- ["PSo30UIResponderStandardEditActions", "goButtonAction"]
+- !private ["PSo30UIResponderStandardEditActions", "index"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "keyWindow"]
+- !private ["PSo30UIResponderStandardEditActions", "labelColor"]
+- !private ["PSo30UIResponderStandardEditActions", "labelFont"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
+- !private ["PSo30UIResponderStandardEditActions", "letterScale"]
+- !private ["PSo30UIResponderStandardEditActions", "magnitude"]
+- ["PSo30UIResponderStandardEditActions", "makeList"]
+- !private ["PSo30UIResponderStandardEditActions", "maxCount"]
+- !private ["PSo30UIResponderStandardEditActions", "maxNum"]
+- !private ["PSo30UIResponderStandardEditActions", "minNum"]
+- !private ["PSo30UIResponderStandardEditActions", "moveCircleToAngle"]
+- ["PSo30UIResponderStandardEditActions", "prefersStatusBarHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "presentViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "setAnimationDuration"]
+- !private ["PSo30UIResponderStandardEditActions", "setAnimationTransition"]
+- !private ["PSo30UIResponderStandardEditActions", "sharedApplication"]
+- ["PSo30UIResponderStandardEditActions", "slider"]
+- !private ["PSo30UIResponderStandardEditActions", "switchCompletion"]
+- !private ["PSo30UIResponderStandardEditActions", "table"]
+- !private ["PSo30UIResponderStandardEditActions", "tintColor"]
+- !private ["PSo30UIResponderStandardEditActions", "trackColor"]
+- !private ["PSo30UIResponderStandardEditActions", "transform"]
+- !private ["PSo30UIResponderStandardEditActions", "uniq"]
+- ["PSo30UIResponderStandardEditActions", "vardialView"]
+- ["PSo30UIResponderStandardEditActions", "vardialView.storage"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
+- ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", "viewWillDisappear"]
+- ["PSo30UIResponderStandardEditActions", ""]
 - !private ["CSo8UIScreen", "bounds"]
 - !private ["CSo8UIScreen", "mainScreen"]
 - !private ["PSo16UIStateRestoring", "BACKGROUND_COLOR"]
@@ -1725,6 +1846,7 @@ depends-nominal:
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
 - !private "CSo7CALayer"
+- "PSo15CALayerDelegate"
 - !private "PSo13CAMediaTiming"
 - !private "V12CoreGraphics7CGFloat"
 - !private "VSC6CGRect"
@@ -1783,8 +1905,10 @@ depends-nominal:
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
 - "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
 - !private "CSo6UIFont"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - !private "CSo8UIScreen"
 - "PSo16UIStateRestoring"
 - !private "CSo12UIStoryboard"
@@ -1812,20 +1936,20 @@ depends-nominal:
 - !private "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
 interface-hash: "4eb4386639cd323396a311a6721f725d"

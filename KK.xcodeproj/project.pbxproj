@@ -139,7 +139,7 @@
 				3AC76AC51C76AF1100B485C9 /* KK-Bridging-Header.h */,
 				3A8A0BB31C724640006DFAD7 /* Resources */,
 				3A8A0B9E1C72425A006DFAD7 /* Common */,
-				3A8A0B971C72422E006DFAD7 /* UI */,
+				3A8A0B971C72422E006DFAD7 /* Views */,
 				3A8A0B961C724227006DFAD7 /* QM */,
 				3A8A0B951C724215006DFAD7 /* View Controllers */,
 				3A8A0B721C72420E006DFAD7 /* AppDelegate.swift */,
@@ -183,7 +183,7 @@
 			name = QM;
 			sourceTree = "<group>";
 		};
-		3A8A0B971C72422E006DFAD7 /* UI */ = {
+		3A8A0B971C72422E006DFAD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3ADFE19D1C7A61000041861E /* StepSlider-objc */,
@@ -194,7 +194,7 @@
 				3A8A0BB01C7244EF006DFAD7 /* Labels */,
 				3A8A0BAF1C7244E5006DFAD7 /* Maps */,
 			);
-			name = UI;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		3A8A0B9E1C72425A006DFAD7 /* Common */ = {
@@ -319,16 +319,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Lex Levi";
 				TargetAttributes = {
 					3A8A0B6E1C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 4SB3F2S2K3;
+						LastSwiftMigration = 0800;
 					};
 					3A8A0B851C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = K7Z768Y9KY;
+						LastSwiftMigration = 0800;
 						TestTargetID = 3A8A0B6E1C72420E006DFAD7;
 					};
 				};
@@ -461,8 +463,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -505,8 +509,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -525,6 +531,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -541,6 +548,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -556,6 +564,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -566,6 +575,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KKUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = KK;
 				USES_XCTRUNNER = YES;
 			};
@@ -578,6 +588,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KKUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = KK;
 				USES_XCTRUNNER = YES;
 			};

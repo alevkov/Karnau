@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 - "mesh"
 depends-top-level:
-- !private "UINib"
-- !private "fatalError"
-- "UIView"
-- "LogoView"
-- !private "StringLiteralType"
 - "CGRect"
 - "NSCoder"
+- !private "fatalError"
+- !private "UINib"
+- !private "StringLiteralType"
+- "UIView"
+- "LogoView"
 depends-member:
 - !private ["Ps9AnyObject", "UINib"]
 - ["Ps9AnyObject", "UIView"]
@@ -33,6 +33,14 @@ depends-member:
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "UINib"]
+- ["PSo15CALayerDelegate", "UIView"]
+- !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "fatalError"]
+- ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "mesh"]
+- ["PSo15CALayerDelegate", "mesh.storage"]
+- ["PSo15CALayerDelegate", ""]
 - !private ["Ps11CVarArgType", "UINib"]
 - ["Ps11CVarArgType", "UIView"]
 - !private ["Ps11CVarArgType", "addSubview"]
@@ -201,6 +209,14 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "mesh"]
 - ["PSo18UIFocusEnvironment", "mesh.storage"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "UINib"]
+- ["PSo11UIFocusItem", "UIView"]
+- !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "fatalError"]
+- ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "mesh"]
+- ["PSo11UIFocusItem", "mesh.storage"]
+- ["PSo11UIFocusItem", ""]
 - !private ["CSo5UINib", "init"]
 - !private ["CSo5UINib", "instantiateWithOwner"]
 - ["CSo11UIResponder", "CGRect"]
@@ -212,6 +228,14 @@ depends-member:
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "mesh"]
 - ["CSo11UIResponder", "mesh.storage"]
+- !private ["PSo30UIResponderStandardEditActions", "UINib"]
+- ["PSo30UIResponderStandardEditActions", "UIView"]
+- !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "fatalError"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "mesh"]
+- ["PSo30UIResponderStandardEditActions", "mesh.storage"]
+- ["PSo30UIResponderStandardEditActions", ""]
 - !private ["PSo18UITraitEnvironment", "UINib"]
 - ["PSo18UITraitEnvironment", "UIView"]
 - !private ["PSo18UITraitEnvironment", "addSubview"]
@@ -256,6 +280,7 @@ depends-nominal:
 - !private "Sb"
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
+- "PSo15CALayerDelegate"
 - "Ps11CVarArgType"
 - !private "Ps14CollectionType"
 - "Ps28CustomDebugStringConvertible"
@@ -282,8 +307,10 @@ depends-nominal:
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
 - "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
 - !private "CSo5UINib"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - "PSo18UITraitEnvironment"
 - "CSo6UIView"
 - !private "Ps10_ArrayType"
@@ -293,20 +320,20 @@ depends-nominal:
 - "Ps12_Reflectable"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
 interface-hash: "b2c5036b0452e6f2bef72e3ecbf431b6"

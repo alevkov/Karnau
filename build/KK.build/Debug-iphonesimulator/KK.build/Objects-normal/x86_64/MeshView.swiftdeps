@@ -6,45 +6,45 @@ provides-nominal:
 provides-member:
 - ["C2KK4Mesh", ""]
 provides-dynamic-lookup:
-- "qmmap"
-- "magnitude"
-- "table"
-- "animateMesh"
-- "drawRect"
 - "drawBezierLine"
-- "drawMesh"
-- "initCoordinates"
 - "thickness"
+- "drawRect"
+- "magnitude"
+- "animateMesh"
+- "table"
+- "qmmap"
+- "initCoordinates"
+- "drawMesh"
 depends-top-level:
-- !private "CABasicAnimation"
-- !private "UIBezierPath"
-- "QMMap"
-- !private "-"
-- !private "NSValue"
-- !private "CGPointMake"
-- !private "CGRectGetMinY"
-- "Int"
 - !private "StringLiteralType"
-- !private "CGRectGetMidX"
-- !private "=="
-- !private "/"
-- !private "CGRectGetMaxX"
-- !private "CGRectGetMidY"
-- !private "||"
-- !private "UInt"
-- !private "+"
-- "NSCoder"
-- "CGRect"
-- "UIView"
-- "Mesh"
-- !private "CAShapeLayer"
-- !private "NSNumber"
-- "CGPoint"
-- !private "CGRectMake"
-- !private "UIColor"
-- !private "CGRectGetMinX"
-- !private "fatalError"
 - !private "CGRectGetMaxY"
+- !private "CABasicAnimation"
+- "QMMap"
+- !private "CGRectGetMaxX"
+- "Mesh"
+- !private "-"
+- "UIView"
+- !private "CAShapeLayer"
+- !private "CGPointMake"
+- "CGPoint"
+- !private "+"
+- !private "=="
+- !private "CGRectGetMinY"
+- !private "NSValue"
+- "NSCoder"
+- "Int"
+- !private "CGRectGetMidX"
+- "CGRect"
+- !private "CGRectMake"
+- !private "UInt"
+- !private "CGRectGetMinX"
+- !private "NSNumber"
+- !private "/"
+- !private "UIBezierPath"
+- !private "||"
+- !private "CGRectGetMidY"
+- !private "fatalError"
+- !private "UIColor"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "infinity"]
 - !private ["Ps9AnyObject", "CABasicAnimation"]
@@ -144,6 +144,40 @@ depends-member:
 - !private ["CSo7CALayer", "init"]
 - !private ["CSo7CALayer", "mask"]
 - !private ["CSo7CALayer", "path"]
+- !private ["PSo15CALayerDelegate", "CABasicAnimation"]
+- !private ["PSo15CALayerDelegate", "CAShapeLayer"]
+- !private ["PSo15CALayerDelegate", "CGPointMake"]
+- !private ["PSo15CALayerDelegate", "CGRectGetMaxX"]
+- !private ["PSo15CALayerDelegate", "CGRectGetMaxY"]
+- !private ["PSo15CALayerDelegate", "CGRectGetMidX"]
+- !private ["PSo15CALayerDelegate", "CGRectGetMidY"]
+- !private ["PSo15CALayerDelegate", "CGRectGetMinX"]
+- !private ["PSo15CALayerDelegate", "CGRectGetMinY"]
+- !private ["PSo15CALayerDelegate", "CGRectMake"]
+- ["PSo15CALayerDelegate", "Int"]
+- !private ["PSo15CALayerDelegate", "NSNumber"]
+- !private ["PSo15CALayerDelegate", "NSValue"]
+- !private ["PSo15CALayerDelegate", "QMMap"]
+- !private ["PSo15CALayerDelegate", "UIBezierPath"]
+- !private ["PSo15CALayerDelegate", "UIColor"]
+- !private ["PSo15CALayerDelegate", "UInt"]
+- ["PSo15CALayerDelegate", "animateMesh"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "bounds"]
+- ["PSo15CALayerDelegate", "drawBezierLine"]
+- ["PSo15CALayerDelegate", "drawMesh"]
+- ["PSo15CALayerDelegate", "drawRect"]
+- !private ["PSo15CALayerDelegate", "fatalError"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "initCoordinates"]
+- !private ["PSo15CALayerDelegate", "layer"]
+- ["PSo15CALayerDelegate", "magnitude"]
+- ["PSo15CALayerDelegate", "qmmap"]
+- ["PSo15CALayerDelegate", "table"]
+- ["PSo15CALayerDelegate", "table.storage"]
+- ["PSo15CALayerDelegate", "thickness"]
+- ["PSo15CALayerDelegate", ""]
 - !private ["PSo13CAMediaTiming", "addAnimation"]
 - !private ["PSo13CAMediaTiming", "bounds"]
 - !private ["PSo13CAMediaTiming", "duration"]
@@ -632,6 +666,7 @@ depends-member:
 - !private ["PSo9NSCopying", "stroke"]
 - !private ["PSo9NSCopying", "toValue"]
 - !private ["PSo9NSCopying", "whiteColor"]
+- !private ["PSo20NSFetchRequestResult", "init"]
 - !private ["CSo8NSNumber", "init"]
 - !private ["CSo8NSObject", "CABasicAnimation"]
 - !private ["CSo8NSObject", "CAShapeLayer"]
@@ -995,6 +1030,40 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "table.storage"]
 - ["PSo18UIFocusEnvironment", "thickness"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "CABasicAnimation"]
+- !private ["PSo11UIFocusItem", "CAShapeLayer"]
+- !private ["PSo11UIFocusItem", "CGPointMake"]
+- !private ["PSo11UIFocusItem", "CGRectGetMaxX"]
+- !private ["PSo11UIFocusItem", "CGRectGetMaxY"]
+- !private ["PSo11UIFocusItem", "CGRectGetMidX"]
+- !private ["PSo11UIFocusItem", "CGRectGetMidY"]
+- !private ["PSo11UIFocusItem", "CGRectGetMinX"]
+- !private ["PSo11UIFocusItem", "CGRectGetMinY"]
+- !private ["PSo11UIFocusItem", "CGRectMake"]
+- ["PSo11UIFocusItem", "Int"]
+- !private ["PSo11UIFocusItem", "NSNumber"]
+- !private ["PSo11UIFocusItem", "NSValue"]
+- !private ["PSo11UIFocusItem", "QMMap"]
+- !private ["PSo11UIFocusItem", "UIBezierPath"]
+- !private ["PSo11UIFocusItem", "UIColor"]
+- !private ["PSo11UIFocusItem", "UInt"]
+- ["PSo11UIFocusItem", "animateMesh"]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "bounds"]
+- ["PSo11UIFocusItem", "drawBezierLine"]
+- ["PSo11UIFocusItem", "drawMesh"]
+- ["PSo11UIFocusItem", "drawRect"]
+- !private ["PSo11UIFocusItem", "fatalError"]
+- !private ["PSo11UIFocusItem", "frame"]
+- ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "initCoordinates"]
+- !private ["PSo11UIFocusItem", "layer"]
+- ["PSo11UIFocusItem", "magnitude"]
+- ["PSo11UIFocusItem", "qmmap"]
+- ["PSo11UIFocusItem", "table"]
+- ["PSo11UIFocusItem", "table.storage"]
+- ["PSo11UIFocusItem", "thickness"]
+- ["PSo11UIFocusItem", ""]
 - !private ["CSo11UIResponder", "CABasicAnimation"]
 - !private ["CSo11UIResponder", "CAShapeLayer"]
 - ["CSo11UIResponder", "CGPoint"]
@@ -1031,6 +1100,40 @@ depends-member:
 - ["CSo11UIResponder", "table"]
 - ["CSo11UIResponder", "table.storage"]
 - ["CSo11UIResponder", "thickness"]
+- !private ["PSo30UIResponderStandardEditActions", "CABasicAnimation"]
+- !private ["PSo30UIResponderStandardEditActions", "CAShapeLayer"]
+- !private ["PSo30UIResponderStandardEditActions", "CGPointMake"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMaxX"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMaxY"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMidX"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMidY"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMinX"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMinY"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectMake"]
+- ["PSo30UIResponderStandardEditActions", "Int"]
+- !private ["PSo30UIResponderStandardEditActions", "NSNumber"]
+- !private ["PSo30UIResponderStandardEditActions", "NSValue"]
+- !private ["PSo30UIResponderStandardEditActions", "QMMap"]
+- !private ["PSo30UIResponderStandardEditActions", "UIBezierPath"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- !private ["PSo30UIResponderStandardEditActions", "UInt"]
+- ["PSo30UIResponderStandardEditActions", "animateMesh"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "bounds"]
+- ["PSo30UIResponderStandardEditActions", "drawBezierLine"]
+- ["PSo30UIResponderStandardEditActions", "drawMesh"]
+- ["PSo30UIResponderStandardEditActions", "drawRect"]
+- !private ["PSo30UIResponderStandardEditActions", "fatalError"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "initCoordinates"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
+- ["PSo30UIResponderStandardEditActions", "magnitude"]
+- ["PSo30UIResponderStandardEditActions", "qmmap"]
+- ["PSo30UIResponderStandardEditActions", "table"]
+- ["PSo30UIResponderStandardEditActions", "table.storage"]
+- ["PSo30UIResponderStandardEditActions", "thickness"]
+- ["PSo30UIResponderStandardEditActions", ""]
 - !private ["PSo18UITraitEnvironment", "CABasicAnimation"]
 - !private ["PSo18UITraitEnvironment", "CAShapeLayer"]
 - !private ["PSo18UITraitEnvironment", "CGPointMake"]
@@ -1215,6 +1318,7 @@ depends-nominal:
 - !private "CSo11CAAnimation"
 - !private "CSo16CABasicAnimation"
 - !private "CSo7CALayer"
+- "PSo15CALayerDelegate"
 - !private "PSo13CAMediaTiming"
 - !private "CSo19CAPropertyAnimation"
 - !private "CSo12CAShapeLayer"
@@ -1247,6 +1351,7 @@ depends-nominal:
 - "Ps16MutableSliceable"
 - "PSo8NSCoding"
 - !private "PSo9NSCopying"
+- !private "PSo20NSFetchRequestResult"
 - !private "CSo8NSNumber"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
@@ -1269,7 +1374,9 @@ depends-nominal:
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
 - "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - "PSo18UITraitEnvironment"
 - "CSo6UIView"
 - !private "Su"
@@ -1292,20 +1399,20 @@ depends-nominal:
 - "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
 interface-hash: "3351036f7bb4cc3de7ca42a40159cdce"

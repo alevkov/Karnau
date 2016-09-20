@@ -6,50 +6,55 @@ provides-nominal:
 provides-member:
 - ["C2KK17MapViewController", ""]
 provides-dynamic-lookup:
-- "equationLabel"
-- "backButtonTapped"
-- "table"
-- "core"
-- "resetTableButton"
-- "viewDidLoad"
-- "backButton"
-- "difficulty"
-- "prefersStatusBarHidden"
-- "resetTableButtonTapped"
-- "equationDidChange"
 - "equations"
+- "resetTableButton"
+- "resetTableButtonTapped"
+- "equationLabel"
+- "core"
+- "backButtonTapped"
 - "magnitude"
+- "table"
+- "viewDidLoad"
+- "difficulty"
+- "equationDidChange"
+- "backButton"
+- "prefersStatusBarHidden"
 depends-top-level:
 - !private "BACKGROUND_COLOR"
-- !private "UIColor"
-- !private "CGRectGetMidY"
-- "UIViewController"
-- !private "String"
-- !private "-"
-- "Array"
-- !private "=="
-- "UILabel"
-- "UIButton"
-- !private "CGRectGetMidX"
-- !private "NSNotificationCenter"
-- "QMProductSum"
-- !private "MAP_SIZE_SQUARE"
-- !private "CGRectMake"
 - !private "UInt"
-- !private "StringLiteralType"
-- !private "MapView"
-- "AnyObject"
-- !private "||"
-- "NSNotification"
-- "MapViewController"
-- !private "MAP_SIZE_RECT_HEIGHT"
+- !private "MAP_SIZE_SQUARE"
+- !private "UIAlertControllerStyle"
 - !private "Int"
-- !private "/"
-- "QMCore"
+- "MapViewController"
+- !private "NSNotification"
+- !private "-"
+- !private "MapView"
 - !private "MAP_SIZE_RECT_WIDTH"
+- !private "UIAlertAction"
 - !private "print"
-- "Bool"
+- "UIViewController"
+- !private "UIAlertActionStyle"
 - !private "BooleanLiteralType"
+- !private "UIAlertController"
+- !private "CGRectGetMidX"
+- !private "||"
+- "Bool"
+- !private "=="
+- !private "/"
+- !private "NSNotificationCenter"
+- "UILabel"
+- "QMCore"
+- !private "StringLiteralType"
+- !private "CGRectGetMidY"
+- !private "CGRectMake"
+- "QMProductSum"
+- !private "!="
+- "UIButton"
+- !private "MAP_SIZE_RECT_HEIGHT"
+- "Array"
+- "AnyObject"
+- !private "String"
+- !private "UIColor"
 depends-member:
 - !private ["Ps9AnyObject", "BACKGROUND_COLOR"]
 - !private ["Ps9AnyObject", "CGColor"]
@@ -65,8 +70,13 @@ depends-member:
 - !private ["Ps9AnyObject", "NSNotificationCenter"]
 - ["Ps9AnyObject", "QMCore"]
 - ["Ps9AnyObject", "QMProductSum"]
+- !private ["Ps9AnyObject", "UIAlertAction"]
+- !private ["Ps9AnyObject", "UIAlertActionStyle"]
+- !private ["Ps9AnyObject", "UIAlertController"]
+- !private ["Ps9AnyObject", "UIAlertControllerStyle"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UInt"]
+- !private ["Ps9AnyObject", "addAction"]
 - !private ["Ps9AnyObject", "addObserver"]
 - !private ["Ps9AnyObject", "addSubview"]
 - !private ["Ps9AnyObject", "appendContentsOf"]
@@ -93,6 +103,7 @@ depends-member:
 - ["Ps9AnyObject", "magnitude"]
 - !private ["Ps9AnyObject", "postNotificationName"]
 - ["Ps9AnyObject", "prefersStatusBarHidden"]
+- !private ["Ps9AnyObject", "presentViewController"]
 - !private ["Ps9AnyObject", "print"]
 - ["Ps9AnyObject", "resetTableButton"]
 - ["Ps9AnyObject", "resetTableButtonTapped"]
@@ -131,6 +142,12 @@ depends-member:
 - !private ["CSo7CALayer", "borderColor"]
 - !private ["CSo7CALayer", "borderWidth"]
 - !private ["CSo7CALayer", "cornerRadius"]
+- !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- !private ["PSo15CALayerDelegate", "init"]
+- !private ["PSo15CALayerDelegate", "layer"]
+- !private ["PSo15CALayerDelegate", "text"]
 - !private ["PSo13CAMediaTiming", "borderColor"]
 - !private ["PSo13CAMediaTiming", "borderWidth"]
 - !private ["PSo13CAMediaTiming", "cornerRadius"]
@@ -151,8 +168,13 @@ depends-member:
 - !private ["Ps11CVarArgType", "NSNotificationCenter"]
 - ["Ps11CVarArgType", "QMCore"]
 - ["Ps11CVarArgType", "QMProductSum"]
+- !private ["Ps11CVarArgType", "UIAlertAction"]
+- !private ["Ps11CVarArgType", "UIAlertActionStyle"]
+- !private ["Ps11CVarArgType", "UIAlertController"]
+- !private ["Ps11CVarArgType", "UIAlertControllerStyle"]
 - !private ["Ps11CVarArgType", "UIColor"]
 - !private ["Ps11CVarArgType", "UInt"]
+- !private ["Ps11CVarArgType", "addAction"]
 - !private ["Ps11CVarArgType", "addObserver"]
 - !private ["Ps11CVarArgType", "addSubview"]
 - !private ["Ps11CVarArgType", "appendContentsOf"]
@@ -179,6 +201,7 @@ depends-member:
 - ["Ps11CVarArgType", "magnitude"]
 - !private ["Ps11CVarArgType", "postNotificationName"]
 - ["Ps11CVarArgType", "prefersStatusBarHidden"]
+- !private ["Ps11CVarArgType", "presentViewController"]
 - !private ["Ps11CVarArgType", "print"]
 - ["Ps11CVarArgType", "resetTableButton"]
 - ["Ps11CVarArgType", "resetTableButtonTapped"]
@@ -217,11 +240,16 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "NSNotificationCenter"]
 - ["Ps28CustomDebugStringConvertible", "QMCore"]
 - ["Ps28CustomDebugStringConvertible", "QMProductSum"]
-- ["Ps28CustomDebugStringConvertible", "Some"]
+- !private ["Ps28CustomDebugStringConvertible", "Some"]
 - ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- !private ["Ps28CustomDebugStringConvertible", "UIAlertAction"]
+- !private ["Ps28CustomDebugStringConvertible", "UIAlertActionStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "UIAlertController"]
+- !private ["Ps28CustomDebugStringConvertible", "UIAlertControllerStyle"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UInt"]
 - ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "addAction"]
 - !private ["Ps28CustomDebugStringConvertible", "addObserver"]
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
 - !private ["Ps28CustomDebugStringConvertible", "appendContentsOf"]
@@ -249,6 +277,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "magnitude"]
 - !private ["Ps28CustomDebugStringConvertible", "postNotificationName"]
 - ["Ps28CustomDebugStringConvertible", "prefersStatusBarHidden"]
+- !private ["Ps28CustomDebugStringConvertible", "presentViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
 - ["Ps28CustomDebugStringConvertible", "resetTableButton"]
 - ["Ps28CustomDebugStringConvertible", "resetTableButtonTapped"]
@@ -279,10 +308,15 @@ depends-member:
 - ["Ps23CustomStringConvertible", "QMCore"]
 - ["Ps23CustomStringConvertible", "QMProductSum"]
 - ["Ps23CustomStringConvertible", "SubSequence"]
+- !private ["Ps23CustomStringConvertible", "UIAlertAction"]
+- !private ["Ps23CustomStringConvertible", "UIAlertActionStyle"]
+- !private ["Ps23CustomStringConvertible", "UIAlertController"]
+- !private ["Ps23CustomStringConvertible", "UIAlertControllerStyle"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UInt"]
 - ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "addAction"]
 - !private ["Ps23CustomStringConvertible", "addObserver"]
 - !private ["Ps23CustomStringConvertible", "addSubview"]
 - !private ["Ps23CustomStringConvertible", "appendContentsOf"]
@@ -310,6 +344,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "magnitude"]
 - !private ["Ps23CustomStringConvertible", "postNotificationName"]
 - ["Ps23CustomStringConvertible", "prefersStatusBarHidden"]
+- !private ["Ps23CustomStringConvertible", "presentViewController"]
 - !private ["Ps23CustomStringConvertible", "print"]
 - ["Ps23CustomStringConvertible", "resetTableButton"]
 - ["Ps23CustomStringConvertible", "resetTableButtonTapped"]
@@ -326,11 +361,13 @@ depends-member:
 - !private ["Vs10Dictionary", "subscript"]
 - !private ["Ps28DictionaryLiteralConvertible", "Index"]
 - !private ["Ps28DictionaryLiteralConvertible", "subscript"]
+- !private ["Ps9Equatable", "Alert"]
 - !private ["Ps9Equatable", "BACKGROUND_COLOR"]
 - !private ["Ps9Equatable", "CGColor"]
 - !private ["Ps9Equatable", "CGRectGetMidX"]
 - !private ["Ps9Equatable", "CGRectGetMidY"]
 - !private ["Ps9Equatable", "CGRectMake"]
+- !private ["Ps9Equatable", "Default"]
 - ["Ps9Equatable", "Distance"]
 - ["Ps9Equatable", "Element"]
 - ["Ps9Equatable", "IntegerLiteralType"]
@@ -342,9 +379,14 @@ depends-member:
 - !private ["Ps9Equatable", "NSNotificationCenter"]
 - ["Ps9Equatable", "QMCore"]
 - ["Ps9Equatable", "QMProductSum"]
+- !private ["Ps9Equatable", "UIAlertAction"]
+- !private ["Ps9Equatable", "UIAlertActionStyle"]
+- !private ["Ps9Equatable", "UIAlertController"]
+- !private ["Ps9Equatable", "UIAlertControllerStyle"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UInt"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "addAction"]
 - !private ["Ps9Equatable", "addObserver"]
 - !private ["Ps9Equatable", "addSubview"]
 - !private ["Ps9Equatable", "appendContentsOf"]
@@ -371,6 +413,7 @@ depends-member:
 - ["Ps9Equatable", "magnitude"]
 - !private ["Ps9Equatable", "postNotificationName"]
 - ["Ps9Equatable", "prefersStatusBarHidden"]
+- !private ["Ps9Equatable", "presentViewController"]
 - !private ["Ps9Equatable", "print"]
 - ["Ps9Equatable", "resetTableButton"]
 - ["Ps9Equatable", "resetTableButtonTapped"]
@@ -386,11 +429,13 @@ depends-member:
 - ["Ps16ForwardIndexType", "IntegerLiteralType"]
 - !private ["Ps16ForwardIndexType", "init"]
 - ["Ps13GeneratorType", "Element"]
+- !private ["Ps8Hashable", "Alert"]
 - !private ["Ps8Hashable", "BACKGROUND_COLOR"]
 - !private ["Ps8Hashable", "CGColor"]
 - !private ["Ps8Hashable", "CGRectGetMidX"]
 - !private ["Ps8Hashable", "CGRectGetMidY"]
 - !private ["Ps8Hashable", "CGRectMake"]
+- !private ["Ps8Hashable", "Default"]
 - ["Ps8Hashable", "Distance"]
 - ["Ps8Hashable", "Element"]
 - ["Ps8Hashable", "IntegerLiteralType"]
@@ -402,9 +447,14 @@ depends-member:
 - !private ["Ps8Hashable", "NSNotificationCenter"]
 - ["Ps8Hashable", "QMCore"]
 - ["Ps8Hashable", "QMProductSum"]
+- !private ["Ps8Hashable", "UIAlertAction"]
+- !private ["Ps8Hashable", "UIAlertActionStyle"]
+- !private ["Ps8Hashable", "UIAlertController"]
+- !private ["Ps8Hashable", "UIAlertControllerStyle"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UInt"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "addAction"]
 - !private ["Ps8Hashable", "addObserver"]
 - !private ["Ps8Hashable", "addSubview"]
 - !private ["Ps8Hashable", "appendContentsOf"]
@@ -431,6 +481,7 @@ depends-member:
 - ["Ps8Hashable", "magnitude"]
 - !private ["Ps8Hashable", "postNotificationName"]
 - ["Ps8Hashable", "prefersStatusBarHidden"]
+- !private ["Ps8Hashable", "presentViewController"]
 - !private ["Ps8Hashable", "print"]
 - ["Ps8Hashable", "resetTableButton"]
 - ["Ps8Hashable", "resetTableButtonTapped"]
@@ -475,11 +526,15 @@ depends-member:
 - !private ["C2KK17MapViewController", "MAP_SIZE_SQUARE"]
 - !private ["C2KK17MapViewController", "MapView"]
 - !private ["C2KK17MapViewController", "MapViewController"]
-- ["C2KK17MapViewController", "NSNotification"]
+- !private ["C2KK17MapViewController", "NSNotification"]
 - !private ["C2KK17MapViewController", "NSNotificationCenter"]
 - ["C2KK17MapViewController", "QMCore"]
 - ["C2KK17MapViewController", "QMProductSum"]
 - !private ["C2KK17MapViewController", "String"]
+- !private ["C2KK17MapViewController", "UIAlertAction"]
+- !private ["C2KK17MapViewController", "UIAlertActionStyle"]
+- !private ["C2KK17MapViewController", "UIAlertController"]
+- !private ["C2KK17MapViewController", "UIAlertControllerStyle"]
 - ["C2KK17MapViewController", "UIButton"]
 - !private ["C2KK17MapViewController", "UIColor"]
 - ["C2KK17MapViewController", "UILabel"]
@@ -491,13 +546,14 @@ depends-member:
 - ["C2KK17MapViewController", "deinit"]
 - ["C2KK17MapViewController", "difficulty"]
 - !private ["C2KK17MapViewController", "dismissViewControllerAnimated"]
-- ["C2KK17MapViewController", "equationDidChange"]
+- !private ["C2KK17MapViewController", "equationDidChange"]
 - ["C2KK17MapViewController", "equationLabel"]
 - ["C2KK17MapViewController", "equations"]
 - !private ["C2KK17MapViewController", "equations.storage"]
 - ["C2KK17MapViewController", "init"]
 - ["C2KK17MapViewController", "magnitude"]
 - ["C2KK17MapViewController", "prefersStatusBarHidden"]
+- !private ["C2KK17MapViewController", "presentViewController"]
 - !private ["C2KK17MapViewController", "print"]
 - ["C2KK17MapViewController", "resetTableButton"]
 - ["C2KK17MapViewController", "resetTableButtonTapped"]
@@ -544,8 +600,13 @@ depends-member:
 - !private ["PSo8NSCoding", "NSNotificationCenter"]
 - ["PSo8NSCoding", "QMCore"]
 - ["PSo8NSCoding", "QMProductSum"]
+- !private ["PSo8NSCoding", "UIAlertAction"]
+- !private ["PSo8NSCoding", "UIAlertActionStyle"]
+- !private ["PSo8NSCoding", "UIAlertController"]
+- !private ["PSo8NSCoding", "UIAlertControllerStyle"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UInt"]
+- !private ["PSo8NSCoding", "addAction"]
 - !private ["PSo8NSCoding", "addSubview"]
 - !private ["PSo8NSCoding", "appendContentsOf"]
 - ["PSo8NSCoding", "backButton"]
@@ -567,6 +628,7 @@ depends-member:
 - !private ["PSo8NSCoding", "layer"]
 - ["PSo8NSCoding", "magnitude"]
 - ["PSo8NSCoding", "prefersStatusBarHidden"]
+- !private ["PSo8NSCoding", "presentViewController"]
 - !private ["PSo8NSCoding", "print"]
 - ["PSo8NSCoding", "resetTableButton"]
 - ["PSo8NSCoding", "resetTableButtonTapped"]
@@ -580,6 +642,7 @@ depends-member:
 - !private ["PSo9NSCopying", "CGColor"]
 - ["PSo9NSCopying", "Element"]
 - !private ["PSo9NSCopying", "appendContentsOf"]
+- !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "userInfo"]
 - !private ["PSo9NSCopying", "whiteColor"]
 - !private ["PSo26NSExtensionRequestHandling", "BACKGROUND_COLOR"]
@@ -594,8 +657,13 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NSNotificationCenter"]
 - ["PSo26NSExtensionRequestHandling", "QMCore"]
 - ["PSo26NSExtensionRequestHandling", "QMProductSum"]
+- !private ["PSo26NSExtensionRequestHandling", "UIAlertAction"]
+- !private ["PSo26NSExtensionRequestHandling", "UIAlertActionStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "UIAlertController"]
+- !private ["PSo26NSExtensionRequestHandling", "UIAlertControllerStyle"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UInt"]
+- !private ["PSo26NSExtensionRequestHandling", "addAction"]
 - ["PSo26NSExtensionRequestHandling", "backButton"]
 - ["PSo26NSExtensionRequestHandling", "backButtonTapped"]
 - ["PSo26NSExtensionRequestHandling", "core"]
@@ -609,6 +677,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "init"]
 - ["PSo26NSExtensionRequestHandling", "magnitude"]
 - ["PSo26NSExtensionRequestHandling", "prefersStatusBarHidden"]
+- !private ["PSo26NSExtensionRequestHandling", "presentViewController"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "resetTableButton"]
 - ["PSo26NSExtensionRequestHandling", "resetTableButtonTapped"]
@@ -637,15 +706,20 @@ depends-member:
 - !private ["CSo8NSObject", "MAP_SIZE_SQUARE"]
 - !private ["CSo8NSObject", "MapView"]
 - !private ["CSo8NSObject", "MapViewController"]
-- ["CSo8NSObject", "NSNotification"]
+- !private ["CSo8NSObject", "NSNotification"]
 - !private ["CSo8NSObject", "NSNotificationCenter"]
 - ["CSo8NSObject", "QMCore"]
 - ["CSo8NSObject", "QMProductSum"]
 - !private ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "UIAlertAction"]
+- !private ["CSo8NSObject", "UIAlertActionStyle"]
+- !private ["CSo8NSObject", "UIAlertController"]
+- !private ["CSo8NSObject", "UIAlertControllerStyle"]
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIColor"]
 - ["CSo8NSObject", "UILabel"]
 - !private ["CSo8NSObject", "UInt"]
+- !private ["CSo8NSObject", "addAction"]
 - !private ["CSo8NSObject", "addObserver"]
 - !private ["CSo8NSObject", "addSubview"]
 - !private ["CSo8NSObject", "appendContentsOf"]
@@ -672,6 +746,7 @@ depends-member:
 - ["CSo8NSObject", "magnitude"]
 - !private ["CSo8NSObject", "postNotificationName"]
 - ["CSo8NSObject", "prefersStatusBarHidden"]
+- !private ["CSo8NSObject", "presentViewController"]
 - !private ["CSo8NSObject", "print"]
 - ["CSo8NSObject", "resetTableButton"]
 - ["CSo8NSObject", "resetTableButtonTapped"]
@@ -695,8 +770,13 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "NSNotificationCenter"]
 - ["PSo16NSObjectProtocol", "QMCore"]
 - ["PSo16NSObjectProtocol", "QMProductSum"]
+- !private ["PSo16NSObjectProtocol", "UIAlertAction"]
+- !private ["PSo16NSObjectProtocol", "UIAlertActionStyle"]
+- !private ["PSo16NSObjectProtocol", "UIAlertController"]
+- !private ["PSo16NSObjectProtocol", "UIAlertControllerStyle"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UInt"]
+- !private ["PSo16NSObjectProtocol", "addAction"]
 - !private ["PSo16NSObjectProtocol", "addObserver"]
 - !private ["PSo16NSObjectProtocol", "addSubview"]
 - !private ["PSo16NSObjectProtocol", "appendContentsOf"]
@@ -723,6 +803,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "magnitude"]
 - !private ["PSo16NSObjectProtocol", "postNotificationName"]
 - ["PSo16NSObjectProtocol", "prefersStatusBarHidden"]
+- !private ["PSo16NSObjectProtocol", "presentViewController"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - ["PSo16NSObjectProtocol", "resetTableButton"]
 - ["PSo16NSObjectProtocol", "resetTableButtonTapped"]
@@ -738,8 +819,8 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "appendContentsOf"]
 - !private ["PSo14NSSecureCoding", "whiteColor"]
 - !private ["CSo8NSString", "appendContentsOf"]
-- ["Ps21NilLiteralConvertible", "Some"]
-- ["Sq", "Some"]
+- !private ["Ps21NilLiteralConvertible", "Some"]
+- !private ["Sq", "Some"]
 - !private ["Sq", "deinit"]
 - !private ["Ps16OutputStreamType", "appendContentsOf"]
 - !private ["C2KK6QMCore", "computePrimeProducts"]
@@ -757,6 +838,8 @@ depends-member:
 - ["Ps30RangeReplaceableCollectionType", "_Element"]
 - !private ["Ps30RangeReplaceableCollectionType", "count"]
 - ["Ps30RangeReplaceableCollectionType", "init"]
+- !private ["Ps16RawRepresentable", "Alert"]
+- !private ["Ps16RawRepresentable", "Default"]
 - ["Ps12SequenceType", "Element"]
 - ["Ps12SequenceType", "Generator"]
 - ["Ps12SequenceType", "Index"]
@@ -787,6 +870,11 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "init"]
 - !private ["PSo29UIAccessibilityIdentification", "layer"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["CSo13UIAlertAction", "init"]
+- !private ["OSC18UIAlertActionStyle", "Default"]
+- !private ["CSo17UIAlertController", "addAction"]
+- !private ["CSo17UIAlertController", "init"]
+- !private ["OSC22UIAlertControllerStyle", "Alert"]
 - !private ["PSo12UIAppearance", "addSubview"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
 - !private ["PSo12UIAppearance", "frame"]
@@ -805,8 +893,13 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NSNotificationCenter"]
 - ["PSo21UIAppearanceContainer", "QMCore"]
 - ["PSo21UIAppearanceContainer", "QMProductSum"]
+- !private ["PSo21UIAppearanceContainer", "UIAlertAction"]
+- !private ["PSo21UIAppearanceContainer", "UIAlertActionStyle"]
+- !private ["PSo21UIAppearanceContainer", "UIAlertController"]
+- !private ["PSo21UIAppearanceContainer", "UIAlertControllerStyle"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UInt"]
+- !private ["PSo21UIAppearanceContainer", "addAction"]
 - !private ["PSo21UIAppearanceContainer", "addSubview"]
 - ["PSo21UIAppearanceContainer", "backButton"]
 - ["PSo21UIAppearanceContainer", "backButtonTapped"]
@@ -824,6 +917,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "layer"]
 - ["PSo21UIAppearanceContainer", "magnitude"]
 - ["PSo21UIAppearanceContainer", "prefersStatusBarHidden"]
+- !private ["PSo21UIAppearanceContainer", "presentViewController"]
 - !private ["PSo21UIAppearanceContainer", "print"]
 - ["PSo21UIAppearanceContainer", "resetTableButton"]
 - ["PSo21UIAppearanceContainer", "resetTableButtonTapped"]
@@ -847,8 +941,13 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NSNotificationCenter"]
 - ["PSo18UIContentContainer", "QMCore"]
 - ["PSo18UIContentContainer", "QMProductSum"]
+- !private ["PSo18UIContentContainer", "UIAlertAction"]
+- !private ["PSo18UIContentContainer", "UIAlertActionStyle"]
+- !private ["PSo18UIContentContainer", "UIAlertController"]
+- !private ["PSo18UIContentContainer", "UIAlertControllerStyle"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UInt"]
+- !private ["PSo18UIContentContainer", "addAction"]
 - ["PSo18UIContentContainer", "backButton"]
 - ["PSo18UIContentContainer", "backButtonTapped"]
 - ["PSo18UIContentContainer", "core"]
@@ -862,6 +961,7 @@ depends-member:
 - ["PSo18UIContentContainer", "init"]
 - ["PSo18UIContentContainer", "magnitude"]
 - ["PSo18UIContentContainer", "prefersStatusBarHidden"]
+- !private ["PSo18UIContentContainer", "presentViewController"]
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "resetTableButton"]
 - ["PSo18UIContentContainer", "resetTableButtonTapped"]
@@ -869,6 +969,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "view"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", ""]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
 - !private ["CSo9UIControl", "layer"]
 - !private ["PSo17UICoordinateSpace", "addSubview"]
 - !private ["PSo17UICoordinateSpace", "backgroundColor"]
@@ -894,8 +995,13 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "NSNotificationCenter"]
 - ["PSo18UIFocusEnvironment", "QMCore"]
 - ["PSo18UIFocusEnvironment", "QMProductSum"]
+- !private ["PSo18UIFocusEnvironment", "UIAlertAction"]
+- !private ["PSo18UIFocusEnvironment", "UIAlertActionStyle"]
+- !private ["PSo18UIFocusEnvironment", "UIAlertController"]
+- !private ["PSo18UIFocusEnvironment", "UIAlertControllerStyle"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UInt"]
+- !private ["PSo18UIFocusEnvironment", "addAction"]
 - !private ["PSo18UIFocusEnvironment", "addSubview"]
 - ["PSo18UIFocusEnvironment", "backButton"]
 - ["PSo18UIFocusEnvironment", "backButtonTapped"]
@@ -913,6 +1019,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "layer"]
 - ["PSo18UIFocusEnvironment", "magnitude"]
 - ["PSo18UIFocusEnvironment", "prefersStatusBarHidden"]
+- !private ["PSo18UIFocusEnvironment", "presentViewController"]
 - !private ["PSo18UIFocusEnvironment", "print"]
 - ["PSo18UIFocusEnvironment", "resetTableButton"]
 - ["PSo18UIFocusEnvironment", "resetTableButtonTapped"]
@@ -921,6 +1028,12 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "view"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "frame"]
+- !private ["PSo11UIFocusItem", "init"]
+- !private ["PSo11UIFocusItem", "layer"]
+- !private ["PSo11UIFocusItem", "text"]
 - !private ["CSo7UILabel", "text"]
 - ["CSo11UIResponder", "AnyObject"]
 - !private ["CSo11UIResponder", "BACKGROUND_COLOR"]
@@ -934,15 +1047,20 @@ depends-member:
 - !private ["CSo11UIResponder", "MAP_SIZE_SQUARE"]
 - !private ["CSo11UIResponder", "MapView"]
 - !private ["CSo11UIResponder", "MapViewController"]
-- ["CSo11UIResponder", "NSNotification"]
+- !private ["CSo11UIResponder", "NSNotification"]
 - !private ["CSo11UIResponder", "NSNotificationCenter"]
 - ["CSo11UIResponder", "QMCore"]
 - ["CSo11UIResponder", "QMProductSum"]
 - !private ["CSo11UIResponder", "String"]
+- !private ["CSo11UIResponder", "UIAlertAction"]
+- !private ["CSo11UIResponder", "UIAlertActionStyle"]
+- !private ["CSo11UIResponder", "UIAlertController"]
+- !private ["CSo11UIResponder", "UIAlertControllerStyle"]
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIColor"]
 - ["CSo11UIResponder", "UILabel"]
 - !private ["CSo11UIResponder", "UInt"]
+- !private ["CSo11UIResponder", "addAction"]
 - !private ["CSo11UIResponder", "addSubview"]
 - ["CSo11UIResponder", "backButton"]
 - ["CSo11UIResponder", "backButtonTapped"]
@@ -960,6 +1078,7 @@ depends-member:
 - !private ["CSo11UIResponder", "layer"]
 - ["CSo11UIResponder", "magnitude"]
 - ["CSo11UIResponder", "prefersStatusBarHidden"]
+- !private ["CSo11UIResponder", "presentViewController"]
 - !private ["CSo11UIResponder", "print"]
 - ["CSo11UIResponder", "resetTableButton"]
 - ["CSo11UIResponder", "resetTableButtonTapped"]
@@ -967,6 +1086,51 @@ depends-member:
 - !private ["CSo11UIResponder", "text"]
 - !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "BACKGROUND_COLOR"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMidX"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectGetMidY"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectMake"]
+- !private ["PSo30UIResponderStandardEditActions", "MAP_SIZE_RECT_HEIGHT"]
+- !private ["PSo30UIResponderStandardEditActions", "MAP_SIZE_RECT_WIDTH"]
+- !private ["PSo30UIResponderStandardEditActions", "MAP_SIZE_SQUARE"]
+- !private ["PSo30UIResponderStandardEditActions", "MapView"]
+- !private ["PSo30UIResponderStandardEditActions", "MapViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "NSNotificationCenter"]
+- ["PSo30UIResponderStandardEditActions", "QMCore"]
+- ["PSo30UIResponderStandardEditActions", "QMProductSum"]
+- !private ["PSo30UIResponderStandardEditActions", "UIAlertAction"]
+- !private ["PSo30UIResponderStandardEditActions", "UIAlertActionStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "UIAlertController"]
+- !private ["PSo30UIResponderStandardEditActions", "UIAlertControllerStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- !private ["PSo30UIResponderStandardEditActions", "UInt"]
+- !private ["PSo30UIResponderStandardEditActions", "addAction"]
+- !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- ["PSo30UIResponderStandardEditActions", "backButton"]
+- ["PSo30UIResponderStandardEditActions", "backButtonTapped"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- ["PSo30UIResponderStandardEditActions", "core"]
+- ["PSo30UIResponderStandardEditActions", "core.storage"]
+- ["PSo30UIResponderStandardEditActions", "difficulty"]
+- !private ["PSo30UIResponderStandardEditActions", "dismissViewControllerAnimated"]
+- ["PSo30UIResponderStandardEditActions", "equationDidChange"]
+- ["PSo30UIResponderStandardEditActions", "equationLabel"]
+- ["PSo30UIResponderStandardEditActions", "equations"]
+- ["PSo30UIResponderStandardEditActions", "equations.storage"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
+- ["PSo30UIResponderStandardEditActions", "magnitude"]
+- ["PSo30UIResponderStandardEditActions", "prefersStatusBarHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "presentViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "print"]
+- ["PSo30UIResponderStandardEditActions", "resetTableButton"]
+- ["PSo30UIResponderStandardEditActions", "resetTableButtonTapped"]
+- ["PSo30UIResponderStandardEditActions", "table"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
 - !private ["PSo16UIStateRestoring", "BACKGROUND_COLOR"]
 - !private ["PSo16UIStateRestoring", "CGRectGetMidX"]
 - !private ["PSo16UIStateRestoring", "CGRectGetMidY"]
@@ -979,8 +1143,13 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NSNotificationCenter"]
 - ["PSo16UIStateRestoring", "QMCore"]
 - ["PSo16UIStateRestoring", "QMProductSum"]
+- !private ["PSo16UIStateRestoring", "UIAlertAction"]
+- !private ["PSo16UIStateRestoring", "UIAlertActionStyle"]
+- !private ["PSo16UIStateRestoring", "UIAlertController"]
+- !private ["PSo16UIStateRestoring", "UIAlertControllerStyle"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UInt"]
+- !private ["PSo16UIStateRestoring", "addAction"]
 - ["PSo16UIStateRestoring", "backButton"]
 - ["PSo16UIStateRestoring", "backButtonTapped"]
 - ["PSo16UIStateRestoring", "core"]
@@ -994,6 +1163,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "init"]
 - ["PSo16UIStateRestoring", "magnitude"]
 - ["PSo16UIStateRestoring", "prefersStatusBarHidden"]
+- !private ["PSo16UIStateRestoring", "presentViewController"]
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "resetTableButton"]
 - ["PSo16UIStateRestoring", "resetTableButtonTapped"]
@@ -1013,8 +1183,13 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NSNotificationCenter"]
 - ["PSo18UITraitEnvironment", "QMCore"]
 - ["PSo18UITraitEnvironment", "QMProductSum"]
+- !private ["PSo18UITraitEnvironment", "UIAlertAction"]
+- !private ["PSo18UITraitEnvironment", "UIAlertActionStyle"]
+- !private ["PSo18UITraitEnvironment", "UIAlertController"]
+- !private ["PSo18UITraitEnvironment", "UIAlertControllerStyle"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UInt"]
+- !private ["PSo18UITraitEnvironment", "addAction"]
 - !private ["PSo18UITraitEnvironment", "addSubview"]
 - ["PSo18UITraitEnvironment", "backButton"]
 - ["PSo18UITraitEnvironment", "backButtonTapped"]
@@ -1032,6 +1207,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "layer"]
 - ["PSo18UITraitEnvironment", "magnitude"]
 - ["PSo18UITraitEnvironment", "prefersStatusBarHidden"]
+- !private ["PSo18UITraitEnvironment", "presentViewController"]
 - !private ["PSo18UITraitEnvironment", "print"]
 - ["PSo18UITraitEnvironment", "resetTableButton"]
 - ["PSo18UITraitEnvironment", "resetTableButtonTapped"]
@@ -1058,15 +1234,20 @@ depends-member:
 - !private ["CSo16UIViewController", "MAP_SIZE_SQUARE"]
 - !private ["CSo16UIViewController", "MapView"]
 - !private ["CSo16UIViewController", "MapViewController"]
-- ["CSo16UIViewController", "NSNotification"]
+- !private ["CSo16UIViewController", "NSNotification"]
 - !private ["CSo16UIViewController", "NSNotificationCenter"]
 - ["CSo16UIViewController", "QMCore"]
 - ["CSo16UIViewController", "QMProductSum"]
 - !private ["CSo16UIViewController", "String"]
+- !private ["CSo16UIViewController", "UIAlertAction"]
+- !private ["CSo16UIViewController", "UIAlertActionStyle"]
+- !private ["CSo16UIViewController", "UIAlertController"]
+- !private ["CSo16UIViewController", "UIAlertControllerStyle"]
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIColor"]
 - ["CSo16UIViewController", "UILabel"]
 - !private ["CSo16UIViewController", "UInt"]
+- !private ["CSo16UIViewController", "addAction"]
 - ["CSo16UIViewController", "backButton"]
 - ["CSo16UIViewController", "backButtonTapped"]
 - ["CSo16UIViewController", "core"]
@@ -1080,6 +1261,7 @@ depends-member:
 - ["CSo16UIViewController", "init"]
 - ["CSo16UIViewController", "magnitude"]
 - ["CSo16UIViewController", "prefersStatusBarHidden"]
+- !private ["CSo16UIViewController", "presentViewController"]
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "resetTableButton"]
 - ["CSo16UIViewController", "resetTableButtonTapped"]
@@ -1145,7 +1327,7 @@ depends-member:
 - ["Ps12_Reflectable", "Generator"]
 - ["Ps12_Reflectable", "Index"]
 - ["Ps12_Reflectable", "IntegerLiteralType"]
-- ["Ps12_Reflectable", "Some"]
+- !private ["Ps12_Reflectable", "Some"]
 - ["Ps12_Reflectable", "SubSequence"]
 - ["Ps12_Reflectable", "_Element"]
 - !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
@@ -1171,6 +1353,7 @@ depends-nominal:
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
 - !private "CSo7CALayer"
+- !private "PSo15CALayerDelegate"
 - !private "PSo13CAMediaTiming"
 - !private "V12CoreGraphics7CGFloat"
 - "Ps11CVarArgType"
@@ -1209,13 +1392,14 @@ depends-nominal:
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
 - !private "CSo8NSString"
-- "Ps21NilLiteralConvertible"
-- "Sq"
+- !private "Ps21NilLiteralConvertible"
+- !private "Sq"
 - !private "Ps16OutputStreamType"
 - "C2KK6QMCore"
 - !private "C2KK12QMProductSum"
 - "Ps21RandomAccessIndexType"
 - "Ps30RangeReplaceableCollectionType"
+- !private "Ps16RawRepresentable"
 - "Ps12SequenceType"
 - "Ps17SignedIntegerType"
 - "Ps16SignedNumberType"
@@ -1226,17 +1410,24 @@ depends-nominal:
 - !private "Ps30StringInterpolationConvertible"
 - !private "Ps24StringLiteralConvertible"
 - !private "PSo29UIAccessibilityIdentification"
+- !private "CSo13UIAlertAction"
+- !private "OSC18UIAlertActionStyle"
+- !private "CSo17UIAlertController"
+- !private "OSC22UIAlertControllerStyle"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
 - !private "CSo8UIButton"
 - !private "CSo7UIColor"
 - "PSo18UIContentContainer"
+- !private "PSo30UIContentSizeCategoryAdjusting"
 - !private "CSo9UIControl"
 - !private "PSo17UICoordinateSpace"
 - !private "PSo13UIDynamicItem"
 - "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
 - !private "CSo7UILabel"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - "PSo16UIStateRestoring"
 - "PSo18UITraitEnvironment"
 - !private "CSo6UIView"
@@ -1264,20 +1455,20 @@ depends-nominal:
 - "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "7853e645acbcc0019184c834bfa13b69"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "e99516dfb1fe414d06c05c983e7a7d2f"

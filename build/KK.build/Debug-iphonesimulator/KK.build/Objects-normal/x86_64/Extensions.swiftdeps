@@ -8,8 +8,6 @@ provides-top-level:
 - "^^"
 - "^^"
 - "^"
-- "~="
-- "~="
 - "&"
 - "&"
 - "&="
@@ -37,71 +35,68 @@ provides-member:
 - ["CSo7UIColor", "init"]
 - ["Sa", "removeObject"]
 provides-dynamic-lookup:
-- "addBorder"
 - "addDashedBorder"
+- "addBorder"
 depends-top-level:
-- "UIColor"
-- !private "+="
-- !private "BooleanLiteralType"
-- "&="
-- "UIRectEdge"
-- !private "CGRectGetHeight"
-- !private "CGRectGetWidth"
-- "ErrorType"
-- !private "<"
-- !private "%"
-- !private "Set"
-- "QMMinterm"
-- "ParkBenchTimer"
-- !private "??"
-- !private "<="
-- "^"
-- "SequenceType"
-- !private "CAShapeLayer"
-- !private "strtoul"
-- "&"
-- !private "!="
-- !private "-"
-- !private "CGRectMake"
-- !private "StringLiteralType"
-- !private ">>"
-- "OrderType"
-- !private "CGRect"
 - "PrimeType"
-- "Hashable"
-- "Error"
-- "CGFloat"
-- "CALayer"
-- !private "CGPoint"
-- !private "UIBezierPath"
-- "GroupType"
-- "Int"
-- "Dictionary"
-- "CFAbsoluteTime"
-- "String"
-- "Array"
-- "Bool"
-- "|"
-- !private "..<"
-- !private "/"
-- !private "arc4random"
-- "^^"
-- !private "UnicodeScalarType"
-- "UInt"
-- "*"
+- !private "??"
 - "Equatable"
-- !private "CFAbsoluteTimeGetCurrent"
-- "uniq"
-- "Character"
-- "Range"
+- !private "UnicodeScalarType"
 - !private "Double"
-- !private "pow"
+- !private "CGRectGetHeight"
+- "SequenceType"
+- "&="
+- !private "-"
 - "UIView"
-- !private "!"
-- !private "++"
+- "OrderType"
 - !private "kCALineJoinRound"
 - "=="
-- "~="
+- "Dictionary"
+- "CGFloat"
+- !private "~="
+- "CALayer"
+- !private "CGRect"
+- "uniq"
+- !private "/"
+- "GroupType"
+- "Array"
+- "UIRectEdge"
+- !private "arc4random"
+- !private "+="
+- !private "Set"
+- !private "!="
+- !private "%"
+- !private ">>"
+- "^"
+- "CFAbsoluteTime"
+- !private "strtoul"
+- "Character"
+- !private "CGPoint"
+- "Int"
+- "QMMinterm"
+- "UInt"
+- "Hashable"
+- !private "..<"
+- !private "CGRectGetWidth"
+- !private "StringLiteralType"
+- !private "pow"
+- !private "CAShapeLayer"
+- "^^"
+- "&"
+- "Error"
+- "Range"
+- "|"
+- "*"
+- "ParkBenchTimer"
+- "ErrorType"
+- "Bool"
+- "UIColor"
+- !private "UIBezierPath"
+- !private "<="
+- !private "!"
+- !private "CGRectMake"
+- "String"
+- !private "CFAbsoluteTimeGetCurrent"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "CALayer"]
@@ -209,6 +204,14 @@ depends-member:
 - !private ["CSo7CALayer", "path"]
 - !private ["CSo7CALayer", "position"]
 - !private ["CSo7CALayer", "strokeColor"]
+- !private ["PSo15CALayerDelegate", "CAShapeLayer"]
+- !private ["PSo15CALayerDelegate", "CGPoint"]
+- !private ["PSo15CALayerDelegate", "CGRect"]
+- !private ["PSo15CALayerDelegate", "UIBezierPath"]
+- !private ["PSo15CALayerDelegate", "UIColor"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- !private ["PSo15CALayerDelegate", "kCALineJoinRound"]
+- !private ["PSo15CALayerDelegate", "layer"]
 - !private ["PSo13CAMediaTiming", "CALayer"]
 - !private ["PSo13CAMediaTiming", "CGRectGetHeight"]
 - !private ["PSo13CAMediaTiming", "CGRectGetWidth"]
@@ -587,6 +590,7 @@ depends-member:
 - !private ["Si", "Distance"]
 - !private ["Si", "IntegerLiteralType"]
 - !private ["Si", "Stride"]
+- !private ["Si", "_DisabledRangeIndex"]
 - !private ["Si", "deinit"]
 - !private ["Si", "hashValue"]
 - !private ["Si", "init"]
@@ -615,6 +619,7 @@ depends-member:
 - !private ["Ps14MirrorPathType", "Distance"]
 - !private ["Ps14MirrorPathType", "IntegerLiteralType"]
 - !private ["Ps14MirrorPathType", "Stride"]
+- !private ["Ps14MirrorPathType", "_DisabledRangeIndex"]
 - !private ["Ps14MirrorPathType", "append"]
 - !private ["Ps14MirrorPathType", "characters"]
 - !private ["Ps14MirrorPathType", "containsString"]
@@ -867,12 +872,14 @@ depends-member:
 - !private ["Ps17SignedIntegerType", "Distance"]
 - !private ["Ps17SignedIntegerType", "IntegerLiteralType"]
 - !private ["Ps17SignedIntegerType", "Stride"]
+- !private ["Ps17SignedIntegerType", "_DisabledRangeIndex"]
 - !private ["Ps17SignedIntegerType", "hashValue"]
 - !private ["Ps17SignedIntegerType", "init"]
 - !private ["Ps17SignedIntegerType", "successor"]
 - !private ["Ps16SignedNumberType", "Distance"]
 - !private ["Ps16SignedNumberType", "IntegerLiteralType"]
 - !private ["Ps16SignedNumberType", "Stride"]
+- !private ["Ps16SignedNumberType", "_DisabledRangeIndex"]
 - !private ["Ps16SignedNumberType", "hashValue"]
 - !private ["Ps16SignedNumberType", "init"]
 - !private ["Ps16SignedNumberType", "successor"]
@@ -972,6 +979,14 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "frame"]
 - !private ["PSo18UIFocusEnvironment", "kCALineJoinRound"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
+- !private ["PSo11UIFocusItem", "CAShapeLayer"]
+- !private ["PSo11UIFocusItem", "CGPoint"]
+- !private ["PSo11UIFocusItem", "CGRect"]
+- !private ["PSo11UIFocusItem", "UIBezierPath"]
+- !private ["PSo11UIFocusItem", "UIColor"]
+- !private ["PSo11UIFocusItem", "frame"]
+- !private ["PSo11UIFocusItem", "kCALineJoinRound"]
+- !private ["PSo11UIFocusItem", "layer"]
 - !private ["VSC10UIRectEdge", "Bottom"]
 - !private ["VSC10UIRectEdge", "Left"]
 - !private ["VSC10UIRectEdge", "Right"]
@@ -986,6 +1001,15 @@ depends-member:
 - !private ["CSo11UIResponder", "frame"]
 - !private ["CSo11UIResponder", "kCALineJoinRound"]
 - !private ["CSo11UIResponder", "layer"]
+- !private ["PSo30UIResponderStandardEditActions", "CAShapeLayer"]
+- !private ["PSo30UIResponderStandardEditActions", "CGPoint"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRect"]
+- !private ["PSo30UIResponderStandardEditActions", "UIBezierPath"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- ["PSo30UIResponderStandardEditActions", "addDashedBorder"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- !private ["PSo30UIResponderStandardEditActions", "kCALineJoinRound"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
 - !private ["PSo18UITraitEnvironment", "CAShapeLayer"]
 - !private ["PSo18UITraitEnvironment", "CGPoint"]
 - !private ["PSo18UITraitEnvironment", "CGRect"]
@@ -1166,6 +1190,7 @@ depends-member:
 - !private ["Ps18_SignedIntegerType", "Distance"]
 - !private ["Ps18_SignedIntegerType", "IntegerLiteralType"]
 - !private ["Ps18_SignedIntegerType", "Stride"]
+- !private ["Ps18_SignedIntegerType", "_DisabledRangeIndex"]
 - !private ["Ps18_SignedIntegerType", "hashValue"]
 - !private ["Ps18_SignedIntegerType", "init"]
 - !private ["Ps18_SignedIntegerType", "successor"]
@@ -1181,6 +1206,7 @@ depends-nominal:
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
 - "CSo7CALayer"
+- !private "PSo15CALayerDelegate"
 - !private "PSo13CAMediaTiming"
 - !private "CSo12CAShapeLayer"
 - !private "V12CoreGraphics7CGFloat"
@@ -1258,8 +1284,10 @@ depends-nominal:
 - !private "PSo17UICoordinateSpace"
 - !private "PSo13UIDynamicItem"
 - !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
 - !private "VSC10UIRectEdge"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - !private "PSo18UITraitEnvironment"
 - "CSo6UIView"
 - !private "Su"
@@ -1288,20 +1316,20 @@ depends-nominal:
 - !private "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "2f5b9e5345bc1b2edb4bf91b6cdb004e"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "2983c050564762afd035f6c592185840"

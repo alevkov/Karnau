@@ -6,61 +6,68 @@ provides-nominal:
 provides-member:
 - ["C2KK7MapView", ""]
 provides-dynamic-lookup:
-- "touchesBegan"
-- "drawMapBorders"
-- "drawRectAroundButtons"
+- "touchesMoved"
 - "touchesEnded"
+- "mintermButtons"
+- "touchesBegan"
 - "offMintermButtons"
 - "drawRect"
-- "touchesMoved"
 - "mesh"
-- "mintermButtons"
+- "groupErr"
+- "drawRectAroundButtons"
+- "drawMapBorders"
 depends-top-level:
-- !private "BooleanLiteralType"
-- "UIButton"
-- !private "Array"
-- !private "NSNotificationCenter"
-- !private "&&"
+- !private "log2"
+- !private "%"
 - "CGPoint"
-- !private "!="
-- "Int"
-- "NSCoder"
-- !private "UnicodeScalarType"
-- "UITouch"
-- !private "CGRectMake"
-- "UInt"
+- !private "ON"
+- !private "NSNotificationCenter"
+- "CGRect"
+- !private "UIBezierPath"
+- !private "||"
+- "Bool"
+- "Set"
+- !private "print"
 - "UIEvent"
 - "MapView"
-- !private "UIControlState"
-- !private "!"
-- !private "-"
-- "QMProductSum"
-- !private "UIBezierPath"
-- "Mesh"
-- "Bool"
-- !private "UIColor"
-- !private "StringLiteralType"
+- !private "CGRectMake"
 - !private "CGRectContainsPoint"
-- "UIView"
-- !private "ON"
-- !private "BACKGROUND_COLOR"
-- "CGRect"
-- "Set"
+- "UInt"
+- !private "&&"
 - !private "CGRectUnion"
-- !private ">"
-- !private "QMCore"
-- !private "fatalError"
-- !private "String"
-- !private "print"
-- !private "=="
+- !private "Double"
+- !private "Array"
+- !private "UnicodeScalarType"
+- "QMProductSum"
+- !private "BooleanLiteralType"
+- "Mesh"
+- "Int"
 - !private "UIViewAnimationOptions"
+- !private "!"
+- !private "fatalError"
+- !private "UIControlState"
+- !private "!="
+- "UITouch"
+- !private "=="
+- !private "UIColor"
+- "NSCoder"
+- !private "StringLiteralType"
+- !private ">"
+- "UIButton"
+- !private "QMCore"
+- !private "-"
+- !private "BACKGROUND_COLOR"
+- !private "String"
+- "UIView"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "BACKGROUND_COLOR"]
 - !private ["Ps9AnyObject", "CGColor"]
 - !private ["Ps9AnyObject", "CGRect"]
 - !private ["Ps9AnyObject", "CGRectContainsPoint"]
 - !private ["Ps9AnyObject", "CGRectMake"]
 - !private ["Ps9AnyObject", "CGRectUnion"]
+- !private ["Ps9AnyObject", "Double"]
 - !private ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "Mesh"]
 - !private ["Ps9AnyObject", "NSNotificationCenter"]
@@ -94,12 +101,15 @@ depends-member:
 - ["Ps9AnyObject", "drawRectAroundButtons"]
 - !private ["Ps9AnyObject", "fatalError"]
 - !private ["Ps9AnyObject", "frame"]
+- !private ["Ps9AnyObject", "getMinCount"]
+- ["Ps9AnyObject", "groupErr"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "intValue"]
 - ["Ps9AnyObject", "isAttemptingWrapAround"]
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "lineWidth"]
 - !private ["Ps9AnyObject", "locationInView"]
+- !private ["Ps9AnyObject", "log2"]
 - ["Ps9AnyObject", "magnitude"]
 - ["Ps9AnyObject", "mesh"]
 - !private ["Ps9AnyObject", "minimizer"]
@@ -138,6 +148,7 @@ depends-member:
 - !private ["Sa", "append"]
 - !private ["Sa", "count"]
 - !private ["Sa", "init"]
+- !private ["Sa", "last"]
 - !private ["Sa", "popLast"]
 - !private ["Sa", "removeAll"]
 - !private ["Sa", "removeAtIndex"]
@@ -153,6 +164,7 @@ depends-member:
 - !private ["Ps23ArrayLiteralConvertible", "count"]
 - !private ["Ps23ArrayLiteralConvertible", "first"]
 - !private ["Ps23ArrayLiteralConvertible", "init"]
+- !private ["Ps23ArrayLiteralConvertible", "last"]
 - !private ["Ps23ArrayLiteralConvertible", "popLast"]
 - !private ["Ps23ArrayLiteralConvertible", "removeAll"]
 - !private ["Ps23ArrayLiteralConvertible", "removeAtIndex"]
@@ -171,6 +183,65 @@ depends-member:
 - !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
 - !private ["CSo7CALayer", "borderColor"]
 - !private ["CSo7CALayer", "borderWidth"]
+- !private ["PSo15CALayerDelegate", "BACKGROUND_COLOR"]
+- !private ["PSo15CALayerDelegate", "CGRect"]
+- !private ["PSo15CALayerDelegate", "CGRectContainsPoint"]
+- !private ["PSo15CALayerDelegate", "CGRectMake"]
+- !private ["PSo15CALayerDelegate", "CGRectUnion"]
+- !private ["PSo15CALayerDelegate", "Double"]
+- !private ["PSo15CALayerDelegate", "Int"]
+- !private ["PSo15CALayerDelegate", "Mesh"]
+- !private ["PSo15CALayerDelegate", "NSNotificationCenter"]
+- !private ["PSo15CALayerDelegate", "ON"]
+- !private ["PSo15CALayerDelegate", "QMCore"]
+- !private ["PSo15CALayerDelegate", "QMProductSum"]
+- !private ["PSo15CALayerDelegate", "String"]
+- !private ["PSo15CALayerDelegate", "UIBezierPath"]
+- !private ["PSo15CALayerDelegate", "UIButton"]
+- !private ["PSo15CALayerDelegate", "UIColor"]
+- !private ["PSo15CALayerDelegate", "UIControlState"]
+- !private ["PSo15CALayerDelegate", "UIView"]
+- !private ["PSo15CALayerDelegate", "UIViewAnimationOptions"]
+- !private ["PSo15CALayerDelegate", "UInt"]
+- !private ["PSo15CALayerDelegate", "addDashedBorder"]
+- !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "alpha"]
+- !private ["PSo15CALayerDelegate", "animateWithDuration"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "bounds"]
+- ["PSo15CALayerDelegate", "dcCoordinates"]
+- ["PSo15CALayerDelegate", "drawMapBorders"]
+- ["PSo15CALayerDelegate", "drawRect"]
+- ["PSo15CALayerDelegate", "drawRectAroundButtons"]
+- !private ["PSo15CALayerDelegate", "fatalError"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- ["PSo15CALayerDelegate", "groupErr"]
+- ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "isAttemptingWrapAround"]
+- !private ["PSo15CALayerDelegate", "layer"]
+- !private ["PSo15CALayerDelegate", "log2"]
+- ["PSo15CALayerDelegate", "magnitude"]
+- ["PSo15CALayerDelegate", "mesh"]
+- ["PSo15CALayerDelegate", "mintermButtons"]
+- ["PSo15CALayerDelegate", "offMintermButtons"]
+- ["PSo15CALayerDelegate", "onCoordinates"]
+- !private ["PSo15CALayerDelegate", "opaque"]
+- !private ["PSo15CALayerDelegate", "print"]
+- !private ["PSo15CALayerDelegate", "qmmap"]
+- !private ["PSo15CALayerDelegate", "removeFromSuperview"]
+- !private ["PSo15CALayerDelegate", "selected"]
+- ["PSo15CALayerDelegate", "selectedMintermButtons"]
+- ["PSo15CALayerDelegate", "selectedProductSum"]
+- !private ["PSo15CALayerDelegate", "setTitle"]
+- !private ["PSo15CALayerDelegate", "subviews"]
+- !private ["PSo15CALayerDelegate", "tag"]
+- !private ["PSo15CALayerDelegate", "textColor"]
+- !private ["PSo15CALayerDelegate", "titleLabel"]
+- ["PSo15CALayerDelegate", "touchesBegan"]
+- ["PSo15CALayerDelegate", "touchesEnded"]
+- ["PSo15CALayerDelegate", "touchesMoved"]
+- !private ["PSo15CALayerDelegate", "userInteractionEnabled"]
+- ["PSo15CALayerDelegate", ""]
 - !private ["PSo13CAMediaTiming", "borderColor"]
 - !private ["PSo13CAMediaTiming", "borderWidth"]
 - !private ["V12CoreGraphics7CGFloat", "deinit"]
@@ -188,6 +259,7 @@ depends-member:
 - !private ["Ps11CVarArgType", "CGRectMake"]
 - !private ["Ps11CVarArgType", "CGRectUnion"]
 - !private ["Ps11CVarArgType", "Distance"]
+- !private ["Ps11CVarArgType", "Double"]
 - !private ["Ps11CVarArgType", "Int"]
 - !private ["Ps11CVarArgType", "IntegerLiteralType"]
 - !private ["Ps11CVarArgType", "Mesh"]
@@ -222,12 +294,15 @@ depends-member:
 - ["Ps11CVarArgType", "drawRectAroundButtons"]
 - !private ["Ps11CVarArgType", "fatalError"]
 - !private ["Ps11CVarArgType", "frame"]
+- !private ["Ps11CVarArgType", "getMinCount"]
+- ["Ps11CVarArgType", "groupErr"]
 - ["Ps11CVarArgType", "init"]
 - !private ["Ps11CVarArgType", "intValue"]
 - ["Ps11CVarArgType", "isAttemptingWrapAround"]
 - !private ["Ps11CVarArgType", "layer"]
 - !private ["Ps11CVarArgType", "lineWidth"]
 - !private ["Ps11CVarArgType", "locationInView"]
+- !private ["Ps11CVarArgType", "log2"]
 - ["Ps11CVarArgType", "magnitude"]
 - ["Ps11CVarArgType", "mesh"]
 - !private ["Ps11CVarArgType", "minimizer"]
@@ -267,6 +342,7 @@ depends-member:
 - !private ["Ps14CollectionType", "count"]
 - !private ["Ps14CollectionType", "first"]
 - !private ["Ps14CollectionType", "init"]
+- !private ["Ps14CollectionType", "last"]
 - !private ["Ps14CollectionType", "popLast"]
 - !private ["Ps14CollectionType", "removeAll"]
 - !private ["Ps14CollectionType", "removeAtIndex"]
@@ -281,6 +357,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "CGRectContainsPoint"]
 - !private ["Ps28CustomDebugStringConvertible", "CGRectMake"]
 - !private ["Ps28CustomDebugStringConvertible", "CGRectUnion"]
+- !private ["Ps28CustomDebugStringConvertible", "Double"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "Generator"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
@@ -322,12 +399,16 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "fatalError"]
 - !private ["Ps28CustomDebugStringConvertible", "first"]
 - !private ["Ps28CustomDebugStringConvertible", "frame"]
+- !private ["Ps28CustomDebugStringConvertible", "getMinCount"]
+- ["Ps28CustomDebugStringConvertible", "groupErr"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "intValue"]
 - ["Ps28CustomDebugStringConvertible", "isAttemptingWrapAround"]
+- !private ["Ps28CustomDebugStringConvertible", "last"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "lineWidth"]
 - !private ["Ps28CustomDebugStringConvertible", "locationInView"]
+- !private ["Ps28CustomDebugStringConvertible", "log2"]
 - ["Ps28CustomDebugStringConvertible", "magnitude"]
 - ["Ps28CustomDebugStringConvertible", "mesh"]
 - !private ["Ps28CustomDebugStringConvertible", "minimizer"]
@@ -369,6 +450,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "CGRectMake"]
 - !private ["Ps23CustomStringConvertible", "CGRectUnion"]
 - !private ["Ps23CustomStringConvertible", "Distance"]
+- !private ["Ps23CustomStringConvertible", "Double"]
 - !private ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "Generator"]
 - !private ["Ps23CustomStringConvertible", "Index"]
@@ -412,12 +494,16 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "fatalError"]
 - !private ["Ps23CustomStringConvertible", "first"]
 - !private ["Ps23CustomStringConvertible", "frame"]
+- !private ["Ps23CustomStringConvertible", "getMinCount"]
+- ["Ps23CustomStringConvertible", "groupErr"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "intValue"]
 - ["Ps23CustomStringConvertible", "isAttemptingWrapAround"]
+- !private ["Ps23CustomStringConvertible", "last"]
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "lineWidth"]
 - !private ["Ps23CustomStringConvertible", "locationInView"]
+- !private ["Ps23CustomStringConvertible", "log2"]
 - ["Ps23CustomStringConvertible", "magnitude"]
 - ["Ps23CustomStringConvertible", "mesh"]
 - !private ["Ps23CustomStringConvertible", "minimizer"]
@@ -458,6 +544,7 @@ depends-member:
 - !private ["Ps28DictionaryLiteralConvertible", "init"]
 - !private ["Ps28DictionaryLiteralConvertible", "removeAll"]
 - !private ["Ps28DictionaryLiteralConvertible", "subscript"]
+- !private ["Sd", "init"]
 - !private ["Ps9Equatable", "BACKGROUND_COLOR"]
 - !private ["Ps9Equatable", "CGColor"]
 - !private ["Ps9Equatable", "CGRect"]
@@ -466,6 +553,7 @@ depends-member:
 - !private ["Ps9Equatable", "CGRectUnion"]
 - !private ["Ps9Equatable", "CurveEaseInOut"]
 - !private ["Ps9Equatable", "Distance"]
+- !private ["Ps9Equatable", "Double"]
 - !private ["Ps9Equatable", "Generator"]
 - !private ["Ps9Equatable", "Index"]
 - !private ["Ps9Equatable", "Int"]
@@ -509,6 +597,8 @@ depends-member:
 - !private ["Ps9Equatable", "fatalError"]
 - !private ["Ps9Equatable", "first"]
 - !private ["Ps9Equatable", "frame"]
+- !private ["Ps9Equatable", "getMinCount"]
+- ["Ps9Equatable", "groupErr"]
 - !private ["Ps9Equatable", "height"]
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "intValue"]
@@ -516,6 +606,7 @@ depends-member:
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "lineWidth"]
 - !private ["Ps9Equatable", "locationInView"]
+- !private ["Ps9Equatable", "log2"]
 - ["Ps9Equatable", "magnitude"]
 - ["Ps9Equatable", "mesh"]
 - !private ["Ps9Equatable", "minimizer"]
@@ -550,6 +641,8 @@ depends-member:
 - !private ["Ps9Equatable", "x"]
 - !private ["Ps9Equatable", "y"]
 - ["Ps9Equatable", ""]
+- !private ["Ps23FloatLiteralConvertible", "init"]
+- !private ["Ps17FloatingPointType", "init"]
 - !private ["Ps16ForwardIndexType", "Distance"]
 - !private ["Ps16ForwardIndexType", "IntegerLiteralType"]
 - !private ["Ps16ForwardIndexType", "_DisabledRangeIndex"]
@@ -562,6 +655,7 @@ depends-member:
 - !private ["Ps8Hashable", "CGRectMake"]
 - !private ["Ps8Hashable", "CGRectUnion"]
 - !private ["Ps8Hashable", "Distance"]
+- !private ["Ps8Hashable", "Double"]
 - !private ["Ps8Hashable", "Generator"]
 - !private ["Ps8Hashable", "Index"]
 - !private ["Ps8Hashable", "Int"]
@@ -602,12 +696,15 @@ depends-member:
 - !private ["Ps8Hashable", "fatalError"]
 - !private ["Ps8Hashable", "first"]
 - !private ["Ps8Hashable", "frame"]
+- !private ["Ps8Hashable", "getMinCount"]
+- ["Ps8Hashable", "groupErr"]
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "intValue"]
 - ["Ps8Hashable", "isAttemptingWrapAround"]
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "lineWidth"]
 - !private ["Ps8Hashable", "locationInView"]
+- !private ["Ps8Hashable", "log2"]
 - ["Ps8Hashable", "magnitude"]
 - ["Ps8Hashable", "mesh"]
 - !private ["Ps8Hashable", "minimizer"]
@@ -647,6 +744,7 @@ depends-member:
 - !private ["Ps9Indexable", "count"]
 - !private ["Ps9Indexable", "first"]
 - !private ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "last"]
 - !private ["Ps9Indexable", "popLast"]
 - !private ["Ps9Indexable", "removeAll"]
 - !private ["Ps9Indexable", "removeAtIndex"]
@@ -671,6 +769,7 @@ depends-member:
 - !private ["C2KK7MapView", "CGRectContainsPoint"]
 - !private ["C2KK7MapView", "CGRectMake"]
 - !private ["C2KK7MapView", "CGRectUnion"]
+- !private ["C2KK7MapView", "Double"]
 - ["C2KK7MapView", "Int"]
 - ["C2KK7MapView", "Mesh"]
 - ["C2KK7MapView", "NSCoder"]
@@ -698,8 +797,10 @@ depends-member:
 - ["C2KK7MapView", "drawRect"]
 - ["C2KK7MapView", "drawRectAroundButtons"]
 - !private ["C2KK7MapView", "fatalError"]
+- ["C2KK7MapView", "groupErr"]
 - ["C2KK7MapView", "init"]
 - !private ["C2KK7MapView", "isAttemptingWrapAround"]
+- !private ["C2KK7MapView", "log2"]
 - ["C2KK7MapView", "magnitude"]
 - ["C2KK7MapView", "mesh"]
 - ["C2KK7MapView", "mintermButtons"]
@@ -726,6 +827,7 @@ depends-member:
 - !private ["Ps21MutableCollectionType", "append"]
 - !private ["Ps21MutableCollectionType", "count"]
 - !private ["Ps21MutableCollectionType", "init"]
+- !private ["Ps21MutableCollectionType", "last"]
 - !private ["Ps21MutableCollectionType", "popLast"]
 - !private ["Ps21MutableCollectionType", "removeAll"]
 - !private ["Ps21MutableCollectionType", "removeAtIndex"]
@@ -738,6 +840,7 @@ depends-member:
 - !private ["Ps16MutableIndexable", "append"]
 - !private ["Ps16MutableIndexable", "count"]
 - !private ["Ps16MutableIndexable", "init"]
+- !private ["Ps16MutableIndexable", "last"]
 - !private ["Ps16MutableIndexable", "popLast"]
 - !private ["Ps16MutableIndexable", "removeAll"]
 - !private ["Ps16MutableIndexable", "removeAtIndex"]
@@ -750,6 +853,7 @@ depends-member:
 - !private ["Ps16MutableSliceable", "append"]
 - !private ["Ps16MutableSliceable", "count"]
 - !private ["Ps16MutableSliceable", "init"]
+- !private ["Ps16MutableSliceable", "last"]
 - !private ["Ps16MutableSliceable", "popLast"]
 - !private ["Ps16MutableSliceable", "removeAll"]
 - !private ["Ps16MutableSliceable", "removeAtIndex"]
@@ -760,6 +864,7 @@ depends-member:
 - !private ["PSo8NSCoding", "CGRectContainsPoint"]
 - !private ["PSo8NSCoding", "CGRectMake"]
 - !private ["PSo8NSCoding", "CGRectUnion"]
+- !private ["PSo8NSCoding", "Double"]
 - !private ["PSo8NSCoding", "Int"]
 - !private ["PSo8NSCoding", "Mesh"]
 - !private ["PSo8NSCoding", "NSNotificationCenter"]
@@ -788,10 +893,12 @@ depends-member:
 - ["PSo8NSCoding", "drawRectAroundButtons"]
 - !private ["PSo8NSCoding", "fatalError"]
 - !private ["PSo8NSCoding", "frame"]
+- ["PSo8NSCoding", "groupErr"]
 - ["PSo8NSCoding", "init"]
 - ["PSo8NSCoding", "isAttemptingWrapAround"]
 - !private ["PSo8NSCoding", "layer"]
 - !private ["PSo8NSCoding", "lineWidth"]
+- !private ["PSo8NSCoding", "log2"]
 - ["PSo8NSCoding", "magnitude"]
 - ["PSo8NSCoding", "mesh"]
 - ["PSo8NSCoding", "mintermButtons"]
@@ -834,6 +941,7 @@ depends-member:
 - !private ["CSo8NSObject", "CGRectContainsPoint"]
 - !private ["CSo8NSObject", "CGRectMake"]
 - !private ["CSo8NSObject", "CGRectUnion"]
+- !private ["CSo8NSObject", "Double"]
 - ["CSo8NSObject", "Int"]
 - ["CSo8NSObject", "Mesh"]
 - ["CSo8NSObject", "NSCoder"]
@@ -871,12 +979,15 @@ depends-member:
 - ["CSo8NSObject", "drawRectAroundButtons"]
 - !private ["CSo8NSObject", "fatalError"]
 - !private ["CSo8NSObject", "frame"]
+- !private ["CSo8NSObject", "getMinCount"]
+- ["CSo8NSObject", "groupErr"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "intValue"]
 - ["CSo8NSObject", "isAttemptingWrapAround"]
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "lineWidth"]
 - !private ["CSo8NSObject", "locationInView"]
+- !private ["CSo8NSObject", "log2"]
 - ["CSo8NSObject", "magnitude"]
 - ["CSo8NSObject", "mesh"]
 - !private ["CSo8NSObject", "minimizer"]
@@ -912,6 +1023,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "CGRectContainsPoint"]
 - !private ["PSo16NSObjectProtocol", "CGRectMake"]
 - !private ["PSo16NSObjectProtocol", "CGRectUnion"]
+- !private ["PSo16NSObjectProtocol", "Double"]
 - !private ["PSo16NSObjectProtocol", "Int"]
 - !private ["PSo16NSObjectProtocol", "Mesh"]
 - !private ["PSo16NSObjectProtocol", "NSNotificationCenter"]
@@ -945,12 +1057,15 @@ depends-member:
 - ["PSo16NSObjectProtocol", "drawRectAroundButtons"]
 - !private ["PSo16NSObjectProtocol", "fatalError"]
 - !private ["PSo16NSObjectProtocol", "frame"]
+- !private ["PSo16NSObjectProtocol", "getMinCount"]
+- ["PSo16NSObjectProtocol", "groupErr"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "intValue"]
 - ["PSo16NSObjectProtocol", "isAttemptingWrapAround"]
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "lineWidth"]
 - !private ["PSo16NSObjectProtocol", "locationInView"]
+- !private ["PSo16NSObjectProtocol", "log2"]
 - ["PSo16NSObjectProtocol", "magnitude"]
 - ["PSo16NSObjectProtocol", "mesh"]
 - !private ["PSo16NSObjectProtocol", "minimizer"]
@@ -996,6 +1111,7 @@ depends-member:
 - !private ["C2KK5QMMap", "minterms"]
 - !private ["C2KK9QMMinterm", "intValue"]
 - !private ["C2KK12QMProductSum", "deinit"]
+- !private ["C2KK12QMProductSum", "getMinCount"]
 - !private ["C2KK12QMProductSum", "init"]
 - !private ["Ps21RandomAccessIndexType", "Distance"]
 - !private ["Ps21RandomAccessIndexType", "IntegerLiteralType"]
@@ -1008,6 +1124,7 @@ depends-member:
 - !private ["Ps30RangeReplaceableCollectionType", "append"]
 - !private ["Ps30RangeReplaceableCollectionType", "count"]
 - !private ["Ps30RangeReplaceableCollectionType", "init"]
+- !private ["Ps30RangeReplaceableCollectionType", "last"]
 - !private ["Ps30RangeReplaceableCollectionType", "popLast"]
 - !private ["Ps30RangeReplaceableCollectionType", "removeAll"]
 - !private ["Ps30RangeReplaceableCollectionType", "removeAtIndex"]
@@ -1023,6 +1140,7 @@ depends-member:
 - !private ["Ps12SequenceType", "count"]
 - !private ["Ps12SequenceType", "first"]
 - !private ["Ps12SequenceType", "init"]
+- !private ["Ps12SequenceType", "last"]
 - !private ["Ps12SequenceType", "popLast"]
 - !private ["Ps12SequenceType", "removeAll"]
 - !private ["Ps12SequenceType", "removeAtIndex"]
@@ -1056,6 +1174,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "CGRectContainsPoint"]
 - !private ["PSo29UIAccessibilityIdentification", "CGRectMake"]
 - !private ["PSo29UIAccessibilityIdentification", "CGRectUnion"]
+- !private ["PSo29UIAccessibilityIdentification", "Double"]
 - !private ["PSo29UIAccessibilityIdentification", "Int"]
 - !private ["PSo29UIAccessibilityIdentification", "Mesh"]
 - !private ["PSo29UIAccessibilityIdentification", "NSNotificationCenter"]
@@ -1082,9 +1201,11 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "drawRectAroundButtons"]
 - !private ["PSo29UIAccessibilityIdentification", "fatalError"]
 - !private ["PSo29UIAccessibilityIdentification", "frame"]
+- ["PSo29UIAccessibilityIdentification", "groupErr"]
 - ["PSo29UIAccessibilityIdentification", "init"]
 - ["PSo29UIAccessibilityIdentification", "isAttemptingWrapAround"]
 - !private ["PSo29UIAccessibilityIdentification", "layer"]
+- !private ["PSo29UIAccessibilityIdentification", "log2"]
 - ["PSo29UIAccessibilityIdentification", "magnitude"]
 - ["PSo29UIAccessibilityIdentification", "mesh"]
 - ["PSo29UIAccessibilityIdentification", "mintermButtons"]
@@ -1112,6 +1233,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "CGRectContainsPoint"]
 - !private ["PSo12UIAppearance", "CGRectMake"]
 - !private ["PSo12UIAppearance", "CGRectUnion"]
+- !private ["PSo12UIAppearance", "Double"]
 - !private ["PSo12UIAppearance", "Int"]
 - !private ["PSo12UIAppearance", "Mesh"]
 - !private ["PSo12UIAppearance", "NSNotificationCenter"]
@@ -1138,9 +1260,11 @@ depends-member:
 - ["PSo12UIAppearance", "drawRectAroundButtons"]
 - !private ["PSo12UIAppearance", "fatalError"]
 - !private ["PSo12UIAppearance", "frame"]
+- ["PSo12UIAppearance", "groupErr"]
 - ["PSo12UIAppearance", "init"]
 - ["PSo12UIAppearance", "isAttemptingWrapAround"]
 - !private ["PSo12UIAppearance", "layer"]
+- !private ["PSo12UIAppearance", "log2"]
 - ["PSo12UIAppearance", "magnitude"]
 - ["PSo12UIAppearance", "mesh"]
 - ["PSo12UIAppearance", "mintermButtons"]
@@ -1168,6 +1292,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "CGRectContainsPoint"]
 - !private ["PSo21UIAppearanceContainer", "CGRectMake"]
 - !private ["PSo21UIAppearanceContainer", "CGRectUnion"]
+- !private ["PSo21UIAppearanceContainer", "Double"]
 - !private ["PSo21UIAppearanceContainer", "Int"]
 - !private ["PSo21UIAppearanceContainer", "Mesh"]
 - !private ["PSo21UIAppearanceContainer", "NSNotificationCenter"]
@@ -1194,9 +1319,11 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "drawRectAroundButtons"]
 - !private ["PSo21UIAppearanceContainer", "fatalError"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
+- ["PSo21UIAppearanceContainer", "groupErr"]
 - ["PSo21UIAppearanceContainer", "init"]
 - ["PSo21UIAppearanceContainer", "isAttemptingWrapAround"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
+- !private ["PSo21UIAppearanceContainer", "log2"]
 - ["PSo21UIAppearanceContainer", "magnitude"]
 - ["PSo21UIAppearanceContainer", "mesh"]
 - ["PSo21UIAppearanceContainer", "mintermButtons"]
@@ -1234,6 +1361,7 @@ depends-member:
 - !private ["CSo7UIColor", "init"]
 - !private ["CSo7UIColor", "setStroke"]
 - !private ["CSo7UIColor", "whiteColor"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "textColor"]
 - !private ["CSo9UIControl", "backgroundColor"]
 - !private ["CSo9UIControl", "frame"]
 - !private ["CSo9UIControl", "init"]
@@ -1248,6 +1376,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "CGRectContainsPoint"]
 - !private ["PSo17UICoordinateSpace", "CGRectMake"]
 - !private ["PSo17UICoordinateSpace", "CGRectUnion"]
+- !private ["PSo17UICoordinateSpace", "Double"]
 - !private ["PSo17UICoordinateSpace", "Int"]
 - !private ["PSo17UICoordinateSpace", "Mesh"]
 - !private ["PSo17UICoordinateSpace", "NSNotificationCenter"]
@@ -1274,9 +1403,11 @@ depends-member:
 - ["PSo17UICoordinateSpace", "drawRectAroundButtons"]
 - !private ["PSo17UICoordinateSpace", "fatalError"]
 - !private ["PSo17UICoordinateSpace", "frame"]
+- ["PSo17UICoordinateSpace", "groupErr"]
 - ["PSo17UICoordinateSpace", "init"]
 - ["PSo17UICoordinateSpace", "isAttemptingWrapAround"]
 - !private ["PSo17UICoordinateSpace", "layer"]
+- !private ["PSo17UICoordinateSpace", "log2"]
 - ["PSo17UICoordinateSpace", "magnitude"]
 - ["PSo17UICoordinateSpace", "mesh"]
 - ["PSo17UICoordinateSpace", "mintermButtons"]
@@ -1304,6 +1435,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "CGRectContainsPoint"]
 - !private ["PSo13UIDynamicItem", "CGRectMake"]
 - !private ["PSo13UIDynamicItem", "CGRectUnion"]
+- !private ["PSo13UIDynamicItem", "Double"]
 - !private ["PSo13UIDynamicItem", "Int"]
 - !private ["PSo13UIDynamicItem", "Mesh"]
 - !private ["PSo13UIDynamicItem", "NSNotificationCenter"]
@@ -1330,9 +1462,11 @@ depends-member:
 - ["PSo13UIDynamicItem", "drawRectAroundButtons"]
 - !private ["PSo13UIDynamicItem", "fatalError"]
 - !private ["PSo13UIDynamicItem", "frame"]
+- ["PSo13UIDynamicItem", "groupErr"]
 - ["PSo13UIDynamicItem", "init"]
 - ["PSo13UIDynamicItem", "isAttemptingWrapAround"]
 - !private ["PSo13UIDynamicItem", "layer"]
+- !private ["PSo13UIDynamicItem", "log2"]
 - ["PSo13UIDynamicItem", "magnitude"]
 - ["PSo13UIDynamicItem", "mesh"]
 - ["PSo13UIDynamicItem", "mintermButtons"]
@@ -1361,6 +1495,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "CGRectContainsPoint"]
 - !private ["PSo18UIFocusEnvironment", "CGRectMake"]
 - !private ["PSo18UIFocusEnvironment", "CGRectUnion"]
+- !private ["PSo18UIFocusEnvironment", "Double"]
 - !private ["PSo18UIFocusEnvironment", "Int"]
 - !private ["PSo18UIFocusEnvironment", "Mesh"]
 - !private ["PSo18UIFocusEnvironment", "NSNotificationCenter"]
@@ -1387,9 +1522,11 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "drawRectAroundButtons"]
 - !private ["PSo18UIFocusEnvironment", "fatalError"]
 - !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "groupErr"]
 - ["PSo18UIFocusEnvironment", "init"]
 - ["PSo18UIFocusEnvironment", "isAttemptingWrapAround"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
+- !private ["PSo18UIFocusEnvironment", "log2"]
 - ["PSo18UIFocusEnvironment", "magnitude"]
 - ["PSo18UIFocusEnvironment", "mesh"]
 - ["PSo18UIFocusEnvironment", "mintermButtons"]
@@ -1412,6 +1549,65 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "touchesMoved"]
 - !private ["PSo18UIFocusEnvironment", "userInteractionEnabled"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "BACKGROUND_COLOR"]
+- !private ["PSo11UIFocusItem", "CGRect"]
+- !private ["PSo11UIFocusItem", "CGRectContainsPoint"]
+- !private ["PSo11UIFocusItem", "CGRectMake"]
+- !private ["PSo11UIFocusItem", "CGRectUnion"]
+- !private ["PSo11UIFocusItem", "Double"]
+- !private ["PSo11UIFocusItem", "Int"]
+- !private ["PSo11UIFocusItem", "Mesh"]
+- !private ["PSo11UIFocusItem", "NSNotificationCenter"]
+- !private ["PSo11UIFocusItem", "ON"]
+- !private ["PSo11UIFocusItem", "QMCore"]
+- !private ["PSo11UIFocusItem", "QMProductSum"]
+- !private ["PSo11UIFocusItem", "String"]
+- !private ["PSo11UIFocusItem", "UIBezierPath"]
+- !private ["PSo11UIFocusItem", "UIButton"]
+- !private ["PSo11UIFocusItem", "UIColor"]
+- !private ["PSo11UIFocusItem", "UIControlState"]
+- !private ["PSo11UIFocusItem", "UIView"]
+- !private ["PSo11UIFocusItem", "UIViewAnimationOptions"]
+- !private ["PSo11UIFocusItem", "UInt"]
+- !private ["PSo11UIFocusItem", "addDashedBorder"]
+- !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "alpha"]
+- !private ["PSo11UIFocusItem", "animateWithDuration"]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "bounds"]
+- ["PSo11UIFocusItem", "dcCoordinates"]
+- ["PSo11UIFocusItem", "drawMapBorders"]
+- ["PSo11UIFocusItem", "drawRect"]
+- ["PSo11UIFocusItem", "drawRectAroundButtons"]
+- !private ["PSo11UIFocusItem", "fatalError"]
+- !private ["PSo11UIFocusItem", "frame"]
+- ["PSo11UIFocusItem", "groupErr"]
+- ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "isAttemptingWrapAround"]
+- !private ["PSo11UIFocusItem", "layer"]
+- !private ["PSo11UIFocusItem", "log2"]
+- ["PSo11UIFocusItem", "magnitude"]
+- ["PSo11UIFocusItem", "mesh"]
+- ["PSo11UIFocusItem", "mintermButtons"]
+- ["PSo11UIFocusItem", "offMintermButtons"]
+- ["PSo11UIFocusItem", "onCoordinates"]
+- !private ["PSo11UIFocusItem", "opaque"]
+- !private ["PSo11UIFocusItem", "print"]
+- !private ["PSo11UIFocusItem", "qmmap"]
+- !private ["PSo11UIFocusItem", "removeFromSuperview"]
+- !private ["PSo11UIFocusItem", "selected"]
+- ["PSo11UIFocusItem", "selectedMintermButtons"]
+- ["PSo11UIFocusItem", "selectedProductSum"]
+- !private ["PSo11UIFocusItem", "setTitle"]
+- !private ["PSo11UIFocusItem", "subviews"]
+- !private ["PSo11UIFocusItem", "tag"]
+- !private ["PSo11UIFocusItem", "textColor"]
+- !private ["PSo11UIFocusItem", "titleLabel"]
+- ["PSo11UIFocusItem", "touchesBegan"]
+- ["PSo11UIFocusItem", "touchesEnded"]
+- ["PSo11UIFocusItem", "touchesMoved"]
+- !private ["PSo11UIFocusItem", "userInteractionEnabled"]
+- ["PSo11UIFocusItem", ""]
 - !private ["CSo7UILabel", "textColor"]
 - !private ["CSo11UIResponder", "BACKGROUND_COLOR"]
 - ["CSo11UIResponder", "Bool"]
@@ -1420,6 +1616,7 @@ depends-member:
 - !private ["CSo11UIResponder", "CGRectContainsPoint"]
 - !private ["CSo11UIResponder", "CGRectMake"]
 - !private ["CSo11UIResponder", "CGRectUnion"]
+- !private ["CSo11UIResponder", "Double"]
 - ["CSo11UIResponder", "Int"]
 - ["CSo11UIResponder", "Mesh"]
 - ["CSo11UIResponder", "NSCoder"]
@@ -1450,9 +1647,11 @@ depends-member:
 - ["CSo11UIResponder", "drawRectAroundButtons"]
 - !private ["CSo11UIResponder", "fatalError"]
 - !private ["CSo11UIResponder", "frame"]
+- ["CSo11UIResponder", "groupErr"]
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "isAttemptingWrapAround"]
 - !private ["CSo11UIResponder", "layer"]
+- !private ["CSo11UIResponder", "log2"]
 - ["CSo11UIResponder", "magnitude"]
 - ["CSo11UIResponder", "mesh"]
 - ["CSo11UIResponder", "mintermButtons"]
@@ -1474,12 +1673,72 @@ depends-member:
 - ["CSo11UIResponder", "touchesEnded"]
 - ["CSo11UIResponder", "touchesMoved"]
 - !private ["CSo11UIResponder", "userInteractionEnabled"]
+- !private ["PSo30UIResponderStandardEditActions", "BACKGROUND_COLOR"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRect"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectContainsPoint"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectMake"]
+- !private ["PSo30UIResponderStandardEditActions", "CGRectUnion"]
+- !private ["PSo30UIResponderStandardEditActions", "Double"]
+- !private ["PSo30UIResponderStandardEditActions", "Int"]
+- !private ["PSo30UIResponderStandardEditActions", "Mesh"]
+- !private ["PSo30UIResponderStandardEditActions", "NSNotificationCenter"]
+- !private ["PSo30UIResponderStandardEditActions", "ON"]
+- !private ["PSo30UIResponderStandardEditActions", "QMCore"]
+- !private ["PSo30UIResponderStandardEditActions", "QMProductSum"]
+- !private ["PSo30UIResponderStandardEditActions", "String"]
+- !private ["PSo30UIResponderStandardEditActions", "UIBezierPath"]
+- !private ["PSo30UIResponderStandardEditActions", "UIButton"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
+- !private ["PSo30UIResponderStandardEditActions", "UIControlState"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
+- !private ["PSo30UIResponderStandardEditActions", "UIViewAnimationOptions"]
+- !private ["PSo30UIResponderStandardEditActions", "UInt"]
+- !private ["PSo30UIResponderStandardEditActions", "addDashedBorder"]
+- !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "alpha"]
+- !private ["PSo30UIResponderStandardEditActions", "animateWithDuration"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "bounds"]
+- ["PSo30UIResponderStandardEditActions", "dcCoordinates"]
+- ["PSo30UIResponderStandardEditActions", "drawMapBorders"]
+- ["PSo30UIResponderStandardEditActions", "drawRect"]
+- ["PSo30UIResponderStandardEditActions", "drawRectAroundButtons"]
+- !private ["PSo30UIResponderStandardEditActions", "fatalError"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "groupErr"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "isAttemptingWrapAround"]
+- !private ["PSo30UIResponderStandardEditActions", "layer"]
+- !private ["PSo30UIResponderStandardEditActions", "log2"]
+- ["PSo30UIResponderStandardEditActions", "magnitude"]
+- ["PSo30UIResponderStandardEditActions", "mesh"]
+- ["PSo30UIResponderStandardEditActions", "mintermButtons"]
+- ["PSo30UIResponderStandardEditActions", "offMintermButtons"]
+- ["PSo30UIResponderStandardEditActions", "onCoordinates"]
+- !private ["PSo30UIResponderStandardEditActions", "opaque"]
+- !private ["PSo30UIResponderStandardEditActions", "print"]
+- !private ["PSo30UIResponderStandardEditActions", "qmmap"]
+- !private ["PSo30UIResponderStandardEditActions", "removeFromSuperview"]
+- !private ["PSo30UIResponderStandardEditActions", "selected"]
+- ["PSo30UIResponderStandardEditActions", "selectedMintermButtons"]
+- ["PSo30UIResponderStandardEditActions", "selectedProductSum"]
+- !private ["PSo30UIResponderStandardEditActions", "setTitle"]
+- !private ["PSo30UIResponderStandardEditActions", "subviews"]
+- !private ["PSo30UIResponderStandardEditActions", "tag"]
+- !private ["PSo30UIResponderStandardEditActions", "textColor"]
+- !private ["PSo30UIResponderStandardEditActions", "titleLabel"]
+- ["PSo30UIResponderStandardEditActions", "touchesBegan"]
+- ["PSo30UIResponderStandardEditActions", "touchesEnded"]
+- ["PSo30UIResponderStandardEditActions", "touchesMoved"]
+- !private ["PSo30UIResponderStandardEditActions", "userInteractionEnabled"]
+- ["PSo30UIResponderStandardEditActions", ""]
 - !private ["CSo7UITouch", "locationInView"]
 - !private ["PSo18UITraitEnvironment", "BACKGROUND_COLOR"]
 - !private ["PSo18UITraitEnvironment", "CGRect"]
 - !private ["PSo18UITraitEnvironment", "CGRectContainsPoint"]
 - !private ["PSo18UITraitEnvironment", "CGRectMake"]
 - !private ["PSo18UITraitEnvironment", "CGRectUnion"]
+- !private ["PSo18UITraitEnvironment", "Double"]
 - !private ["PSo18UITraitEnvironment", "Int"]
 - !private ["PSo18UITraitEnvironment", "Mesh"]
 - !private ["PSo18UITraitEnvironment", "NSNotificationCenter"]
@@ -1506,9 +1765,11 @@ depends-member:
 - ["PSo18UITraitEnvironment", "drawRectAroundButtons"]
 - !private ["PSo18UITraitEnvironment", "fatalError"]
 - !private ["PSo18UITraitEnvironment", "frame"]
+- ["PSo18UITraitEnvironment", "groupErr"]
 - ["PSo18UITraitEnvironment", "init"]
 - ["PSo18UITraitEnvironment", "isAttemptingWrapAround"]
 - !private ["PSo18UITraitEnvironment", "layer"]
+- !private ["PSo18UITraitEnvironment", "log2"]
 - ["PSo18UITraitEnvironment", "magnitude"]
 - ["PSo18UITraitEnvironment", "mesh"]
 - ["PSo18UITraitEnvironment", "mintermButtons"]
@@ -1538,6 +1799,7 @@ depends-member:
 - !private ["CSo6UIView", "CGRectContainsPoint"]
 - !private ["CSo6UIView", "CGRectMake"]
 - !private ["CSo6UIView", "CGRectUnion"]
+- !private ["CSo6UIView", "Double"]
 - ["CSo6UIView", "Int"]
 - ["CSo6UIView", "Mesh"]
 - ["CSo6UIView", "NSCoder"]
@@ -1568,9 +1830,11 @@ depends-member:
 - ["CSo6UIView", "drawRectAroundButtons"]
 - !private ["CSo6UIView", "fatalError"]
 - !private ["CSo6UIView", "frame"]
+- ["CSo6UIView", "groupErr"]
 - ["CSo6UIView", "init"]
 - ["CSo6UIView", "isAttemptingWrapAround"]
 - !private ["CSo6UIView", "layer"]
+- !private ["CSo6UIView", "log2"]
 - ["CSo6UIView", "magnitude"]
 - ["CSo6UIView", "mesh"]
 - ["CSo6UIView", "mintermButtons"]
@@ -1604,14 +1868,18 @@ depends-member:
 - !private ["Ps10_ArrayType", "append"]
 - !private ["Ps10_ArrayType", "count"]
 - !private ["Ps10_ArrayType", "init"]
+- !private ["Ps10_ArrayType", "last"]
 - !private ["Ps10_ArrayType", "popLast"]
 - !private ["Ps10_ArrayType", "removeAll"]
 - !private ["Ps10_ArrayType", "removeAtIndex"]
 - !private ["Ps10_ArrayType", "subscript"]
 - !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps31_BuiltinFloatLiteralConvertible", "init"]
 - !private ["Ps33_BuiltinIntegerLiteralConvertible", "Distance"]
 - !private ["Ps33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
 - !private ["Ps33_BuiltinIntegerLiteralConvertible", "init"]
+- !private ["Ps19_CVarArgAlignedType", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
 - !private ["Ps24_ColorLiteralConvertible", "CGColor"]
 - !private ["Ps24_ColorLiteralConvertible", "init"]
 - !private ["Ps24_ColorLiteralConvertible", "setStroke"]
@@ -1624,6 +1892,7 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "append"]
 - !private ["Ps24_DestructorSafeContainer", "count"]
 - !private ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps24_DestructorSafeContainer", "last"]
 - !private ["Ps24_DestructorSafeContainer", "popLast"]
 - !private ["Ps24_DestructorSafeContainer", "removeAll"]
 - !private ["Ps24_DestructorSafeContainer", "removeAtIndex"]
@@ -1651,10 +1920,12 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "count"]
 - !private ["Ps21_ObjectiveCBridgeable", "first"]
 - !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "last"]
 - !private ["Ps21_ObjectiveCBridgeable", "popLast"]
 - !private ["Ps21_ObjectiveCBridgeable", "removeAll"]
 - !private ["Ps21_ObjectiveCBridgeable", "removeAtIndex"]
 - !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["Ps22_RandomAccessAmbiguity", "Distance"]
 - !private ["Ps22_RandomAccessAmbiguity", "IntegerLiteralType"]
 - !private ["Ps22_RandomAccessAmbiguity", "init"]
@@ -1664,6 +1935,7 @@ depends-member:
 - !private ["Ps12_Reflectable", "CGRectMake"]
 - !private ["Ps12_Reflectable", "CGRectUnion"]
 - !private ["Ps12_Reflectable", "Distance"]
+- !private ["Ps12_Reflectable", "Double"]
 - !private ["Ps12_Reflectable", "Element"]
 - !private ["Ps12_Reflectable", "Generator"]
 - !private ["Ps12_Reflectable", "Index"]
@@ -1701,10 +1973,13 @@ depends-member:
 - !private ["Ps12_Reflectable", "fatalError"]
 - !private ["Ps12_Reflectable", "first"]
 - !private ["Ps12_Reflectable", "frame"]
+- ["Ps12_Reflectable", "groupErr"]
 - !private ["Ps12_Reflectable", "height"]
 - ["Ps12_Reflectable", "init"]
 - ["Ps12_Reflectable", "isAttemptingWrapAround"]
+- !private ["Ps12_Reflectable", "last"]
 - !private ["Ps12_Reflectable", "layer"]
+- !private ["Ps12_Reflectable", "log2"]
 - ["Ps12_Reflectable", "magnitude"]
 - ["Ps12_Reflectable", "mesh"]
 - ["Ps12_Reflectable", "mintermButtons"]
@@ -1739,6 +2014,7 @@ depends-member:
 - !private ["Ps18_SignedIntegerType", "IntegerLiteralType"]
 - !private ["Ps18_SignedIntegerType", "init"]
 depends-nominal:
+- !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
 - !private "Sa"
 - !private "Ps23ArrayLiteralConvertible"
@@ -1749,6 +2025,7 @@ depends-nominal:
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
 - !private "CSo7CALayer"
+- "PSo15CALayerDelegate"
 - !private "PSo13CAMediaTiming"
 - !private "V12CoreGraphics7CGFloat"
 - "VSC7CGPoint"
@@ -1760,7 +2037,10 @@ depends-nominal:
 - "Ps23CustomStringConvertible"
 - !private "Vs10Dictionary"
 - !private "Ps28DictionaryLiteralConvertible"
+- !private "Sd"
 - "Ps9Equatable"
+- !private "Ps23FloatLiteralConvertible"
+- !private "Ps17FloatingPointType"
 - !private "Ps16ForwardIndexType"
 - !private "Ps13GeneratorType"
 - "Ps8Hashable"
@@ -1808,14 +2088,17 @@ depends-nominal:
 - !private "CSo12UIBezierPath"
 - !private "CSo8UIButton"
 - !private "CSo7UIColor"
+- !private "PSo30UIContentSizeCategoryAdjusting"
 - !private "CSo9UIControl"
 - !private "VSC14UIControlState"
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
 - !private "CSo7UIEvent"
 - "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
 - !private "CSo7UILabel"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - !private "CSo7UITouch"
 - "PSo18UITraitEnvironment"
 - "CSo6UIView"
@@ -1824,7 +2107,10 @@ depends-nominal:
 - !private "Ps19UnsignedIntegerType"
 - !private "Ps10_ArrayType"
 - !private "Ps33_BuiltinBooleanLiteralConvertible"
+- !private "Ps31_BuiltinFloatLiteralConvertible"
 - !private "Ps33_BuiltinIntegerLiteralConvertible"
+- !private "Ps19_CVarArgAlignedType"
+- !private "Ps22_CVarArgPassedAsDouble"
 - !private "Ps24_ColorLiteralConvertible"
 - !private "Ps24_DestructorSafeContainer"
 - !private "Ps28_DisallowMixedSignArithmetic"
@@ -1832,25 +2118,26 @@ depends-nominal:
 - !private "Ps22_IntegerArithmeticType"
 - !private "Ps12_IntegerType"
 - !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
 - !private "Ps22_RandomAccessAmbiguity"
 - "Ps12_Reflectable"
 - !private "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "ace69c4964cd400a9747f22e79ac3e08"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "33cb246e75ade53ad19db83f6caf0035"

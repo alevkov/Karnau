@@ -6,52 +6,52 @@ provides-nominal:
 provides-member:
 - ["C2KK6QMCore", ""]
 provides-dynamic-lookup:
+- "solutions"
+- "magnitude"
+- "computePrimeProducts"
 - "equations"
 - "minimizer"
-- "solutions"
-- "computePrimeProducts"
-- "magnitude"
-- "countVars"
 depends-top-level:
-- "QMProductSum"
-- !private "AnyObject"
 - "NSObject"
-- "String"
-- !private "!"
-- !private "ExtendedGraphemeClusterType"
-- !private "+"
-- !private "=="
-- !private "uniq"
-- !private "||"
 - !private "PrimeType"
-- !private "ParkBenchTimer"
+- !private "Int"
+- !private "BooleanLiteralType"
+- !private "&"
+- !private "UnicodeScalarType"
 - "QMCore"
-- !private "&&"
-- !private "log2"
-- !private "%"
 - !private "print"
-- !private ">"
-- !private "IMPLICANT_FLAG"
+- !private "uniq"
 - !private "Error"
-- !private "&="
-- !private "^"
-- !private "Array"
-- "GroupType"
-- "StringLiteralType"
+- "QMProductSum"
+- !private "!="
+- !private "*"
 - !private ">="
 - !private "qm"
-- "UInt"
-- !private "!="
-- !private "+="
-- "Int"
-- !private "&"
-- !private "-"
 - !private "OrderType"
-- !private "<"
-- !private "UnicodeScalarType"
-- !private "BooleanLiteralType"
+- !private "String"
+- !private "ExtendedGraphemeClusterType"
+- !private "+"
 - !private "Double"
-- "QMMinterm"
+- !private "QMMinterm"
+- !private "log2"
+- !private "-"
+- "StringLiteralType"
+- !private "||"
+- !private "%"
+- !private "&="
+- "UInt"
+- !private "ParkBenchTimer"
+- !private "Array"
+- "GroupType"
+- !private "AnyObject"
+- !private "<"
+- !private "+="
+- !private "IMPLICANT_FLAG"
+- !private ">"
+- !private "=="
+- !private "^"
+- !private "&&"
+- !private "!"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "AnyObject"]
@@ -625,14 +625,14 @@ depends-member:
 - !private ["CSo8NSObject", "Error"]
 - ["CSo8NSObject", "GroupType"]
 - !private ["CSo8NSObject", "IMPLICANT_FLAG"]
-- ["CSo8NSObject", "Int"]
+- !private ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "OrderType"]
 - !private ["CSo8NSObject", "ParkBenchTimer"]
 - !private ["CSo8NSObject", "PrimeType"]
 - ["CSo8NSObject", "QMCore"]
-- ["CSo8NSObject", "QMMinterm"]
+- !private ["CSo8NSObject", "QMMinterm"]
 - ["CSo8NSObject", "QMProductSum"]
-- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "UInt"]
 - !private ["CSo8NSObject", "characters"]
 - !private ["CSo8NSObject", "componentsSeparatedByString"]
@@ -741,18 +741,18 @@ depends-member:
 - !private ["C2KK6QMCore", "Error"]
 - ["C2KK6QMCore", "GroupType"]
 - !private ["C2KK6QMCore", "IMPLICANT_FLAG"]
-- ["C2KK6QMCore", "Int"]
+- !private ["C2KK6QMCore", "Int"]
 - !private ["C2KK6QMCore", "OrderType"]
 - !private ["C2KK6QMCore", "ParkBenchTimer"]
 - !private ["C2KK6QMCore", "PrimeType"]
 - ["C2KK6QMCore", "QMCore"]
-- ["C2KK6QMCore", "QMMinterm"]
+- !private ["C2KK6QMCore", "QMMinterm"]
 - ["C2KK6QMCore", "QMProductSum"]
-- ["C2KK6QMCore", "String"]
+- !private ["C2KK6QMCore", "String"]
 - ["C2KK6QMCore", "UInt"]
 - ["C2KK6QMCore", "computePrimeProducts"]
 - !private ["C2KK6QMCore", "convertMintermArrayToUInt"]
-- ["C2KK6QMCore", "countVars"]
+- !private ["C2KK6QMCore", "countVars"]
 - ["C2KK6QMCore", "deinit"]
 - !private ["C2KK6QMCore", "deriveNthOrder"]
 - ["C2KK6QMCore", "equations"]
@@ -764,7 +764,7 @@ depends-member:
 - !private ["C2KK6QMCore", "log2"]
 - ["C2KK6QMCore", "magnitude"]
 - ["C2KK6QMCore", "minimizer"]
-- ["C2KK6QMCore", "petrickify"]
+- !private ["C2KK6QMCore", "petrickify"]
 - !private ["C2KK6QMCore", "print"]
 - !private ["C2KK6QMCore", "qm"]
 - !private ["C2KK6QMCore", "reducePrimes"]
@@ -1110,20 +1110,20 @@ depends-nominal:
 - "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "ebf242f1eac016b5253dd03b88f118bd"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "fa7144b8792bbfe34dcdc0688a0001f6"

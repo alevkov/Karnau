@@ -21,7 +21,6 @@ enum Error : ErrorType {
 }
 
 extension String {
-	
 	subscript (i: Int) -> Character {
 		return self[self.startIndex.advancedBy(i)]
 	}
@@ -62,41 +61,24 @@ func ^^ (radix: Int, power: Int) -> Int {
 	return Int(pow(Double(radix), Double(power)))
 }
 
+// Logical ops for string type
+
 func ^ (left: String, right: String) -> UInt {
 	if left.characters.count != right.characters.count {
 		return 0
 	}
 	var strResult = ""
 	var intResult : UInt
-	
-	
-	for var i = 0; i < left.characters.count; ++i {
+	for i in 0 ..< left.characters.count {
 		if left[i] == right[i] {
 			strResult += "0"
 		} else {
 			strResult += "1"
 		}
 	}
-	
 	intResult = strtoul(strResult, nil, 2)
-	
 	return intResult
 }
-
-// uniqueness operator
-infix operator ~= {associativity left precedence 160 }
-func ~= (left: [UInt], right: [UInt]) -> Bool {
-	for l in left {
-		for r in right {
-			if l == r {
-				return false
-			}
-		}
-	}
-	return true
-}
-
-// Logical ops for string type
 
 func & (left: String, right: String) -> String {
 	if left == right {
@@ -109,9 +91,6 @@ func & (left: String, right: String) -> String {
 				result.append(r)
 			}
 		}
-//		if result.characters.count > 4 {
-//			return ""
-//		}
 		return result
 	}
 }
@@ -133,13 +112,10 @@ func &= (inout left: [String], right: [String]) {
 	left = left & right
 }
 
-// For petrick's method?
-
 func | (left: String, right: String) -> String? {
 	if left == right {
 		return left
 	}
-	
 	if Set(left.characters).isSubsetOf(Set(right.characters)) {
 		return left
 	} else if Set(right.characters).isSubsetOf(Set(right.characters)) {
@@ -209,7 +185,6 @@ extension CALayer {
 
 extension UIColor { // Use HEX color value as argument
 	convenience init(hex: Int, alpha: CGFloat = 1.0) {
-		
 		let red			= CGFloat((hex & 0xFF0000)	>> 16) / 255.0
 		let green		= CGFloat((hex & 0xFF00)	>> 8 ) / 255.0
 		let blue		= CGFloat((hex & 0xFF)			 ) / 255.0
@@ -244,7 +219,6 @@ extension Array {
 				}
 			}
 		}
-		
 		if(index != nil) {
 			self.removeAtIndex(index!)
 		}
@@ -264,7 +238,6 @@ func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source:
 }
 
 class ParkBenchTimer {
-	
 	let startTime:CFAbsoluteTime
 	var endTime:CFAbsoluteTime?
 	
@@ -286,6 +259,3 @@ class ParkBenchTimer {
 		}
 	}
 }
-
-
-

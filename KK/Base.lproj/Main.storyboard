@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Lantinghei.ttc">
+        <array key="Lantinghei.ttc">
             <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-            <string>FZLTXHK--GBK1-0</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Menu View Controller-->
@@ -30,11 +21,10 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u79-yG-Jxj">
-                                <rect key="frame" x="238" y="302" width="125" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="G9u-oi-v72"/>
                                     <constraint firstAttribute="height" constant="50" id="q9I-y4-Nit"/>
@@ -47,7 +37,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb1-ul-d7b">
-                                <rect key="frame" x="238" y="371" width="125" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aXz-Yh-Z23"/>
                                     <constraint firstAttribute="width" constant="125" id="udv-cz-cNG"/>
@@ -55,14 +44,13 @@
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Engineer">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="engineerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjK-T1-7vp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmZ-rg-lE9">
-                                <rect key="frame" x="238" y="439" width="125" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="IEk-a9-P5a"/>
                                     <constraint firstAttribute="height" constant="50" id="MWf-4f-nnf"/>
@@ -70,10 +58,10 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="SfC-n1-Ltp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="Casual">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="casualPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vjk-JA-AKf"/>
@@ -109,11 +97,10 @@
                         <viewControllerLayoutGuide type="bottom" id="ffM-74-rlX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uig-Z1-fNe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A2-bT-5eK">
-                                <rect key="frame" x="238" y="145" width="125" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="c9S-W9-fOT"/>
                                     <constraint firstAttribute="width" constant="125" id="ubL-HP-MTf"/>
@@ -126,7 +113,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Laa-j1-iDM">
-                                <rect key="frame" x="238" y="347" width="125" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BRZ-nm-tCu"/>
                                     <constraint firstAttribute="width" constant="125" id="cVn-ea-ddX"/>
@@ -139,28 +125,26 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Y-lb-naF">
-                                <rect key="frame" x="249" y="480" width="103" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="Cp1-dX-Y3G"/>
                                     <constraint firstAttribute="width" constant="103" id="fKI-Lp-fDl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="26"/>
                                 <state key="normal" title="K">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="goButtonAction:" destination="POE-BC-vZG" eventType="touchUpInside" id="wAc-pY-0yB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4y-O8-Maj">
-                                <rect key="frame" x="264" y="56" width="72" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="Pg7-5T-O7B"/>
                                     <constraint firstAttribute="height" constant="45" id="WZh-Ze-Tg4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="23"/>
                                 <state key="normal" title="&lt;&lt;">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -172,7 +156,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1A2-bT-5eK" firstAttribute="top" secondItem="KRb-LF-qgx" secondAttribute="bottom" constant="125" id="66A-cK-HWT"/>
                             <constraint firstItem="F4y-O8-Maj" firstAttribute="centerX" secondItem="uig-Z1-fNe" secondAttribute="centerX" id="E46-wx-4ew"/>
@@ -211,55 +195,51 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZX-Sq-dyh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oDS-TO-wHa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKc-18-iJx">
-                                <rect key="frame" x="264" y="56" width="72" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="9SI-jX-Ud8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="23"/>
                                 <state key="normal" title="&lt;&lt;">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="bb0-oP-y5B" eventType="touchUpInside" id="n7b-tr-YnM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqS-dR-nCE">
-                                <rect key="frame" x="264" y="130" width="72" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="EIW-Yb-Lal"/>
                                     <constraint firstAttribute="height" constant="44" id="szE-Iq-oKy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="20"/>
                                 <state key="normal" title="reset">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="resetTableButtonTapped:" destination="bb0-oP-y5B" eventType="touchUpInside" id="6ym-XU-m9f"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UR9-Ft-9Qw">
-                                <rect key="frame" x="264" y="473" width="72" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ms6-pP-WjP"/>
                                     <constraint firstAttribute="width" constant="72" id="wgL-p9-kte"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="20"/>
                                 <state key="normal" title="check">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVL-gK-4uO">
-                                <rect key="frame" x="20" y="444" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FiU-4l-wMz"/>
                                     <constraint firstAttribute="height" constant="21" id="htb-3l-e2k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="14"/>
-                                <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="17"/>
+                                <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -268,18 +248,18 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UR9-Ft-9Qw" firstAttribute="leading" secondItem="dqS-dR-nCE" secondAttribute="leading" id="1Wy-8f-rCO"/>
                             <constraint firstItem="dqS-dR-nCE" firstAttribute="leading" secondItem="VKc-18-iJx" secondAttribute="leading" id="725-Wu-CmH"/>
                             <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="8" id="KoB-vA-CWp"/>
-                            <constraint firstItem="9ZX-Sq-dyh" firstAttribute="top" secondItem="UR9-Ft-9Qw" secondAttribute="bottom" constant="83" id="TPx-aM-za5"/>
+                            <constraint firstItem="9ZX-Sq-dyh" firstAttribute="top" secondItem="UR9-Ft-9Qw" secondAttribute="bottom" constant="67" id="TPx-aM-za5"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="centerX" secondItem="UR9-Ft-9Qw" secondAttribute="centerX" id="bUj-iY-6dP"/>
                             <constraint firstItem="VKc-18-iJx" firstAttribute="top" secondItem="qNp-60-Vam" secondAttribute="bottom" constant="36" id="duZ-Pg-rri"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="leading" secondItem="oDS-TO-wHa" secondAttribute="leadingMargin" id="fmk-xJ-mnd"/>
                             <constraint firstItem="VKc-18-iJx" firstAttribute="centerX" secondItem="oDS-TO-wHa" secondAttribute="centerX" id="jEc-Pm-mPI"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="leading" secondItem="oDS-TO-wHa" secondAttribute="leadingMargin" constant="84" id="oXz-Fr-neh"/>
-                            <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="8" symbolic="YES" id="onA-Fm-rXN"/>
+                            <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="9" id="onA-Fm-rXN"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="centerX" secondItem="UR9-Ft-9Qw" secondAttribute="centerX" id="tOB-zc-fWc"/>
                             <constraint firstItem="dqS-dR-nCE" firstAttribute="top" secondItem="VKc-18-iJx" secondAttribute="bottom" constant="30" id="vBX-rG-sP9"/>
                         </constraints>

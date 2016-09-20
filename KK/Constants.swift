@@ -23,4 +23,5 @@ let MAP_SIZE_RECT_HEIGHT: CGFloat = 350
 
 // Color
 let BACKGROUND_COLOR = UIColor(hex: 0x0E2430, alpha: 1.0)
+let ERROR_COLOR = UIColor(hex: 0x0E3024, alpha: 1.0)
 let MAP_BUTTON_HIGHLITED_COLOR = UIColor(hex: 0xFC3A51)

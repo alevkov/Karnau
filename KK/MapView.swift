@@ -9,6 +9,7 @@
 import UIKit
 
 class MapView: UIView {
+	let groupErr: UInt = 0b0010
 	
 	var mesh: Mesh?
 	var magnitude: UInt?
@@ -130,9 +131,21 @@ class MapView: UIView {
 			}
 		}
 		if table.count != 0 {
-			self.drawRectAroundButtons(group, wrapAround: self.isAttemptingWrapAround)
 			var equation = QMCore.minimizer.computePrimeProducts(table, magnitude: self.magnitude!)
 			var data: [String: QMProductSum] = [String: QMProductSum]()
+			if log2(Double(group.count)) % 1 != 0 || equation?.last?.getMinCount() > 1 {
+				var data: [String: UInt] = [String: UInt]()
+				data["error"] = groupErr
+				for b in self.mintermButtons {
+					if b.selected {
+						b.selected = false;
+					}
+				}
+				self.isAttemptingWrapAround = false
+				NSNotificationCenter.defaultCenter().postNotificationName("QMDidSelectGroupOnMap", object: self, userInfo: data)
+				return
+			}
+			self.drawRectAroundButtons(group, wrapAround: self.isAttemptingWrapAround)
 			data["data"] = equation?.popLast()
 			equation?.removeAll()
 			for b in self.mintermButtons {

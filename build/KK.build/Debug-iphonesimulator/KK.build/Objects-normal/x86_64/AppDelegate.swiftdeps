@@ -6,44 +6,44 @@ provides-nominal:
 provides-member:
 - ["C2KK11AppDelegate", ""]
 provides-dynamic-lookup:
-- "window"
-- "applicationDidEnterBackground"
-- "saveContext"
-- "applicationWillEnterForeground"
-- "application"
 - "applicationDidBecomeActive"
-- "managedObjectContext"
-- "applicationWillTerminate"
 - "applicationWillResignActive"
-- "managedObjectModel"
-- "persistentStoreCoordinator"
+- "managedObjectContext"
 - "applicationDocumentsDirectory"
+- "applicationWillTerminate"
+- "managedObjectModel"
+- "window"
+- "persistentStoreCoordinator"
+- "saveContext"
+- "application"
+- "applicationWillEnterForeground"
+- "applicationDidEnterBackground"
 depends-top-level:
-- "UIApplication"
-- !private "-"
-- "NSPersistentStoreCoordinator"
-- !private "NSUnderlyingErrorKey"
-- "UIApplicationDelegate"
-- !private "NSLocalizedDescriptionKey"
-- !private "NSLog"
-- !private "BooleanLiteralType"
-- "UIWindow"
+- !private "NSLocalizedFailureReasonErrorKey"
+- "NSManagedObjectContext"
+- "AppDelegate"
 - !private "String"
-- "UIResponder"
 - "StringLiteralType"
+- "UIResponder"
 - "NSObject"
 - "NSManagedObjectModel"
-- "NSURL"
-- !private "NSLocalizedFailureReasonErrorKey"
+- "NSPersistentStoreCoordinator"
+- !private "NSSQLiteStoreType"
+- !private "abort"
 - "Bool"
 - "AnyObject"
+- !private "NSLog"
+- !private "-"
+- !private "NSUnderlyingErrorKey"
+- !private "BooleanLiteralType"
+- "UIApplicationDelegate"
+- "NSURL"
 - !private "NSBundle"
-- !private "abort"
-- !private "NSFileManager"
-- "AppDelegate"
-- !private "NSSQLiteStoreType"
+- !private "NSLocalizedDescriptionKey"
+- "UIWindow"
+- "UIApplication"
 - !private "NSError"
-- "NSManagedObjectContext"
+- !private "NSFileManager"
 depends-member:
 - !private ["Ps9AnyObject", "AnyObject"]
 - !private ["Ps9AnyObject", "NSBundle"]
@@ -729,6 +729,44 @@ depends-member:
 - ["CSo11UIResponder", "saveContext"]
 - ["CSo11UIResponder", "window"]
 - ["CSo11UIResponder", ""]
+- !private ["PSo30UIResponderStandardEditActions", "AnyObject"]
+- !private ["PSo30UIResponderStandardEditActions", "NSBundle"]
+- !private ["PSo30UIResponderStandardEditActions", "NSError"]
+- !private ["PSo30UIResponderStandardEditActions", "NSFileManager"]
+- !private ["PSo30UIResponderStandardEditActions", "NSLocalizedDescriptionKey"]
+- !private ["PSo30UIResponderStandardEditActions", "NSLocalizedFailureReasonErrorKey"]
+- !private ["PSo30UIResponderStandardEditActions", "NSLog"]
+- !private ["PSo30UIResponderStandardEditActions", "NSManagedObjectContext"]
+- !private ["PSo30UIResponderStandardEditActions", "NSManagedObjectModel"]
+- !private ["PSo30UIResponderStandardEditActions", "NSPersistentStoreCoordinator"]
+- !private ["PSo30UIResponderStandardEditActions", "NSSQLiteStoreType"]
+- !private ["PSo30UIResponderStandardEditActions", "NSUnderlyingErrorKey"]
+- !private ["PSo30UIResponderStandardEditActions", "String"]
+- !private ["PSo30UIResponderStandardEditActions", "abort"]
+- ["PSo30UIResponderStandardEditActions", "application"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidBecomeActive"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidEnterBackground"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidFinishLaunching"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidReceiveMemoryWarning"]
+- ["PSo30UIResponderStandardEditActions", "applicationDocumentsDirectory"]
+- ["PSo30UIResponderStandardEditActions", "applicationDocumentsDirectory.storage"]
+- ["PSo30UIResponderStandardEditActions", "applicationProtectedDataDidBecomeAvailable"]
+- ["PSo30UIResponderStandardEditActions", "applicationProtectedDataWillBecomeUnavailable"]
+- ["PSo30UIResponderStandardEditActions", "applicationShouldRequestHealthAuthorization"]
+- ["PSo30UIResponderStandardEditActions", "applicationSignificantTimeChange"]
+- ["PSo30UIResponderStandardEditActions", "applicationWillEnterForeground"]
+- ["PSo30UIResponderStandardEditActions", "applicationWillResignActive"]
+- ["PSo30UIResponderStandardEditActions", "applicationWillTerminate"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "managedObjectContext"]
+- ["PSo30UIResponderStandardEditActions", "managedObjectContext.storage"]
+- ["PSo30UIResponderStandardEditActions", "managedObjectModel"]
+- ["PSo30UIResponderStandardEditActions", "managedObjectModel.storage"]
+- ["PSo30UIResponderStandardEditActions", "persistentStoreCoordinator"]
+- ["PSo30UIResponderStandardEditActions", "persistentStoreCoordinator.storage"]
+- ["PSo30UIResponderStandardEditActions", "saveContext"]
+- ["PSo30UIResponderStandardEditActions", "window"]
+- ["PSo30UIResponderStandardEditActions", ""]
 - !private ["Su", "deinit"]
 - !private ["Vs6UInt16", "deinit"]
 - !private ["Vs6UInt32", "deinit"]
@@ -861,6 +899,7 @@ depends-nominal:
 - !private "Ps24StringLiteralConvertible"
 - "PSo21UIApplicationDelegate"
 - "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
 - !private "Su"
 - !private "Vs6UInt16"
 - !private "Vs6UInt32"
@@ -886,20 +925,20 @@ depends-nominal:
 - !private "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/KK-Bridging-Header.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleView.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Users/lexlevi/Desktop/dev/KK/KK/CKCircleLabel.h"
 - "/Users/lexlevi/Desktop/dev/KK/KK/StepSlider.h"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
 interface-hash: "db0900cbfbbd2c93377ac163706930ab"

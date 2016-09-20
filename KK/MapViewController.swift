@@ -28,7 +28,6 @@ class MapViewController: UIViewController {
 	override func viewDidLoad() {
 		self.equationLabel.text = ""
 		self.view.backgroundColor = BACKGROUND_COLOR
-		
 		if self.magnitude == 2 || self.magnitude == 4 || self.magnitude == 5 {
 			let map = MapView(frame: CGRectMake(CGRectGetMidX(self.view.frame) - MAP_SIZE_SQUARE / 2,
 									 CGRectGetMidY(self.view.frame) - MAP_SIZE_SQUARE / 2,
@@ -60,8 +59,17 @@ class MapViewController: UIViewController {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.equationDidChange(_:)), name: "QMDidSelectGroupOnMap", object: nil)
 	}
 	
-	func equationDidChange(notification: NSNotification) {
+	@objc private func equationDidChange(notification: NSNotification) {
 		if let data = notification.userInfo as? [String: QMProductSum] {
+			if data["error"] != nil {
+				let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+				alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+				self.presentViewController(alert, animated: true, completion: nil)
+				return
+			}
+			if self.equationLabel.text != "" {
+				self.equationLabel.text?.appendContentsOf(" + ")
+			}
 			self.equationLabel.text?.appendContentsOf((data["data"]?.convertToLetters())!)
 		}
 	}
