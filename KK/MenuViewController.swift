@@ -92,7 +92,7 @@ class MenuViewController: UIViewController {
 	
 	@IBAction func tutorialPressed(sender: AnyObject) {
 		animateMenuButton(tutorialButton) { (data: Bool) -> Void in
-
+			
 		}
 	}
 	
