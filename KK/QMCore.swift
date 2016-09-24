@@ -300,6 +300,7 @@ class QMCore: NSObject {
 		}
 		return reducePrimes(&primes, table: &table, ePrimes: &ePrimes)
 	}
+	
 	private func petrickify(inout expression: [[String]]) -> [[String]]? {
 		if expression.count == 1  {
 			return expression
@@ -324,17 +325,16 @@ class QMCore: NSObject {
 		if let n = value as? UInt {
 			var num = n;
 			var count: UInt = 0;
-			while(num != 0)
-			{
+			while(num != 0) {
 				num = num & (num - 1);
-				count = count + 1;
+				count += 1;
 			}
 			return count;
 		} else if let s = value as? String {
 			var count: UInt = 0
 			for c in s.characters {
 				if c == "1" {
-					count = count + 1;
+					count += 1;
 				}
 			}
 			return count
@@ -358,8 +358,7 @@ class QMCore: NSObject {
 				im.matches.append(min1)
 				im.matches.append(min2)
 				return im
-			}
-			else {
+			} else {
 				return nil
 			}
 		} else {
