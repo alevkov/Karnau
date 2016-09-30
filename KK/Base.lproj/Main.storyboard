@@ -215,7 +215,7 @@
                                     <constraint firstAttribute="width" constant="72" id="EIW-Yb-Lal"/>
                                     <constraint firstAttribute="height" constant="44" id="szE-Iq-oKy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="29"/>
                                 <state key="normal" title="reset">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -232,11 +232,14 @@
                                 <state key="normal" title="check">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkButtonTapped:" destination="bb0-oP-y5B" eventType="touchUpInside" id="LH5-UX-jLk"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVL-gK-4uO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVL-gK-4uO">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FiU-4l-wMz"/>
-                                    <constraint firstAttribute="height" constant="21" id="htb-3l-e2k"/>
+                                    <constraint firstAttribute="height" constant="57" id="htb-3l-e2k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="17"/>
                                 <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -253,33 +256,34 @@
                             <constraint firstItem="UR9-Ft-9Qw" firstAttribute="leading" secondItem="dqS-dR-nCE" secondAttribute="leading" id="1Wy-8f-rCO"/>
                             <constraint firstItem="dqS-dR-nCE" firstAttribute="leading" secondItem="VKc-18-iJx" secondAttribute="leading" id="725-Wu-CmH"/>
                             <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="8" id="KoB-vA-CWp"/>
-                            <constraint firstItem="9ZX-Sq-dyh" firstAttribute="top" secondItem="UR9-Ft-9Qw" secondAttribute="bottom" constant="67" id="TPx-aM-za5"/>
+                            <constraint firstItem="9ZX-Sq-dyh" firstAttribute="top" secondItem="UR9-Ft-9Qw" secondAttribute="bottom" constant="44" id="TPx-aM-za5"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="centerX" secondItem="UR9-Ft-9Qw" secondAttribute="centerX" id="bUj-iY-6dP"/>
                             <constraint firstItem="VKc-18-iJx" firstAttribute="top" secondItem="qNp-60-Vam" secondAttribute="bottom" constant="36" id="duZ-Pg-rri"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="leading" secondItem="oDS-TO-wHa" secondAttribute="leadingMargin" id="fmk-xJ-mnd"/>
                             <constraint firstItem="VKc-18-iJx" firstAttribute="centerX" secondItem="oDS-TO-wHa" secondAttribute="centerX" id="jEc-Pm-mPI"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="leading" secondItem="oDS-TO-wHa" secondAttribute="leadingMargin" constant="84" id="oXz-Fr-neh"/>
-                            <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="9" id="onA-Fm-rXN"/>
+                            <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="7" id="onA-Fm-rXN"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="centerX" secondItem="UR9-Ft-9Qw" secondAttribute="centerX" id="tOB-zc-fWc"/>
                             <constraint firstItem="dqS-dR-nCE" firstAttribute="top" secondItem="VKc-18-iJx" secondAttribute="bottom" constant="30" id="vBX-rG-sP9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="KoB-vA-CWp"/>
                                 <exclude reference="oXz-Fr-neh"/>
                                 <exclude reference="tOB-zc-fWc"/>
-                                <exclude reference="KoB-vA-CWp"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="VKc-18-iJx" id="mz1-8E-VVo"/>
+                        <outlet property="checkButton" destination="UR9-Ft-9Qw" id="l1V-5D-pr3"/>
                         <outlet property="equationLabel" destination="wVL-gK-4uO" id="hBD-oM-Ol6"/>
                         <outlet property="resetTableButton" destination="dqS-dR-nCE" id="Aru-bU-bXd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5w-8N-imF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="416"/>
+            <point key="canvasLocation" x="2605.5999999999999" y="415.14242878560725"/>
         </scene>
     </scenes>
 </document>

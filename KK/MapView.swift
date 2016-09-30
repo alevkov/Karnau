@@ -15,30 +15,27 @@ class MapView: UIView {
 	var magnitude: UInt?
 	var onCoordinates: [CGPoint]?
 	var dcCoordinates: [CGPoint]?
-	var mintermButtons: [UIButton]
-	var offMintermButtons: [UIButton]
-	
-	private var selectedMintermButtons: [UInt : UIButton]
-	private var selectedProductSum: QMProductSum
-	private var isAttemptingWrapAround: Bool
-	
+	var mintermButtons: [UIButton] = [UIButton]()
+	var offMintermButtons: [UIButton] = [UIButton]()
+	var solutions: [QMProductSum]? = [QMProductSum]()
+	private var selectedMintermButtons: [UInt : UIButton] = [UInt : UIButton]()
+	private var selectedProductSum: QMProductSum = QMProductSum(withProducts: [], magnitude: 0)
+	private var isAttemptingWrapAround: Bool = false
+
 	override init(frame: CGRect) {
-		self.mintermButtons = [UIButton]()
-		self.offMintermButtons = [UIButton]()
-		self.selectedMintermButtons = [UInt : UIButton]()
-		self.selectedProductSum = QMProductSum(withProducts: [], magnitude: 0)
-		self.isAttemptingWrapAround = false
 		super.init(frame: frame)
 		self.opaque = false
-		self.backgroundColor = BACKGROUND_COLOR
+		self.backgroundColor = bgColor
 	}
 	
-	convenience init(frame: CGRect, magnitude: Int, table: [Int]) {
+	convenience init(frame: CGRect, magnitude: Int, table: [UInt]) {
 		self.init(frame: frame)
-		NSNotificationCenter.defaultCenter().addObserverForName("QMDidResetTableOnMapView", object: nil, queue: nil) { (notification) in
+//		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapView.userDidCheckEquation(_:)), name: didCallForCheckEquationNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserverForName(didResetTableOnMapViewNotification, object: nil, queue: nil) { (notification) in
+			self.selectedProductSum = QMProductSum(withProducts: [], magnitude: 0)
 			for b in self.mintermButtons {
 				b.selected = false
-				b.backgroundColor = BACKGROUND_COLOR
+				b.backgroundColor = bgColor
 			}
 			for view in self.subviews {
 				if view.tag == -1 {
@@ -51,12 +48,13 @@ class MapView: UIView {
 			}
 			self.selectedMintermButtons.removeAll()
 		}
+		
 		self.magnitude = UInt(magnitude)
 		let mesh = Mesh(frame: self.bounds, magnitude: magnitude, table: table)
 		self.mesh = mesh
 		self.addSubview(mesh)
 		for m in mesh.qmmap!.minterms {
-			if (m.state == ON) {
+			if (m.state == on) {
 				var mintermInMapView: UIButton
 				if magnitude > 2 {
 					mintermInMapView = UIButton(frame: CGRectMake(m.coordinate!.x - 20, m.coordinate!.y - 20, 40, 40))
@@ -80,10 +78,35 @@ class MapView: UIView {
 				offMintermInMapView.userInteractionEnabled = false;
 				self.addSubview(offMintermInMapView)
 				self.offMintermButtons.append(offMintermInMapView)
-				
 			}
 		}
-		
+		NSNotificationCenter.defaultCenter().addObserverForName(didCallForCheckEquationNotification, object: self, queue: nil) { (notification) in
+			debugPrint(notification.debugDescription)
+			debugPrint("notification called")
+			var correct = false
+			self.selectedProductSum.print()
+			debugPrint(self.selectedProductSum.strRepresentationOfProducts)
+			if self.solutions == nil {
+				debugPrint("we are fucked")
+				return
+			} else {
+				for e in self.solutions! {
+					e.print()
+					debugPrint(e.strRepresentationOfProducts)
+					if self.selectedProductSum == e {
+						correct = true
+						break
+					}
+				}
+			}
+			if correct {
+				debugPrint("correct")
+			} else {
+				debugPrint("wrong")
+			}
+			let data = ["correct" : correct]
+			NSNotificationCenter.defaultCenter().postNotificationName(didCheckEquationNotification, object: self, userInfo: data)
+		}
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -127,13 +150,13 @@ class MapView: UIView {
 			if b.selected {
 				table.append(UInt(b.tag))
 				group.append(b)
-				b.backgroundColor = BACKGROUND_COLOR
+				b.backgroundColor = bgColor
 			}
 		}
 		if table.count != 0 {
 			var equation = QMCore.minimizer.computePrimeProducts(table, magnitude: self.magnitude!)
 			var data: [String: QMProductSum] = [String: QMProductSum]()
-			if log2(Double(group.count)) % 1 != 0 || equation?.last?.getMinCount() > 1 {
+			if log2(Double(group.count)) % 1 != 0 || equation?.last?.minCount > 1 {
 				var data: [String: UInt] = [String: UInt]()
 				data["error"] = groupErr
 				for b in self.mintermButtons {
@@ -142,10 +165,12 @@ class MapView: UIView {
 					}
 				}
 				self.isAttemptingWrapAround = false
-				NSNotificationCenter.defaultCenter().postNotificationName("QMDidSelectGroupOnMap", object: self, userInfo: data)
+				NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
 				return
 			}
 			self.drawRectAroundButtons(group, wrapAround: self.isAttemptingWrapAround)
+			// this is the ugliest way of doing things but shoot me, I'm tired
+			self.selectedProductSum.addProduct(equation!.last!.products.last!)
 			data["data"] = equation?.popLast()
 			equation?.removeAll()
 			for b in self.mintermButtons {
@@ -154,7 +179,7 @@ class MapView: UIView {
 				}
 			}
 			self.isAttemptingWrapAround = false
-			NSNotificationCenter.defaultCenter().postNotificationName("QMDidSelectGroupOnMap", object: self, userInfo: data)
+			NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
 		}
 	}
 	
@@ -189,12 +214,13 @@ class MapView: UIView {
 			grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
 			grabView.tag = -1
 			let drabView = UIView(frame: holeFrame[0])
-			drabView.backgroundColor = UIColor(colorLiteralRed: 1, green: 0, blue: 0, alpha: 0.3)
+			drabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0.6, alpha: 0.3)
 			drabView.layer.borderColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1).CGColor
 			drabView.layer.borderWidth = 1
 			drabView.tag = -1
-			//drabView.addDashedBorder()
+			drabView.addDashedBorder()
 			self.addSubview(grabView)
+			self.addSubview(drabView)
 		} else {
 			let grabView = UIView(frame: frames[0])
 			grabView.addDashedBorder()
@@ -203,5 +229,4 @@ class MapView: UIView {
 			self .addSubview(grabView)
 		}
 	}
-
 }

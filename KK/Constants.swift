@@ -8,20 +8,27 @@
 
 import Foundation
 
-let ON = true
-let OFF = false
+let on = true
+let off = false
+
+// Notifications
+
+let didSelectGroupNotification = "QMDidSelectGroupOnMap"
+let didCallForCheckEquationNotification = "QMDidCallForCheckEquation"
+let didResetTableOnMapViewNotification = "QMDidResetTableOnMapView"
+let didCheckEquationNotification = "QMDidCheckEquation"
 
 // QMCore
-let MAX_MAGNITUDE : UInt = 6
-let IMPLICANT_FLAG : UInt  = 999
-let PRIME_FLAG : UInt = 888
+let maxMagnitude : UInt = 6
+let implicantFlag : UInt  = 999
+let primeFlag : UInt = 888
 
 // Geometry
-let MAP_SIZE_SQUARE: CGFloat = 300
-let MAP_SIZE_RECT_WIDTH: CGFloat = 230
-let MAP_SIZE_RECT_HEIGHT: CGFloat = 350
+let mapSizeSquare: CGFloat = 300
+let mapSizeRectWidth: CGFloat = 200
+let mapSizeRectHeight: CGFloat = 300
 
 // Color
-let BACKGROUND_COLOR = UIColor(hex: 0x0E2430, alpha: 1.0)
-let ERROR_COLOR = UIColor(hex: 0x0E3024, alpha: 1.0)
-let MAP_BUTTON_HIGHLITED_COLOR = UIColor(hex: 0xFC3A51)
+let bgColor = UIColor(hex: 0x0E2430, alpha: 1.0)
+let errColor = UIColor(hex: 0x0E3024, alpha: 1.0)
+let mapBtnHighlightedColor = UIColor(hex: 0xFC3A51)

@@ -20,7 +20,6 @@ class MenuViewController: UIViewController {
 	let sB = UIStoryboard(name: "Main", bundle: nil)
 	
 	func setup () {
-		// . . L o g o
 		let logoView = LogoView(frame: CGRect(x: 0, y: 0, width: 220, height: 220))
 		logoView.frame.origin =  CGPointMake(CGRectGetMidX(logoView.frame), CGRectGetMidY(logoView.frame))
 		logoView.layer.anchorPoint = CGPointMake(CGRectGetMidX(logoView.frame), CGRectGetMidY(logoView.frame))
@@ -41,7 +40,7 @@ class MenuViewController: UIViewController {
 		engineerButton.layer.borderWidth = 1
 		casualButton.layer.borderColor = UIColor.whiteColor().CGColor
 		casualButton.layer.borderWidth = 1
-		self.view.backgroundColor = BACKGROUND_COLOR
+		self.view.backgroundColor = bgColor
 	}
 	
 	override func viewDidLoad() {
@@ -92,11 +91,10 @@ class MenuViewController: UIViewController {
 	
 	@IBAction func tutorialPressed(sender: AnyObject) {
 		animateMenuButton(tutorialButton) { (data: Bool) -> Void in
-			
 		}
 	}
 	
-	internal func animateMenuButton(view: AnyObject, completion: ((Bool) -> Void)?) {
+	func animateMenuButton(view: AnyObject, completion: ((Bool) -> Void)?) {
 		guard let button = view as? UIButton
 			else { print(Error.UnknownType); return }
 		
