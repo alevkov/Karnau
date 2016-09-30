@@ -32,9 +32,9 @@ class QMCore: NSObject {
 	lazy var solutions = [GroupType]()
 	lazy var equations = [QMProductSum]()
 	
-	/*----------------------------------------------------------*/
+	
 	private func sortedKeys (group: AnyObject) -> [UInt] {
-	/*----------------------------------------------------------*/
+	
 		var keys : [UInt] = []
 		if let mingroup = group as? OrderType {
 			for (k, _) in (mingroup) {
@@ -52,9 +52,9 @@ class QMCore: NSObject {
 		return []
 	}
 	
-	/*----------------------------------------------------------*/
+	
 	private func splitBuffer (buffer: [AnyObject], var order: OrderType, magnitude: UInt) -> OrderType {
-	/*----------------------------------------------------------*/
+	
 		for i in buffer {
 			if let intKey = i as? UInt {
 				if order[hashFunction(intKey)] == nil {
@@ -74,9 +74,8 @@ class QMCore: NSObject {
 		return order
 	}
 	
-	/*----------------------------------------------------------*/
+	
 	private func deriveNthOrder(buffer: [AnyObject], inout order: OrderType, inout residual: OrderType, magnitude: UInt) -> OrderType {
-	/*----------------------------------------------------------*/
 		if buffer.count == 0 {
 			return order
 		}
@@ -117,9 +116,9 @@ class QMCore: NSObject {
 		return deriveNthOrder(temp, order: &order, residual: &residual, magnitude: magnitude)
 	}
 	
-	/*----------------------------------------------------------*/
-	func computePrimeProducts (var withMinterms: [UInt], magnitude: UInt) -> [QMProductSum]? {
-	/*----------------------------------------------------------*/
+	
+	func computePrimeProducts (withMin: [UInt], magnitude: UInt) -> [QMProductSum]? {
+		var withMinterms = withMin
 		let timer = ParkBenchTimer() // start timer for algoithm
 		var order = OrderType()
 		var residual = OrderType()
@@ -140,11 +139,11 @@ class QMCore: NSObject {
 		for (_, min) in primes {
 			primesArray.append(min)
 		}
-		print(primesArray.count)
+		//print(primesArray.count)
 		if primesArray.count > 1 {
 			reducePrimes(&primesArray, table: &withMinterms, ePrimes: &ePrimes)
 		}
-		print(primesArray.count)
+		//print(primesArray.count)
 		var em = GroupType()
 		if primesArray.count >= 1 && withMinterms.count > 0 {
 			var primeCount = 0
@@ -189,9 +188,8 @@ class QMCore: NSObject {
 				primeDict[p.tag] = p
 			}
 			let keys = sortedKeys(petrickDict)
-			let key = keys[0]
-			let extras = petrickDict[Int(key)]
-			
+			let k = keys[0]
+			let extras = petrickDict[Int(k)]
 			/* extras contains a string array with strings with the smallest number of letter tags */
 			var extrasByCountOfTerms = [Int: [String]]()
 			for e in extras! {
@@ -200,7 +198,6 @@ class QMCore: NSObject {
 					print(primeDict[String(c)]!.stringValue)
 					key += countVars(primeDict[String(c)]!)
 				}
-	
 				if extrasByCountOfTerms[key] == nil {
 					extrasByCountOfTerms[key] = [String]()
 				}
@@ -234,7 +231,6 @@ class QMCore: NSObject {
 				equations.append(eq)
 			}
 			return equations
-			
 			/* TRIVIAL SOLUTION */
 		} else { // if there is only one non-essential prime or none left in the table, return the final solution
 			for (_, e) in ePrimes {
@@ -279,7 +275,6 @@ class QMCore: NSObject {
 					
 				}
 			}
-			
 		}
 		/* remove EP's from prime table */
 		for p in primes {
@@ -308,8 +303,6 @@ class QMCore: NSObject {
 		if expression[0].count > 100000 {
 			return nil
 		}
-		print(expression)
-		print("----")
 		expression[0] &= expression[1]
 		expression.removeAtIndex(1)
 		return petrickify(&expression)
@@ -319,9 +312,7 @@ class QMCore: NSObject {
 		return Int(self.magnitude) - (forMinterm.stringValue.componentsSeparatedByString("-").count - 1)
 	}
 	
-	/*----------------------------------------------------------*/
 	private func hashBitCount (nonnul value: AnyObject) -> UInt {
-	/*----------------------------------------------------------*/
 		if let n = value as? UInt {
 			var num = n;
 			var count: UInt = 0;
@@ -344,14 +335,12 @@ class QMCore: NSObject {
 		
 	}
 	
-	/*----------------------------------------------------------*/
 	private func grayCodeDiff (value1: AnyObject, value2: AnyObject) throws -> QMMinterm? {
-	/*----------------------------------------------------------*/
 		guard let min1 = value1 as? QMMinterm
 			else { throw Error.UnknownType }
 		guard let min2 = value2 as? QMMinterm
 			else { throw Error.UnknownType }
-		if min1.intValue != IMPLICANT_FLAG && min2.intValue != IMPLICANT_FLAG {
+		if min1.intValue != implicantFlag && min2.intValue != implicantFlag {
 			let comparator = min1.intValue ^ min2.intValue
 			if log2(Double(comparator)) % 1 == 0 {
 				let im = QMMinterm(min1: min1, min2: min2, idx: UInt(log2(Double(comparator))))
@@ -376,12 +365,9 @@ class QMCore: NSObject {
 				return nil
 			}
 		}
-		
 	}
 	
-	/*----------------------------------------------------------*/
 	private func hashFunction (value: UInt) -> UInt {
-	/*----------------------------------------------------------*/
 		let key = hashBitCount(nonnul: value)
 		return key
 	}

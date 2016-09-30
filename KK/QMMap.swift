@@ -13,61 +13,64 @@ class QMMap: NSObject {
 	var bounds: CGRect?
 	var magnitude: UInt = 0
 	
-	init(minterms: [Int], magnitude: UInt, bounds: CGRect) {
+	init(minterms: [UInt], magnitude: UInt, bounds: CGRect) {
 		self.magnitude = magnitude
 		self.bounds = bounds
 		let range = pow(Double(2), Double(self.magnitude))
 		if magnitude == 0 { return }
 		for m in (0...Int(range) - 1) {
 			let min = QMMinterm(i: UInt(m), m: magnitude)
-			let c = QMCoordiate(minterm: min, state: OFF)
+			let c = QMCoordiate(minterm: min, state: off)
 			self.minterms.insert(c, atIndex: m)
 		}
-		
 		for m in minterms {
-			self.minterms[m].state = ON
+			self.minterms[Int(m)].state = on
 		}
+	}
+	
+	func point(a: CGFloat, _ b: CGFloat) -> CGPoint {
+		return CGPointMake(a, b)
 	}
 	
 	func initCoordinates() {
 		let w = self.bounds!.width
 		switch self.magnitude {
 		case 2:
-			let orig = CGPointMake(CGRectGetMaxX(self.bounds!) * 0.25, CGRectGetMaxY(self.bounds!) * 0.25)
+			let orig = point(CGRectGetMaxX(self.bounds!) * 0.25, CGRectGetMaxY(self.bounds!) * 0.25)
 			self.minterms[0].coordinate = orig
-			self.minterms[1].coordinate = CGPointMake(orig.x + w / 2, orig.y)
-			self.minterms[2].coordinate = CGPointMake(orig.x, orig.y + self.bounds!.height / 2)
-			self.minterms[3].coordinate = CGPointMake(orig.x + w / 2, orig.y + self.bounds!.height / 2)
+			self.minterms[1].coordinate = point(orig.x + w / 2, orig.y)
+			self.minterms[2].coordinate = point(orig.x, orig.y + self.bounds!.height / 2)
+			self.minterms[3].coordinate = point(orig.x + w / 2, orig.y + self.bounds!.height / 2)
 			break
 		case 3:
-			let orig = CGPointMake(CGRectGetMaxX(self.bounds!) * 0.25, CGRectGetMaxY(self.bounds!) * 0.125)
+			let orig = point(CGRectGetMaxX(self.bounds!) * 0.25, CGRectGetMaxY(self.bounds!) * 0.125)
 			self.minterms[0].coordinate = orig
-			self.minterms[1].coordinate = CGPointMake(orig.x + w / 2, orig.y)
-			self.minterms[2].coordinate = CGPointMake(orig.x, w * 0.375 + orig.y)
-			self.minterms[3].coordinate = CGPointMake(orig.x + w / 2, w * 0.375 + orig.y)
-			self.minterms[6].coordinate = CGPointMake(orig.x, w * 0.75 + orig.y)
-			self.minterms[7].coordinate = CGPointMake(orig.x + w / 2, w * 0.75 + orig.y)
-			self.minterms[4].coordinate = CGPointMake(orig.x, orig.y + w * 1.125)
-			self.minterms[5].coordinate = CGPointMake(orig.x + w / 2, orig.y + w * 1.125)
+			self.minterms[1].coordinate = point(orig.x + w / 2, orig.y)
+			self.minterms[2].coordinate = point(orig.x, w * 0.375 + orig.y)
+			self.minterms[3].coordinate = point(orig.x + w / 2, w * 0.375 + orig.y)
+			self.minterms[6].coordinate = point(orig.x, w * 0.75 + orig.y)
+			self.minterms[7].coordinate = point(orig.x + w / 2, w * 0.75 + orig.y)
+			self.minterms[4].coordinate = point(orig.x, orig.y + w * 1.125)
+			self.minterms[5].coordinate = point(orig.x + w / 2, orig.y + w * 1.125)
 			break
 		case 4:
-			let orig = CGPointMake(CGRectGetMaxX(self.bounds!) * 0.125, CGRectGetMaxY(self.bounds!) * 0.125)
+			let orig = point(CGRectGetMaxX(self.bounds!) * 0.125, CGRectGetMaxY(self.bounds!) * 0.125)
 			self.minterms[0].coordinate = orig
-			self.minterms[1].coordinate = CGPointMake(orig.x + w * 0.25, orig.y)
-			self.minterms[3].coordinate = CGPointMake(orig.x + w * 0.5, orig.y)
-			self.minterms[2].coordinate = CGPointMake(orig.x + w * 0.75, orig.y)
-			self.minterms[4].coordinate = CGPointMake(orig.x, orig.y + w * 0.25)
-			self.minterms[5].coordinate = CGPointMake(orig.x + w * 0.25, w * 0.25 + orig.y)
-			self.minterms[7].coordinate = CGPointMake(orig.x + w * 0.5, w * 0.25 + orig.y)
-			self.minterms[6].coordinate = CGPointMake(orig.x + w * 0.75, w * 0.25 + orig.y)
-			self.minterms[12].coordinate = CGPointMake(orig.x, orig.y + w * 0.5)
-			self.minterms[13].coordinate = CGPointMake(orig.x + w * 0.25, w * 0.5 + orig.y)
-			self.minterms[15].coordinate = CGPointMake(orig.x + w * 0.5, w * 0.5 + orig.y)
-			self.minterms[14].coordinate = CGPointMake(orig.x + w * 0.75, w * 0.5 + orig.y)
-			self.minterms[8].coordinate = CGPointMake(orig.x, orig.y + w * 0.75)
-			self.minterms[9].coordinate = CGPointMake(orig.x + w * 0.25, w * 0.75 + orig.y)
-			self.minterms[11].coordinate = CGPointMake(orig.x + w * 0.5, w * 0.75 + orig.y)
-			self.minterms[10].coordinate = CGPointMake(orig.x + w * 0.75, w * 0.75 + orig.y)
+			self.minterms[1].coordinate = point(orig.x + w * 0.25, orig.y)
+			self.minterms[3].coordinate = point(orig.x + w * 0.5, orig.y)
+			self.minterms[2].coordinate = point(orig.x + w * 0.75, orig.y)
+			self.minterms[4].coordinate = point(orig.x, orig.y + w * 0.25)
+			self.minterms[5].coordinate = point(orig.x + w * 0.25, w * 0.25 + orig.y)
+			self.minterms[7].coordinate = point(orig.x + w * 0.5, w * 0.25 + orig.y)
+			self.minterms[6].coordinate = point(orig.x + w * 0.75, w * 0.25 + orig.y)
+			self.minterms[12].coordinate = point(orig.x, orig.y + w * 0.5)
+			self.minterms[13].coordinate = point(orig.x + w * 0.25, w * 0.5 + orig.y)
+			self.minterms[15].coordinate = point(orig.x + w * 0.5, w * 0.5 + orig.y)
+			self.minterms[14].coordinate = point(orig.x + w * 0.75, w * 0.5 + orig.y)
+			self.minterms[8].coordinate = point(orig.x, orig.y + w * 0.75)
+			self.minterms[9].coordinate = point(orig.x + w * 0.25, w * 0.75 + orig.y)
+			self.minterms[11].coordinate = point(orig.x + w * 0.5, w * 0.75 + orig.y)
+			self.minterms[10].coordinate = point(orig.x + w * 0.75, w * 0.75 + orig.y)
 			break
 		case 5:
 			break

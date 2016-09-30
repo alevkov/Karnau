@@ -13,8 +13,8 @@ class Mesh: UIView {
 	
 	var magnitude = 0
 	var qmmap: QMMap?
-	var thickness = 1
-	lazy var table = [Int]()
+	var thickness = 0.5
+	lazy var table = [UInt]()
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -23,7 +23,7 @@ class Mesh: UIView {
 		
 	}
 	
-	convenience init(frame:CGRect, magnitude: Int, table: [Int]) {
+	convenience init(frame:CGRect, magnitude: Int, table: [UInt]) {
 		self.init(frame: frame)
 		self.magnitude = magnitude
 		self.table = table
@@ -39,6 +39,10 @@ class Mesh: UIView {
 		self.drawMesh(rect)
 	}
 	
+	func point(a: CGFloat, _ b: CGFloat) -> CGPoint {
+		return CGPointMake(a, b)
+	}
+	
 	func drawBezierLine (start start: CGPoint, end: CGPoint) {
 		let bezierPath = UIBezierPath()
 		bezierPath.moveToPoint(start)
@@ -52,49 +56,42 @@ class Mesh: UIView {
 	}
 	
 	func drawMesh(frame: CGRect) {
-		
+		let midX = CGRectGetMidX(self.bounds)
+		let midY = CGRectGetMidY(self.bounds)
+		let minX = CGRectGetMinX(self.bounds)
+		let minY = CGRectGetMinY(self.bounds)
+		let maxX = CGRectGetMaxX(self.bounds)
+		let maxY = CGRectGetMaxY(self.bounds)
 		if magnitude == 2 {
-			drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds)),
-				end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds)))
-			
-			drawBezierLine(start: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(self.bounds)),
-				end: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMinY(self.bounds)))
+			drawBezierLine(start: point(minX, midY),
+							 end: point(maxX, midY))
+			drawBezierLine(start: point(midX,maxY),
+						     end: point(midX, minY))
 		}
-			
 		else if magnitude == 3 {
-			drawBezierLine(start: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(self.bounds)),
-			               end: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMinY(self.bounds)))
-			
-			drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds)),
-			               end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds)))
-			
-			drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds)/2),
-			               end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds)/2))
-			
-			drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds) + CGRectGetMidY(self.bounds)/2),
-			               end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds) + CGRectGetMidY(self.bounds)/2))
+			drawBezierLine(start: point(midX,maxY),
+			                 end: point(midX, minY))
+			drawBezierLine(start: point(minX, midY),
+			                 end: point(maxX, midY))
+			drawBezierLine(start: point(minX, midY/2),
+			                 end: point(maxX, midY/2))
+			drawBezierLine(start: point(minX, midY + midY/2),
+			                 end: point(maxX, midY + midY/2))
 		}
-			
 		else if magnitude == 4 || magnitude == 0 {
-		drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds)),
-								end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds)))
-		
-		drawBezierLine(start: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(self.bounds)),
-								end: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMinY(self.bounds)))
-		
-		drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds)/2),
-			                    end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds)/2))
-		
-		drawBezierLine(start: CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds) + CGRectGetMidY(self.bounds)/2),
-								end: CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds) + CGRectGetMidY(self.bounds)/2))
-		
-		drawBezierLine(start: CGPointMake(CGRectGetMidX(self.bounds) + CGRectGetMidX(self.bounds)/2, CGRectGetMinY(self.bounds)),
-								end: CGPointMake(CGRectGetMidX(self.bounds) + CGRectGetMidX(self.bounds)/2,CGRectGetMaxY(self.bounds)))
-
-		drawBezierLine(start: CGPointMake(CGRectGetMidX(self.bounds) / 2, CGRectGetMinY(self.bounds)),
-								end: CGPointMake(CGRectGetMidX(self.bounds) / 2, CGRectGetMaxY(self.bounds)))
+			drawBezierLine(start: point(minX, midY),
+							 end: point(maxX, midY))
+			drawBezierLine(start: point(midX,maxY),
+							 end: point(midX, minY))
+			drawBezierLine(start: point(minX, midY/2),
+							 end: point(maxX, midY/2))
+			drawBezierLine(start: point(minX, midY + midY/2),
+							 end: point(maxX, midY + midY/2))
+			drawBezierLine(start: point(midX + midX/2, minY),
+							 end: point(midX + midX/2, maxY))
+			drawBezierLine(start: point(midX / 2, minY),
+							 end: point(midX / 2, maxY))
 		}
-		
 		else if magnitude == 5 {
 			
 		}

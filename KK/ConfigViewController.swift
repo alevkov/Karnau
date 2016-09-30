@@ -31,7 +31,7 @@ class ConfigViewController: UIViewController {
 		} else {
 			vardialView.frame = CGRectMake(CGRectGetMidX(self.view.frame) - vardialView.frame.width/2, CGRectGetMidY(self.view.frame) - vardialView.frame.width * 1.00, vardialView.frame.width, vardialView.frame.height)
 		}
-		self.view.backgroundColor = BACKGROUND_COLOR
+		self.view.backgroundColor = bgColor
 		self.vardialView.letterScale = true;
 		self.vardialView.arcColor = UIColor(hex: 0x50E3C2, alpha: 1.0)
 		self.vardialView.backColor =  UIColor(hex: 0x50E3C2, alpha: 1.0)
@@ -102,10 +102,10 @@ class ConfigViewController: UIViewController {
 		return true
 	}
 	
-	func makeList(n:Int, cap: Int) -> [Int] {
-		var result:[Int] = []
+	func makeList(n:Int, cap: Int) -> [UInt] {
+		var result: [UInt] = []
 		for _ in 0..<n {
-			result.append(Int(arc4random_uniform(UInt32(cap))))
+			result.append(UInt(arc4random_uniform(UInt32(cap))))
 		}
 		result.sortInPlace({ $1 > $0 })
 		return uniq(result)
