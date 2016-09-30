@@ -15,10 +15,10 @@
 import Foundation
 
 /*
--- This class will be introduced to the scene as an object instance
+-- Will be introduced to the scene as an object instance
 -- Ultimately must produce an array of groups of minterms, represented as UInt16
--- Must be completely abstracted away from the GameScene, except for the instance
--- Application can have multiple instances running, but one per level/scene
+-- Completely abstracted away from the View
+-- Instantiated as a singleton
 */
 
 private let qm = QMCore()
