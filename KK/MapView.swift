@@ -10,7 +10,6 @@ import UIKit
 
 class MapView: UIView {
 	let groupErr: UInt = 0b0010
-	
 	var mesh: Mesh?
 	var magnitude: UInt?
 	var onCoordinates: [CGPoint]?
@@ -81,28 +80,15 @@ class MapView: UIView {
 			}
 		}
 		NSNotificationCenter.defaultCenter().addObserverForName(didCallForCheckEquationNotification, object: self, queue: nil) { (notification) in
-			debugPrint(notification.debugDescription)
-			debugPrint("notification called")
 			var correct = false
 			self.selectedProductSum.print()
-			debugPrint(self.selectedProductSum.strRepresentationOfProducts)
-			if self.solutions == nil {
-				debugPrint("we are fucked")
-				return
-			} else {
-				for e in self.solutions! {
-					e.print()
-					debugPrint(e.strRepresentationOfProducts)
-					if self.selectedProductSum == e {
-						correct = true
-						break
-					}
+			guard self.solutions != nil else { return }
+			for e in self.solutions! {
+				e.print()
+				if self.selectedProductSum == e {
+					correct = true
+					break
 				}
-			}
-			if correct {
-				debugPrint("correct")
-			} else {
-				debugPrint("wrong")
 			}
 			let data = ["correct" : correct]
 			NSNotificationCenter.defaultCenter().postNotificationName(didCheckEquationNotification, object: self, userInfo: data)
@@ -117,7 +103,7 @@ class MapView: UIView {
          self.drawMapBorders(rect)
     }
 	
-	func drawMapBorders(frame: CGRect) {
+	private func drawMapBorders(frame: CGRect) {
 		let rectanglePath = UIBezierPath(roundedRect: CGRectMake(self.bounds.origin.x, self.bounds.origin.y	, self.bounds.width, self.bounds.height), cornerRadius: 0)
 		rectanglePath.lineWidth = 5
 		UIColor.whiteColor().setStroke()
@@ -156,16 +142,7 @@ class MapView: UIView {
 		let touch = event?.allTouches()?.first
 		let touchLocation = touch?.locationInView(self)
 		guard CGRectContainsPoint(self.bounds, touchLocation!) else {
-			var data: [String: UInt] = [String: UInt]()
-			data["error"] = groupErr
-			for b in self.mintermButtons {
-				if b.selected {
-					b.backgroundColor = UIColor.clearColor()
-					b.selected = false;
-				}
-			}
-			self.isAttemptingWrapAround = false
-			NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+			self.touchedEndedWithError()
 			return
 		}
 		var table = [UInt]()
@@ -180,16 +157,8 @@ class MapView: UIView {
 		if table.count != 0 {
 			var equation = QMCore.minimizer.computePrimeProducts(table, magnitude: self.magnitude!)
 			var data: [String: QMProductSum] = [String: QMProductSum]()
-			if log2(Double(group.count)) % 1 != 0 || equation?.last?.minCount > 1 {
-				var data: [String: UInt] = [String: UInt]()
-				data["error"] = groupErr
-				for b in self.mintermButtons {
-					if b.selected {
-						b.selected = false;
-					}
-				}
-				self.isAttemptingWrapAround = false
-				NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+			guard log2(Double(group.count)) % 1 == 0 || equation?.last?.minCount <= 1 else {
+				self.touchedEndedWithError()
 				return
 			}
 			self.drawRectAroundButtons(group, wrapAround: self.isAttemptingWrapAround)
@@ -207,7 +176,20 @@ class MapView: UIView {
 		}
 	}
 	
-	func drawRectAroundButtons(buttons: [UIButton], wrapAround: Bool) {
+	private func touchedEndedWithError() {
+		var data: [String: UInt] = [String: UInt]()
+		data["error"] = groupErr
+		for b in self.mintermButtons {
+			if b.selected {
+				b.selected = false;
+				b.backgroundColor = UIColor.clearColor()
+			}
+		}
+		self.isAttemptingWrapAround = false
+		NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+	}
+	
+	private func drawRectAroundButtons(buttons: [UIButton], wrapAround: Bool) {
 		var frames = [CGRect]()
 		for b in buttons {
 			frames.append(b.frame)
@@ -216,7 +198,7 @@ class MapView: UIView {
 			// make frame around each minterm individually and animate them
 			for f in frames {
 				let grabView = UIView(frame: f)
-				grabView.addDashedBorder(wrapAroundGroupColor, animated: true)
+				grabView.addDashedBorder(normalGroupColor, animated: true)
 				grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
 				grabView.tag = -1
 				self.addSubview(grabView)

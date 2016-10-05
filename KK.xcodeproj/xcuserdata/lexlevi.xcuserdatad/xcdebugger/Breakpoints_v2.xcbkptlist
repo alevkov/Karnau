@@ -440,11 +440,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "496942429.621902"
+            timestampString = "497369356.316496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236">
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "MapView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -486,11 +488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "496941840.607597"
+            timestampString = "497336780.607111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "init(frame:magnitude:table:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -502,11 +504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "496941840.607597"
+            timestampString = "497336780.607111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "init(frame:magnitude:table:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -518,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "496941840.607597"
+            timestampString = "497336780.607111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "init(frame:magnitude:table:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -534,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "496941840.607597"
+            timestampString = "497336780.607111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "init(frame:magnitude:table:)"
             landmarkType = "7">
          </BreakpointContent>
