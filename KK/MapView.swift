@@ -133,17 +133,41 @@ class MapView: UIView {
 		let touchLocation = touch?.locationInView(self)
 		for b in self.mintermButtons {
 			if CGRectContainsPoint(b.frame, touchLocation!){
-				b.backgroundColor = UIColor(hex: 0x50E3C2, alpha: 0.8)
+				if self.isAttemptingWrapAround == true {
+					b.backgroundColor = wrapAroundGroupColor
+				} else {
+					b.backgroundColor = UIColor(hex: 0x50E3C2, alpha: 0.8)
+				}
+				
 				b.selected = true;
 			}
 		}
 		if !CGRectContainsPoint(self.bounds, touchLocation!) {
-			print(touchLocation!)
+			let options: UIViewAnimationOptions = [.CurveEaseInOut]
+			UIView.animateWithDuration(0.5, delay: 0.0, options: options, animations: {
+				self.alpha = 0.3
+				}, completion: nil)
 			self.isAttemptingWrapAround = true
 		}
 	}
 	
 	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		self.alpha = 1
+		let touch = event?.allTouches()?.first
+		let touchLocation = touch?.locationInView(self)
+		guard CGRectContainsPoint(self.bounds, touchLocation!) else {
+			var data: [String: UInt] = [String: UInt]()
+			data["error"] = groupErr
+			for b in self.mintermButtons {
+				if b.selected {
+					b.backgroundColor = UIColor.clearColor()
+					b.selected = false;
+				}
+			}
+			self.isAttemptingWrapAround = false
+			NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+			return
+		}
 		var table = [UInt]()
 		var group = [UIButton]()
 		for b in self.mintermButtons {
@@ -188,42 +212,22 @@ class MapView: UIView {
 		for b in buttons {
 			frames.append(b.frame)
 		}
-		while frames.count > 1 {
-			frames[0] = CGRectUnion(frames[0], frames[1])
-			frames.removeAtIndex(1)
-		}
 		if wrapAround == true {
-			let wholeFrame = frames[0]
-			var holeFrame = [CGRect]()
-			for b in self.offMintermButtons {
-				if wholeFrame.contains(b.frame) {
-					holeFrame.append(b.frame)
-				}
+			// make frame around each minterm individually and animate them
+			for f in frames {
+				let grabView = UIView(frame: f)
+				grabView.addDashedBorder(wrapAroundGroupColor, animated: true)
+				grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+				grabView.tag = -1
+				self.addSubview(grabView)
 			}
-			for c in self.mintermButtons {
-				if wholeFrame.contains(c.frame) && !c.selected {
-					holeFrame.append(c.frame)
-				}
-			}
-			while holeFrame.count > 1 {
-				holeFrame[0] = CGRectUnion(holeFrame[0], holeFrame[1])
-				holeFrame.removeAtIndex(1)
-			}
-			let grabView = UIView(frame: wholeFrame)
-			grabView.addDashedBorder()
-			grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
-			grabView.tag = -1
-			let drabView = UIView(frame: holeFrame[0])
-			drabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0.6, alpha: 0.3)
-			drabView.layer.borderColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1).CGColor
-			drabView.layer.borderWidth = 1
-			drabView.tag = -1
-			drabView.addDashedBorder()
-			self.addSubview(grabView)
-			self.addSubview(drabView)
 		} else {
+			while frames.count > 1 {
+				frames[0] = CGRectUnion(frames[0], frames[1])
+				frames.removeAtIndex(1)
+			}
 			let grabView = UIView(frame: frames[0])
-			grabView.addDashedBorder()
+			grabView.addDashedBorder(normalGroupColor, animated: false)
 			grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
 			grabView.tag = -1
 			self .addSubview(grabView)
