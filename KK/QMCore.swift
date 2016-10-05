@@ -53,8 +53,8 @@ class QMCore: NSObject {
 	}
 	
 	
-	private func splitBuffer (buffer: [AnyObject], var order: OrderType, magnitude: UInt) -> OrderType {
-	
+	private func splitBuffer (buffer: [AnyObject], orderGroup: OrderType, magnitude: UInt) -> OrderType {
+		var order: OrderType = orderGroup
 		for i in buffer {
 			if let intKey = i as? UInt {
 				if order[hashFunction(intKey)] == nil {
@@ -81,7 +81,7 @@ class QMCore: NSObject {
 		}
 		order = OrderType()
 		var temp = [AnyObject]()
-		order = splitBuffer(buffer, order: order, magnitude: magnitude) // O(n)
+		order = splitBuffer(buffer, orderGroup: order, magnitude: magnitude) // O(n)
 		for key in sortedKeys(order) {
 			guard let group = order[key] as GroupType?
 				else { print("error"); break}

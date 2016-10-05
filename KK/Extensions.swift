@@ -129,30 +129,22 @@ func | (left: String, right: String) -> String? {
 // ------------------------------
 
 extension UIView {
-	func addDashedBorder() {
-		let color = UIColor(hex: 0x50E3C2, alpha: 1.0).CGColor
+	func addDashedBorder(color: UIColor, animated: Bool) {
+		let c = color.CGColor
 		let shapeLayer:CAShapeLayer = CAShapeLayer()
 		let frameSize = self.frame.size
 		let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
 		shapeLayer.bounds = shapeRect
 		shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
-		shapeLayer.fillColor = UIColor.clearColor().CGColor
-		shapeLayer.strokeColor = color
+		shapeLayer.fillColor = animated == false ? UIColor.clearColor().CGColor : wrapAroundGroupColor.CGColor
+		shapeLayer.strokeColor = c
 		shapeLayer.lineWidth = 2
-		shapeLayer.lineJoin = kCALineJoinMiter
-		shapeLayer.lineDashPattern = [4,3]
 		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
-		let	fadeAnimationTo = CABasicAnimation(keyPath: "opacity")
-		fadeAnimationTo.fromValue = NSNumber(float: 1.0)
-		fadeAnimationTo.toValue = NSNumber(float: 0.0)
-		fadeAnimationTo.duration = 0.5
-		fadeAnimationTo.repeatCount = .infinity
-		let	fadeAnimationFro = CABasicAnimation(keyPath: "opacity")
-		fadeAnimationFro.fromValue = NSNumber(float: 0.0)
-		fadeAnimationFro.toValue = NSNumber(float: 1.0)
-		fadeAnimationFro.duration = 0.5
-		fadeAnimationFro.repeatCount = 1
-		shapeLayer.addAnimation(fadeAnimationFro, forKey: "opacity")
+		self.alpha = 0.0
+		let options: UIViewAnimationOptions = animated == true ? [.Autoreverse, .Repeat] : .CurveEaseInOut
+			UIView.animateWithDuration(1, delay: 0.0, options: options, animations: {
+				self.alpha = 1.0
+			}, completion: nil)
 		self.layer.addSublayer(shapeLayer)
 	}
 }
