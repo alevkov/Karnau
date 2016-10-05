@@ -38,7 +38,7 @@ class ConfigViewController: UIViewController {
 		self.vardialView.dialColor = UIColor.whiteColor()
 		self.vardialView.arcRadius = 80;
 		self.vardialView.minNum = 1;
-		self.vardialView.maxNum = 5;
+		self.vardialView.maxNum = 4;
 		self.vardialView.labelColor = UIColor.whiteColor()
 		self.vardialView.labelFont = UIFont(name: "Lantinghei SC", size: 22)
 		// return value on switch completion and store it
@@ -55,7 +55,7 @@ class ConfigViewController: UIViewController {
 		backButton.layer.borderWidth = 1
 		backButton.layer.borderColor = UIColor.whiteColor().CGColor
 		slider.frame = CGRectMake(CGRectGetMidX(self.vardialView.frame) - 100, CGRectGetMidY(self.vardialView.frame) + 200, 200, 20)
-		slider.maxCount = 5
+		slider.maxCount = 4
 		slider.trackColor = UIColor(hex: 0x50E3C2, alpha: 1.0)
 		slider.tintColor =  UIColor(hex: 0x50E3C2, alpha: 1.0)
 		self.view.addSubview(slider)
@@ -80,7 +80,7 @@ class ConfigViewController: UIViewController {
 	}
 	
 	@IBAction func goButtonAction(sender: AnyObject) {
-		let count = (Double(self.count) * Double(slider.index)) / 1.3
+		let count = (Double(self.count) * Double(slider.index + 1)) / 1.1
 		let table = makeList(Int(count), cap: 2^^Int(self.count))
 		let mapView = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("MapView") as? MapViewController
 		mapView!.table = table

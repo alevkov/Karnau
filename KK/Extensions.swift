@@ -136,7 +136,7 @@ extension UIView {
 		let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
 		shapeLayer.bounds = shapeRect
 		shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
-		shapeLayer.fillColor = animated == false ? UIColor.clearColor().CGColor : wrapAroundGroupColor.CGColor
+		shapeLayer.fillColor = animated == false ? UIColor.clearColor().CGColor : normalGroupColor.CGColor
 		shapeLayer.strokeColor = c
 		shapeLayer.lineWidth = 2
 		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
