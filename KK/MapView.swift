@@ -29,7 +29,6 @@ class MapView: UIView {
 	
 	convenience init(frame: CGRect, magnitude: Int, table: [UInt]) {
 		self.init(frame: frame)
-//		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapView.userDidCheckEquation(_:)), name: didCallForCheckEquationNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserverForName(didResetTableOnMapViewNotification, object: nil, queue: nil) { (notification) in
 			self.selectedProductSum = QMProductSum(withProducts: [], magnitude: 0)
 			for b in self.mintermButtons {
@@ -47,7 +46,6 @@ class MapView: UIView {
 			}
 			self.selectedMintermButtons.removeAll()
 		}
-		
 		self.magnitude = UInt(magnitude)
 		let mesh = Mesh(frame: self.bounds, magnitude: magnitude, table: table)
 		self.mesh = mesh
@@ -62,7 +60,7 @@ class MapView: UIView {
 				}
 				mintermInMapView.setTitle("1", forState: UIControlState.Normal)
 				mintermInMapView.titleLabel?.textColor = UIColor.whiteColor()
-				mintermInMapView.tag = Int((m.minterm?.intValue)!)
+				mintermInMapView.tag = Int(m.minterm!.intValue)
 				mintermInMapView.userInteractionEnabled = false;
 				self.addSubview(mintermInMapView)
 				self.mintermButtons.append(mintermInMapView)
@@ -99,10 +97,6 @@ class MapView: UIView {
 	    fatalError("init(coder:) has not been implemented")
 	}
 	
-    override func drawRect(rect: CGRect) {
-         self.drawMapBorders(rect)
-    }
-	
 	private func drawMapBorders(frame: CGRect) {
 		let rectanglePath = UIBezierPath(roundedRect: CGRectMake(self.bounds.origin.x, self.bounds.origin.y	, self.bounds.width, self.bounds.height), cornerRadius: 0)
 		rectanglePath.lineWidth = 5
@@ -110,6 +104,56 @@ class MapView: UIView {
 		rectanglePath.stroke()
 	}
 	
+	private func drawRectAroundButtons(buttons: [UIButton], wrapAround: Bool) {
+		var frames = [CGRect]()
+		for b in buttons {
+			frames.append(b.frame)
+		}
+		if wrapAround == true {
+			// make frame around each minterm individually and animate them
+			for f in frames {
+				let grabView = UIView(frame: f)
+				grabView.addDashedBorder(normalGroupColor, animated: true)
+				grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+				grabView.tag = -1
+				self.addSubview(grabView)
+			}
+		} else {
+			while frames.count > 1 {
+				frames[0] = CGRectUnion(frames[0], frames[1])
+				frames.removeAtIndex(1)
+			}
+			let grabView = UIView(frame: frames[0])
+			grabView.addDashedBorder(normalGroupColor, animated: false)
+			grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+			grabView.tag = -1
+			self .addSubview(grabView)
+		}
+	}
+	
+	private func touchedEndedWithError() {
+		var data: [String: UInt] = [String: UInt]()
+		data["error"] = groupErr
+		for b in self.mintermButtons {
+			if b.selected {
+				b.selected = false;
+				b.backgroundColor = UIColor.clearColor()
+			}
+		}
+		self.isAttemptingWrapAround = false
+		NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+	}
+}
+
+// Geometry
+extension MapView {
+	override func drawRect(rect: CGRect) {
+		self.drawMapBorders(rect)
+	}
+}
+
+// Touch Handlers
+extension MapView {
 	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		self.isAttemptingWrapAround = false
 	}
@@ -141,6 +185,7 @@ class MapView: UIView {
 		self.alpha = 1
 		let touch = event?.allTouches()?.first
 		let touchLocation = touch?.locationInView(self)
+		// check if we landed outside of the map upon releasing touch
 		guard CGRectContainsPoint(self.bounds, touchLocation!) else {
 			self.touchedEndedWithError()
 			return
@@ -154,65 +199,29 @@ class MapView: UIView {
 				b.backgroundColor = bgColor
 			}
 		}
-		if table.count != 0 {
-			var equation = QMCore.minimizer.computePrimeProducts(table, magnitude: self.magnitude!)
-			var data: [String: QMProductSum] = [String: QMProductSum]()
-			guard log2(Double(group.count)) % 1 == 0 || equation?.last?.minCount <= 1 else {
-				self.touchedEndedWithError()
-				return
-			}
-			self.drawRectAroundButtons(group, wrapAround: self.isAttemptingWrapAround)
-			// this is the ugliest way of doing things but shoot me, I'm tired
-			self.selectedProductSum.addProduct(equation!.last!.products.last!)
-			data["data"] = equation?.popLast()
-			equation?.removeAll()
-			for b in self.mintermButtons {
-				if b.selected {
-					b.selected = false;
-				}
-			}
-			self.isAttemptingWrapAround = false
-			NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+		// check if we have selected any minterms at all
+		guard table.count > 0 else { return }
+		var equation = QMCore.minimizer.computePrimeProducts(table, magnitude: self.magnitude!)
+		var data: [String: QMProductSum] = [String: QMProductSum]()
+		guard log2(Double(group.count)) % 1 == 0 && equation?.last?.minCount <= 1 else {
+			self.touchedEndedWithError()
+			return
 		}
-	}
-	
-	private func touchedEndedWithError() {
-		var data: [String: UInt] = [String: UInt]()
-		data["error"] = groupErr
+		self.drawRectAroundButtons(group, wrapAround: self.isAttemptingWrapAround)
+		// this is the ugliest way of doing things but shoot me, I'm tired
+		self.selectedProductSum.addProduct(equation!.last!.products.last!)
+		data["data"] = equation?.popLast()
+		// I'M SORRY
+		if (data["data"]! as QMProductSum).products.count == 1 && (data["data"]! as QMProductSum).products[0].matches.count == (2^^Int(magnitude!)) {
+			(data["data"]! as QMProductSum).stringValue = "1"
+		}
+		equation?.removeAll()
 		for b in self.mintermButtons {
 			if b.selected {
 				b.selected = false;
-				b.backgroundColor = UIColor.clearColor()
 			}
 		}
 		self.isAttemptingWrapAround = false
 		NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
-	}
-	
-	private func drawRectAroundButtons(buttons: [UIButton], wrapAround: Bool) {
-		var frames = [CGRect]()
-		for b in buttons {
-			frames.append(b.frame)
-		}
-		if wrapAround == true {
-			// make frame around each minterm individually and animate them
-			for f in frames {
-				let grabView = UIView(frame: f)
-				grabView.addDashedBorder(normalGroupColor, animated: true)
-				grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
-				grabView.tag = -1
-				self.addSubview(grabView)
-			}
-		} else {
-			while frames.count > 1 {
-				frames[0] = CGRectUnion(frames[0], frames[1])
-				frames.removeAtIndex(1)
-			}
-			let grabView = UIView(frame: frames[0])
-			grabView.addDashedBorder(normalGroupColor, animated: false)
-			grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
-			grabView.tag = -1
-			self .addSubview(grabView)
-		}
 	}
 }

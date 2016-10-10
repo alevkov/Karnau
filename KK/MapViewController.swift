@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		self.equationLabel.text = ""
-		self.resetTableButton.setTitle("\u{21ba}", forState: .Normal)
+		self.resetTableButton.setTitle("reset", forState: .Normal)
 		self.view.backgroundColor = bgColor
 		if self.magnitude == 2 || self.magnitude == 4 || self.magnitude == 5 {
 			self.map = MapView(frame: CGRectMake(CGRectGetMidX(self.view.frame) - mapSizeSquare / 2,

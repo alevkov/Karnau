@@ -14,7 +14,6 @@ class MenuViewController: UIViewController {
 	
 	@IBOutlet weak var tutorialButton: UIButton!
 	@IBOutlet weak var engineerButton: UIButton!
-	@IBOutlet weak var casualButton: UIButton!
 	
 	var mesh = Mesh()
 	let sB = UIStoryboard(name: "Main", bundle: nil)
@@ -38,8 +37,6 @@ class MenuViewController: UIViewController {
 		tutorialButton.layer.borderColor = UIColor.whiteColor().CGColor
 		engineerButton.layer.borderColor = UIColor.whiteColor().CGColor
 		engineerButton.layer.borderWidth = 1
-		casualButton.layer.borderColor = UIColor.whiteColor().CGColor
-		casualButton.layer.borderWidth = 1
 		self.view.backgroundColor = bgColor
 	}
 	
@@ -61,43 +58,33 @@ class MenuViewController: UIViewController {
 	override func prefersStatusBarHidden() -> Bool {
 		return true
 	}
-
-	@IBAction func casualPressed(sender: AnyObject) {
-		animateMenuButton(casualButton) { (data: Bool) -> Void in
-			self.casualButton.selected = false
-			let  trans = UIViewAnimationTransition.FlipFromRight
-			UIView.beginAnimations("trans", context: nil)
-			UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
-			UIView.setAnimationDuration(0.3)
-			let config = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("ConfigView") as? ConfigViewController
-			self.presentViewController(config!, animated: false, completion: nil)
-			UIView.commitAnimations()
-		}
-	}
 	
 	@IBAction func engineerPressed(sender: AnyObject) {
-		animateMenuButton(engineerButton) { (data: Bool) -> Void in
-			self.casualButton.selected = false
-			let trans = UIViewAnimationTransition.FlipFromRight
-			UIView.beginAnimations("trans", context: nil)
-			UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
-			UIView.setAnimationDuration(0.3)
-			let config = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("ConfigView") as? ConfigViewController
-			self.presentViewController(config!, animated: false, completion: nil)
-			UIView.commitAnimations()
-
+		do {
+			try animateMenuButton(engineerButton) { (data: Bool) -> Void in
+				let trans = UIViewAnimationTransition.FlipFromRight
+				UIView.beginAnimations("trans", context: nil)
+				UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
+				UIView.setAnimationDuration(0.3)
+				let config = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("ConfigView") as? ConfigViewController
+				self.presentViewController(config!, animated: false, completion: nil)
+				UIView.commitAnimations()
+			}
+		} catch _ {
+			print(Error.UnknownType)
 		}
 	}
 	
 	@IBAction func tutorialPressed(sender: AnyObject) {
-		animateMenuButton(tutorialButton) { (data: Bool) -> Void in
+		do {
+			try animateMenuButton(tutorialButton, completion: nil)
+		} catch _ {
+			print(Error.UnknownType)
 		}
 	}
 	
-	func animateMenuButton(view: AnyObject, completion: ((Bool) -> Void)?) {
-		guard let button = view as? UIButton
-			else { print(Error.UnknownType); return }
-		
+	func animateMenuButton(view: AnyObject, completion: ((Bool) -> Void)?) throws {
+		guard let button = view as? UIButton else { throw Error.UnknownType }
 		if !button.selected {
 			button.selected = true
 			UIView.animateWithDuration(0.3, animations: { () -> Void in
@@ -114,11 +101,9 @@ class MenuViewController: UIViewController {
 	override func viewWillDisappear(animated: Bool) {
 		UIView.animateWithDuration(0.3, animations: { () -> Void in
 			self.engineerButton.transform = CGAffineTransformMakeScale(1, 1)
-			self.casualButton.transform = CGAffineTransformMakeScale(1, 1)
 			self.tutorialButton.transform = CGAffineTransformMakeScale(1, 1)
 			}, completion: nil)
 		self.engineerButton.selected = false
-		self.casualButton.selected = false
 		self.tutorialButton.selected = false
 	}
 }
