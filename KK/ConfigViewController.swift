@@ -80,7 +80,7 @@ class ConfigViewController: UIViewController {
 	}
 	
 	@IBAction func goButtonAction(sender: AnyObject) {
-		let count = (Double(self.count) * Double(slider.index + 1)) / 1.1
+		let count = (Double(self.count) * Double(slider.index + 1)) / 1.3
 		let table = makeList(Int(count), cap: 2^^Int(self.count))
 		let mapView = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("MapView") as? MapViewController
 		mapView!.table = table

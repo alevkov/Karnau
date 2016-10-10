@@ -33,6 +33,7 @@ class QMProductSum : NSObject {
 	}
 	
 	func convertToLetters() -> String {
+		guard self.stringValue != "1" else { return self.stringValue }
 		var strval = ""
 		for p in products {
 			if strval != "" {

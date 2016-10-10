@@ -43,43 +43,23 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Engineer">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="engineerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjK-T1-7vp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmZ-rg-lE9">
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="IEk-a9-P5a"/>
-                                    <constraint firstAttribute="height" constant="50" id="MWf-4f-nnf"/>
-                                    <constraint firstAttribute="width" constant="125" id="PJI-pt-Yqv"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="SfC-n1-Ltp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FZLTXHK--GBK1-0" family="Lantinghei SC" pointSize="22"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Casual">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="casualPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vjk-JA-AKf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="bb1-ul-d7b" firstAttribute="leading" secondItem="u79-yG-Jxj" secondAttribute="leading" id="Eaf-Ji-PXo"/>
-                            <constraint firstItem="SmZ-rg-lE9" firstAttribute="leading" secondItem="bb1-ul-d7b" secondAttribute="leading" id="KIj-qA-hjV"/>
-                            <constraint firstItem="SmZ-rg-lE9" firstAttribute="top" secondItem="bb1-ul-d7b" secondAttribute="bottom" constant="18" id="hKE-tz-Y5n"/>
                             <constraint firstItem="u79-yG-Jxj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ijG-hc-mJf"/>
-                            <constraint firstItem="bb1-ul-d7b" firstAttribute="top" secondItem="u79-yG-Jxj" secondAttribute="bottom" constant="19" id="pQE-pu-gai"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u79-yG-Jxj" secondAttribute="bottom" constant="248" id="vm3-LA-ewW"/>
+                            <constraint firstItem="bb1-ul-d7b" firstAttribute="top" secondItem="u79-yG-Jxj" secondAttribute="bottom" constant="22" id="pQE-pu-gai"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u79-yG-Jxj" secondAttribute="bottom" constant="199" id="vm3-LA-ewW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kca-FW-5oj"/>
                     <connections>
-                        <outlet property="casualButton" destination="SmZ-rg-lE9" id="l0J-rJ-Poc"/>
                         <outlet property="engineerButton" destination="bb1-ul-d7b" id="An1-vP-L83"/>
                         <outlet property="tutorialButton" destination="u79-yG-Jxj" id="per-ea-Lzj"/>
                     </connections>
@@ -264,7 +244,7 @@
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="leading" secondItem="oDS-TO-wHa" secondAttribute="leadingMargin" constant="84" id="oXz-Fr-neh"/>
                             <constraint firstItem="UR9-Ft-9Qw" firstAttribute="top" secondItem="wVL-gK-4uO" secondAttribute="bottom" constant="7" id="onA-Fm-rXN"/>
                             <constraint firstItem="wVL-gK-4uO" firstAttribute="centerX" secondItem="UR9-Ft-9Qw" secondAttribute="centerX" id="tOB-zc-fWc"/>
-                            <constraint firstItem="dqS-dR-nCE" firstAttribute="top" secondItem="VKc-18-iJx" secondAttribute="bottom" constant="30" id="vBX-rG-sP9"/>
+                            <constraint firstItem="dqS-dR-nCE" firstAttribute="top" secondItem="VKc-18-iJx" secondAttribute="bottom" constant="34" id="vBX-rG-sP9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

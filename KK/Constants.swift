@@ -12,7 +12,6 @@ let on = true
 let off = false
 
 // Notifications
-
 let didSelectGroupNotification = "QMDidSelectGroupOnMap"
 let didCallForCheckEquationNotification = "QMDidCallForCheckEquation"
 let didResetTableOnMapViewNotification = "QMDidResetTableOnMapView"
@@ -33,4 +32,4 @@ let bgColor = UIColor(hex: 0x0E2430, alpha: 1.0)
 let errColor = UIColor(hex: 0x0E3024, alpha: 1.0)
 let mapBtnHighlightedColor = UIColor(hex: 0xFC3A51)
 let normalGroupColor = UIColor(hex: 0x50E3C2, alpha: 1.0)
-let wrapAroundGroupColor = UIColor(hex: 0xE62165, alpha: 1.0)
+let wrapAroundGroupColor = UIColor(hex: 0x2191E6, alpha: 1.0)

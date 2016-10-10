@@ -136,14 +136,14 @@ extension UIView {
 		let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
 		shapeLayer.bounds = shapeRect
 		shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
-		shapeLayer.fillColor = animated == false ? UIColor.clearColor().CGColor : normalGroupColor.CGColor
-		shapeLayer.strokeColor = c
+		shapeLayer.fillColor = animated == true ? wrapAroundGroupColor.CGColor : UIColor.clearColor().CGColor
+		shapeLayer.strokeColor = animated == true ? UIColor.clearColor().CGColor : c
 		shapeLayer.lineWidth = 2
 		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
 		self.alpha = 0.0
 		let options: UIViewAnimationOptions = animated == true ? [.Autoreverse, .Repeat] : .CurveEaseInOut
 			UIView.animateWithDuration(1, delay: 0.0, options: options, animations: {
-				self.alpha = 1.0
+				self.alpha = animated == true ? 0.5 : 1
 			}, completion: nil)
 		self.layer.addSublayer(shapeLayer)
 	}
