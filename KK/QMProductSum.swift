@@ -11,12 +11,12 @@ import Foundation
 /* An abstract representation of a boolean expression as a sum of products */
 class QMProductSum : NSObject {
 	private let vars = ["A", "B", "C", "D", "E", "F"]
-	var products : [QMMinterm] = []
-	var strRepresentationOfProducts: [String] = []
+	internal var products : [QMMinterm] = []
+	internal var strRepresentationOfProducts: [String] = []
 	/* format: "ABC + ABC + ABC + . . ." */
-	var stringValue : String
-	var magnitude: UInt = 0
-	var minCount: Int {
+	internal var stringValue : String
+	internal var magnitude: UInt = 0
+	internal var minCount: Int {
 		get {
 			return products.count
 		}

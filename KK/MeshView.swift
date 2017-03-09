@@ -43,7 +43,7 @@ class Mesh: UIView {
 		return CGPointMake(a, b)
 	}
 	
-	func drawBezierLine (start start: CGPoint, end: CGPoint) {
+	func drawBezierLine (start: CGPoint, end: CGPoint) {
 		let bezierPath = UIBezierPath()
 		bezierPath.moveToPoint(start)
 		bezierPath.addLineToPoint(end)
@@ -63,33 +63,33 @@ class Mesh: UIView {
 		let maxX = CGRectGetMaxX(self.bounds)
 		let maxY = CGRectGetMaxY(self.bounds)
 		if magnitude == 2 {
-			drawBezierLine(start: point(minX, midY),
+			drawBezierLine(point(minX, midY),
 							 end: point(maxX, midY))
-			drawBezierLine(start: point(midX,maxY),
+			drawBezierLine(point(midX,maxY),
 						     end: point(midX, minY))
 		}
 		else if magnitude == 3 {
-			drawBezierLine(start: point(midX,maxY),
+			drawBezierLine(point(midX,maxY),
 			                 end: point(midX, minY))
-			drawBezierLine(start: point(minX, midY),
+			drawBezierLine(point(minX, midY),
 			                 end: point(maxX, midY))
-			drawBezierLine(start: point(minX, midY/2),
+			drawBezierLine(point(minX, midY/2),
 			                 end: point(maxX, midY/2))
-			drawBezierLine(start: point(minX, midY + midY/2),
+			drawBezierLine(point(minX, midY + midY/2),
 			                 end: point(maxX, midY + midY/2))
 		}
 		else if magnitude == 4 || magnitude == 0 {
-			drawBezierLine(start: point(minX, midY),
+			drawBezierLine(point(minX, midY),
 							 end: point(maxX, midY))
-			drawBezierLine(start: point(midX,maxY),
+			drawBezierLine(point(midX,maxY),
 							 end: point(midX, minY))
-			drawBezierLine(start: point(minX, midY/2),
+			drawBezierLine(point(minX, midY/2),
 							 end: point(maxX, midY/2))
-			drawBezierLine(start: point(minX, midY + midY/2),
+			drawBezierLine(point(minX, midY + midY/2),
 							 end: point(maxX, midY + midY/2))
-			drawBezierLine(start: point(midX + midX/2, minY),
+			drawBezierLine(point(midX + midX/2, minY),
 							 end: point(midX + midX/2, maxY))
-			drawBezierLine(start: point(midX / 2, minY),
+			drawBezierLine(point(midX / 2, minY),
 							 end: point(midX / 2, maxY))
 		}
 		else if magnitude == 5 {

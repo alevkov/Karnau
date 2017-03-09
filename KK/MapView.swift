@@ -29,6 +29,8 @@ class MapView: UIView {
 	
 	convenience init(frame: CGRect, magnitude: Int, table: [UInt]) {
 		self.init(frame: frame)
+		//self.damping = 0.7
+		//self.initialSpringVelocity = 0.8
 		NSNotificationCenter.defaultCenter().addObserverForName(didResetTableOnMapViewNotification, object: nil, queue: nil) { (notification) in
 			self.selectedProductSum = QMProductSum(withProducts: [], magnitude: 0)
 			for b in self.mintermButtons {
@@ -173,9 +175,14 @@ extension MapView {
 			}
 		}
 		if !CGRectContainsPoint(self.bounds, touchLocation!) {
+			print(touchLocation!)
 			let options: UIViewAnimationOptions = [.CurveEaseInOut]
+			var rotationAndPerspectiveTransform = CATransform3DIdentity
+			rotationAndPerspectiveTransform.m34 = 1.0 / -500
+			rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, 20 * CGFloat(M_PI) / 180, 1.0, 0.0, 0.0)
 			UIView.animateWithDuration(0.5, delay: 0.0, options: options, animations: {
 				self.alpha = 0.3
+				self.layer.transform = rotationAndPerspectiveTransform
 				}, completion: nil)
 			self.isAttemptingWrapAround = true
 		}
@@ -183,6 +190,7 @@ extension MapView {
 	
 	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		self.alpha = 1
+		self.layer.transform = CATransform3DIdentity
 		let touch = event?.allTouches()?.first
 		let touchLocation = touch?.locationInView(self)
 		// check if we landed outside of the map upon releasing touch

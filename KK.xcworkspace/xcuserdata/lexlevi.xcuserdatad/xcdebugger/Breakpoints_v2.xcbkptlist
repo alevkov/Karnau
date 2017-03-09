@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "497369356.316496"
+            timestampString = "498419176.455445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "touchedEndedWithError()"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "touchesMoved(touches:withEvent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
