@@ -392,11 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapViewController.swift"
-            timestampString = "496941840.607597"
+            timestampString = "498584057.39183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "didGetCheckResult(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -408,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapViewController.swift"
-            timestampString = "496941840.607597"
+            timestampString = "498584057.39183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "checkButtonTapped(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -424,7 +424,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "497759695.588072"
+            timestampString = "498419176.455445"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "init(frame:magnitude:table:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KK/MapView.swift"
+            timestampString = "498419176.455445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -440,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "497759695.588072"
+            timestampString = "498419176.455445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "init(frame:magnitude:table:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -456,11 +472,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "497759695.588072"
+            timestampString = "498419176.455445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "init(frame:magnitude:table:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -472,39 +488,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "497759695.588072"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "init(frame:magnitude:table:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KK/MapView.swift"
-            timestampString = "497759712.58871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "touchesEnded(touches:withEvent:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KK/MapView.swift"
-            timestampString = "497759791.706152"
+            timestampString = "498419197.271216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
@@ -520,11 +504,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapView.swift"
-            timestampString = "497759792.129793"
+            timestampString = "498419197.271216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "touchesEnded(touches:withEvent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KK/MapView.swift"
+            timestampString = "498419197.271216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "touchesEnded(touches:withEvent:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -536,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KK/MapViewController.swift"
-            timestampString = "497759810.481917"
+            timestampString = "498584057.39183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "equationDidChange(notification:)"
             landmarkType = "7">
             <Locations>
@@ -552,7 +552,7 @@
                   moduleName = "KK"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lexlevi/Desktop/dev/KK/KK/MapViewController.swift"
-                  timestampString = "497759878.589365"
+                  timestampString = "498418447.893459"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -567,12 +567,75 @@
                   moduleName = "KK"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lexlevi/Desktop/dev/KK/KK/MapViewController.swift"
-                  timestampString = "497759878.591029"
+                  timestampString = "498418447.895798"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
                   endingLineNumber = "86"
                   offsetFromSymbolStart = "4122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KK/QMProductSum.swift"
+            timestampString = "497897281.200259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "QMProductSum"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KK.QMProductSum.products.getter : Swift.Array&lt;KK.QMMinterm&gt;"
+                  moduleName = "KK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexlevi/Desktop/dev/KK/KK/QMProductSum.swift"
+                  timestampString = "498418447.901637"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KK.QMProductSum.products.setter : Swift.Array&lt;KK.QMMinterm&gt;"
+                  moduleName = "KK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexlevi/Desktop/dev/KK/KK/QMProductSum.swift"
+                  timestampString = "498418447.904436"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KK.QMProductSum.init (withProducts : Swift.Array&lt;KK.QMMinterm&gt;, magnitude : Swift.UInt) -&gt; KK.QMProductSum"
+                  moduleName = "KK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lexlevi/Desktop/dev/KK/KK/QMProductSum.swift"
+                  timestampString = "498418447.90704"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "352">
                </Location>
             </Locations>
          </BreakpointContent>

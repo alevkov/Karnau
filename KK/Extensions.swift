@@ -10,12 +10,6 @@ import Foundation
 import SpriteKit
 import UIKit
 
-/* TYPES */
-
-typealias GroupType = Array<QMMinterm>
-typealias OrderType = Dictionary<UInt, GroupType>
-typealias PrimeType = Dictionary<String, QMMinterm>
-
 enum Error : ErrorType {
 	case UnknownType
 }
@@ -142,7 +136,7 @@ extension UIView {
 		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
 		self.alpha = 0.0
 		let options: UIViewAnimationOptions = animated == true ? [.Autoreverse, .Repeat] : .CurveEaseInOut
-			UIView.animateWithDuration(1, delay: 0.0, options: options, animations: {
+			UIView.animateWithDuration(0.7, delay: 0.0, options: options, animations: {
 				self.alpha = animated == true ? 0.5 : 1
 			}, completion: nil)
 		self.layer.addSublayer(shapeLayer)

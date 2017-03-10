@@ -21,6 +21,12 @@ import Foundation
 -- Instantiated as a singleton
 */
 
+/* TYPES */
+
+typealias GroupType = Array<QMMinterm>
+typealias OrderType = Dictionary<UInt, GroupType>
+typealias PrimeType = Dictionary<String, QMMinterm>
+
 private let qm = QMCore()
 
 class QMCore: NSObject {

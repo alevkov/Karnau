@@ -60,6 +60,17 @@ class MapViewController: UIViewController {
 		}
 		backButton.layer.borderWidth = 1
 		backButton.layer.borderColor = UIColor.whiteColor().CGColor
+		
+//		let cdLabel = UILabel(frame: CGRectMake(self.map!.frame.minX + 20, self.map!.frame.minY - 70, 100, 100))
+//		cdLabel.text = "CD"
+//		cdLabel.font = UIFont(name: "Lantinghei SC", size: 20)
+//		cdLabel.textColor = UIColor.whiteColor()
+//		self.view.addSubview(cdLabel)
+//		let abLabel = UILabel(frame: CGRectMake(self.map!.frame.minX - 40, self.map!.frame.minY - 20, 100, 100))
+//		abLabel.text = "AB"
+//		abLabel.font = UIFont(name: "Lantinghei SC", size: 20)
+//		abLabel.textColor = UIColor.whiteColor()
+//		self.view.addSubview(abLabel)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.equationDidChange(_:)), name: didSelectGroupNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.didGetCheckResult(_:)), name: didCheckEquationNotification, object: self.map)
 	}
