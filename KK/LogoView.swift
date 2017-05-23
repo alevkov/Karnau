@@ -14,7 +14,7 @@ class LogoView: UIView {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		let v = (UINib(nibName: "Logo@3", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView)!
+		let v = (UINib(nibName: "Logo@3", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView)!
 		self.addSubview(v)
 	}
 

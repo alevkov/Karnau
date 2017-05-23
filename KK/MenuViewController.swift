@@ -10,6 +10,12 @@ import UIKit
 import Foundation
 import QuartzCore
 
+enum VendingMachineError: Error {
+    case invalidSelection
+    case insufficientFunds(coinsNeeded: Int)
+    case outOfStock
+}
+
 class MenuViewController: UIViewController {
 	
 	@IBOutlet weak var tutorialButton: UIButton!
@@ -20,22 +26,22 @@ class MenuViewController: UIViewController {
 	
 	func setup () {
 		let logoView = LogoView(frame: CGRect(x: 0, y: 0, width: 220, height: 220))
-		logoView.frame.origin =  CGPointMake(CGRectGetMidX(logoView.frame), CGRectGetMidY(logoView.frame))
-		logoView.layer.anchorPoint = CGPointMake(CGRectGetMidX(logoView.frame), CGRectGetMidY(logoView.frame))
-		if UIScreen.mainScreen().bounds.width <= 320 {
-			logoView.frame = CGRectMake(CGRectGetMidX(self.view.frame) - logoView.frame.width/2, CGRectGetMidY(self.view.frame) - logoView.frame.width * 1.45, logoView.frame.width, logoView.frame.height)
+		logoView.frame.origin =  CGPoint(x: logoView.frame.midX, y: logoView.frame.midY)
+		logoView.layer.anchorPoint = CGPoint(x: logoView.frame.midX, y: logoView.frame.midY)
+		if UIScreen.main.bounds.width <= 320 {
+			logoView.frame = CGRect(x: self.view.frame.midX - logoView.frame.width/2, y: self.view.frame.midY - logoView.frame.width * 1.45, width: logoView.frame.width, height: logoView.frame.height)
 		}
 		else {
-			logoView.frame = CGRectMake(CGRectGetMidX(self.view.frame) - logoView.frame.width/2, CGRectGetMidY(self.view.frame) - logoView.frame.width * 1.15, logoView.frame.width, logoView.frame.height)
+			logoView.frame = CGRect(x: self.view.frame.midX - logoView.frame.width/2, y: self.view.frame.midY - logoView.frame.width * 1.15, width: logoView.frame.width, height: logoView.frame.height)
 		}
 		logoView.layer.cornerRadius = 10
 		logoView.layer.masksToBounds = true
 		self.view.addSubview(logoView)
-		self.mesh = Mesh(frame: CGRectMake(logoView.frame.origin.x, logoView.frame.origin.y, logoView.frame.width, logoView.frame.height), magnitude: 0, table: [])
+		self.mesh = Mesh(frame: CGRect(x: logoView.frame.origin.x, y: logoView.frame.origin.y, width: logoView.frame.width, height: logoView.frame.height), magnitude: 0, table: [])
 		self.view.addSubview(mesh)
 		tutorialButton.layer.borderWidth = 1
-		tutorialButton.layer.borderColor = UIColor.whiteColor().CGColor
-		engineerButton.layer.borderColor = UIColor.whiteColor().CGColor
+		tutorialButton.layer.borderColor = UIColor.white.cgColor
+		engineerButton.layer.borderColor = UIColor.white.cgColor
 		engineerButton.layer.borderWidth = 1
 		self.view.backgroundColor = bgColor
 	}
@@ -45,7 +51,7 @@ class MenuViewController: UIViewController {
 		setup()
 	}
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(true)
 		self.mesh.animateMesh()
 	}
@@ -55,55 +61,55 @@ class MenuViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-	override func prefersStatusBarHidden() -> Bool {
+	override var prefersStatusBarHidden : Bool {
 		return true
 	}
 	
-	@IBAction func engineerPressed(sender: AnyObject) {
+	@IBAction func engineerPressed(_ sender: AnyObject) {
 		do {
 			try animateMenuButton(engineerButton) { (data: Bool) -> Void in
-				let trans = UIViewAnimationTransition.FlipFromRight
+				let trans = UIViewAnimationTransition.flipFromRight
 				UIView.beginAnimations("trans", context: nil)
-				UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
+				UIView.setAnimationTransition(trans, for: UIApplication.shared.keyWindow!, cache: true)
 				UIView.setAnimationDuration(0.3)
-				let config = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("ConfigView") as? ConfigViewController
-				self.presentViewController(config!, animated: false, completion: nil)
+				let config = StoryBoardManager.sharedManager.instantiateViewController(withIdentifier: "ConfigView") as? ConfigViewController
+				self.present(config!, animated: false, completion: nil)
 				UIView.commitAnimations()
 			}
 		} catch _ {
-			print(Error.UnknownType)
+			print(VendingMachineError.invalidSelection)
 		}
 	}
 	
-	@IBAction func tutorialPressed(sender: AnyObject) {
+	@IBAction func tutorialPressed(_ sender: AnyObject) {
 		do {
 			try animateMenuButton(tutorialButton, completion: nil)
 		} catch _ {
-			print(Error.UnknownType)
+			print(VendingMachineError.invalidSelection)
 		}
 	}
 	
-	func animateMenuButton(view: AnyObject, completion: ((Bool) -> Void)?) throws {
-		guard let button = view as? UIButton else { throw Error.UnknownType }
-		if !button.selected {
-			button.selected = true
-			UIView.animateWithDuration(0.3, animations: { () -> Void in
-				button.transform = CGAffineTransformMakeScale(1.2, 1.2)
+	func animateMenuButton(_ view: AnyObject, completion: ((Bool) -> Void)?) throws {
+		guard let button = view as? UIButton else { throw VendingMachineError.invalidSelection }
+		if !button.isSelected {
+			button.isSelected = true
+			UIView.animate(withDuration: 0.3, animations: { () -> Void in
+				button.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
 			}, completion:completion)
 		} else {
-			button.selected = false
-			UIView.animateWithDuration(0.3, animations: { () -> Void in
-				button.transform = CGAffineTransformMakeScale(1, 1)
+			button.isSelected = false
+			UIView.animate(withDuration: 0.3, animations: { () -> Void in
+				button.transform = CGAffineTransform(scaleX: 1, y: 1)
 			}, completion: completion)
 		}
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
-		UIView.animateWithDuration(0.3, animations: { () -> Void in
-			self.engineerButton.transform = CGAffineTransformMakeScale(1, 1)
-			self.tutorialButton.transform = CGAffineTransformMakeScale(1, 1)
+	override func viewWillDisappear(_ animated: Bool) {
+		UIView.animate(withDuration: 0.3, animations: { () -> Void in
+			self.engineerButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+			self.tutorialButton.transform = CGAffineTransform(scaleX: 1, y: 1)
 			}, completion: nil)
-		self.engineerButton.selected = false
-		self.tutorialButton.selected = false
+		self.engineerButton.isSelected = false
+		self.tutorialButton.isSelected = false
 	}
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class QMMinterm : NSObject {
-	private let vars = ["A", "B", "C", "D", "E", "F"]
+	fileprivate let vars = ["A", "B", "C", "D", "E", "F"]
 	var intValue: UInt = 0;
 	var stringValue: String = "";
 	var letters: String = "";
@@ -35,7 +35,7 @@ class QMMinterm : NSObject {
 				
 				self.stringValue = "0" * (m - UInt(self.stringValue.characters.count)) + self.stringValue
 				for s in self.stringValue.characters {
-					if s == "1" { self.letters += vars[self.count] } else { self.letters += (vars[self.count].lowercaseString) }
+					if s == "1" { self.letters += vars[self.count] } else { self.letters += (vars[self.count].lowercased()) }
 					self.count = self.count + 1
 				}
 			}
@@ -46,7 +46,7 @@ class QMMinterm : NSObject {
 	convenience init (min1: QMMinterm, min2: QMMinterm, idx: UInt) {
 		self.init(i: implicantFlag, m: min1.magnitude)
 		var s = min1.stringValue
-		s.replaceRange(s.startIndex.advancedBy(Int(s.characters.count - 1) - Int(idx))...s.startIndex.advancedBy(Int(s.characters.count - 1) - Int(idx)), with: "-")
+		s.replaceSubrange(s.characters.index(s.startIndex, offsetBy: Int(s.characters.count - 1) - Int(idx))...s.characters.index(s.startIndex, offsetBy: Int(s.characters.count - 1) - Int(idx)), with: "-")
 		self.stringValue = s
 	}
 	

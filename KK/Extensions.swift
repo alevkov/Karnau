@@ -10,30 +10,27 @@ import Foundation
 import SpriteKit
 import UIKit
 
-enum Error : ErrorType {
-	case UnknownType
-}
 
 extension String {
 	subscript (i: Int) -> Character {
-		return self[self.startIndex.advancedBy(i)]
+		return self[self.characters.index(self.startIndex, offsetBy: i)]
 	}
 	
 	subscript (r: Range<Int>) -> String {
-		let start = startIndex.advancedBy(r.startIndex)
-		let end = start.advancedBy(r.endIndex - r.startIndex)
+		let start = characters.index(startIndex, offsetBy: r.lowerBound)
+		let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
 		return self[start..<end]
 	}
 }
 
-extension SequenceType where Self.Generator.Element: Hashable {
-	func freq() -> [Self.Generator.Element: Int] {
-		return reduce([:]) { ( accu: [Self.Generator.Element: Int], element) in
-			var accumulator = accu
-			accumulator[element] = accumulator[element]?.successor() ?? 1
-			return accu
-		}
-	}
+extension Sequence where Iterator.Element : Hashable {
+    func freq() -> [Iterator.Element:Int] {
+        var results : [Iterator.Element:Int] = [:]
+        for element in self {
+            results[element] = (results[element] ?? 0) + 1
+        }
+        return results
+    }
 }
 
 /* OPERATORS */
@@ -51,7 +48,7 @@ func * (left: String, right: UInt) -> String {
 	return result
 }
 
-infix operator ^^ { }
+infix operator ^^
 func ^^ (radix: Int, power: Int) -> Int {
 	return Int(pow(Double(radix), Double(power)))
 }
@@ -82,7 +79,7 @@ func & (left: String, right: String) -> String {
 	else {
 		var result = left
 		for r in right.characters {
-			if !result.containsString(String(r)) {
+			if !result.contains(String(r)) {
 				result.append(r)
 			}
 		}
@@ -103,7 +100,7 @@ func & (left: [String], right: [String]) -> [String] {
 	return results
 }
 
-func &= (inout left: [String], right: [String]) {
+func &= (left: inout [String], right: [String]) {
 	left = left & right
 }
 
@@ -111,9 +108,9 @@ func | (left: String, right: String) -> String? {
 	if left == right {
 		return left
 	}
-	if Set(left.characters).isSubsetOf(Set(right.characters)) {
+	if Set(left.characters).isSubset(of: Set(right.characters)) {
 		return left
-	} else if Set(right.characters).isSubsetOf(Set(right.characters)) {
+	} else if Set(right.characters).isSubset(of: Set(right.characters)) {
 		return left
 	} else {
 		return nil
@@ -123,20 +120,20 @@ func | (left: String, right: String) -> String? {
 // ------------------------------
 
 extension UIView {
-	func addDashedBorder(color: UIColor, animated: Bool) {
-		let c = color.CGColor
+	func addDashedBorder(_ color: UIColor, animated: Bool) {
+		let c = color.cgColor
 		let shapeLayer:CAShapeLayer = CAShapeLayer()
 		let frameSize = self.frame.size
 		let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
 		shapeLayer.bounds = shapeRect
 		shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
-		shapeLayer.fillColor = animated == true ? wrapAroundGroupColor.CGColor : UIColor.clearColor().CGColor
-		shapeLayer.strokeColor = animated == true ? UIColor.clearColor().CGColor : c
+		shapeLayer.fillColor = animated == true ? wrapAroundGroupColor.cgColor : UIColor.clear.cgColor
+		shapeLayer.strokeColor = animated == true ? UIColor.clear.cgColor : c
 		shapeLayer.lineWidth = 2
-		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
+		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
 		self.alpha = 0.0
-		let options: UIViewAnimationOptions = animated == true ? [.Autoreverse, .Repeat] : .CurveEaseInOut
-			UIView.animateWithDuration(0.7, delay: 0.0, options: options, animations: {
+		let options: UIViewAnimationOptions = animated == true ? [.autoreverse, .repeat] : UIViewAnimationOptions()
+			UIView.animate(withDuration: 0.7, delay: 0.0, options: options, animations: {
 				self.alpha = animated == true ? 0.5 : 1
 			}, completion: nil)
 		self.layer.addSublayer(shapeLayer)
@@ -144,25 +141,25 @@ extension UIView {
 }
 
 extension CALayer {
-	func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+	func addBorder(_ edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
 		let border = CALayer()
 		switch edge {
-		case UIRectEdge.Top:
-			border.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), thickness)
+		case UIRectEdge.top:
+			border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness)
 			break
-		case UIRectEdge.Bottom:
-			border.frame = CGRectMake(0, CGRectGetHeight(self.frame) - thickness, CGRectGetWidth(self.frame), thickness)
+		case UIRectEdge.bottom:
+			border.frame = CGRect(x: 0, y: self.frame.height - thickness, width: self.frame.width, height: thickness)
 			break
-		case UIRectEdge.Left:
-			border.frame = CGRectMake(0, 0, thickness, CGRectGetHeight(self.frame))
+		case UIRectEdge.left:
+			border.frame = CGRect(x: 0, y: 0, width: thickness, height: self.frame.height)
 			break
-		case UIRectEdge.Right:
-			border.frame = CGRectMake(CGRectGetWidth(self.frame) - thickness, 0, thickness, CGRectGetHeight(self.frame))
+		case UIRectEdge.right:
+			border.frame = CGRect(x: self.frame.width - thickness, y: 0, width: thickness, height: self.frame.height)
 			break
 		default:
 			break
 		}
-		border.backgroundColor = color.CGColor;
+		border.backgroundColor = color.cgColor;
 		self.addSublayer(border)
 	}
 }
@@ -199,9 +196,9 @@ extension UIColor { // Generate a random color
 
 extension Array {
 	/* removes a given object without specifying index */
-	mutating func removeObject<U: Equatable>(object: U) {
+	mutating func removeObject<U: Equatable>(_ object: U) {
 		var index: Int?
-		for (idx, objectToCompare) in self.enumerate() {
+		for (idx, objectToCompare) in self.enumerated() {
 			if let to = objectToCompare as? U {
 				if object == to {
 					index = idx
@@ -209,12 +206,12 @@ extension Array {
 			}
 		}
 		if(index != nil) {
-			self.removeAtIndex(index!)
+			self.remove(at: index!)
 		}
 	}
 }
 
-func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
+func uniq<S : Sequence, T : Hashable>(_ source: S) -> [T] where S.Iterator.Element == T {
 	var buffer = [T]()
 	var added = Set<T>()
 	for elem in source {

@@ -19,7 +19,7 @@ class Mesh: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		self.backgroundColor = UIColor.clearColor()
+		self.backgroundColor = UIColor.clear
 		
 	}
 	
@@ -35,33 +35,33 @@ class Mesh: UIView {
 	    fatalError("init(coder:) has not been implemented")
 	}
 	
-	override func drawRect(rect: CGRect) {
+	override func draw(_ rect: CGRect) {
 		self.drawMesh(rect)
 	}
 	
-	func point(a: CGFloat, _ b: CGFloat) -> CGPoint {
-		return CGPointMake(a, b)
+	func point(_ a: CGFloat, _ b: CGFloat) -> CGPoint {
+		return CGPoint(x: a, y: b)
 	}
 	
-	func drawBezierLine (start: CGPoint, end: CGPoint) {
+	func drawBezierLine (_ start: CGPoint, end: CGPoint) {
 		let bezierPath = UIBezierPath()
-		bezierPath.moveToPoint(start)
-		bezierPath.addLineToPoint(end)
+		bezierPath.move(to: start)
+		bezierPath.addLine(to: end)
 		bezierPath.lineWidth = 3
 		
-		UIColor.whiteColor().setFill()
+		UIColor.white.setFill()
 		bezierPath.fill()
-		UIColor.whiteColor().setStroke()
+		UIColor.white.setStroke()
 		bezierPath.stroke()
 	}
 	
-	func drawMesh(frame: CGRect) {
-		let midX = CGRectGetMidX(self.bounds)
-		let midY = CGRectGetMidY(self.bounds)
-		let minX = CGRectGetMinX(self.bounds)
-		let minY = CGRectGetMinY(self.bounds)
-		let maxX = CGRectGetMaxX(self.bounds)
-		let maxY = CGRectGetMaxY(self.bounds)
+	func drawMesh(_ frame: CGRect) {
+		let midX = self.bounds.midX
+		let midY = self.bounds.midY
+		let minX = self.bounds.minX
+		let minY = self.bounds.minY
+		let maxX = self.bounds.maxX
+		let maxY = self.bounds.maxY
 		if magnitude == 2 {
 			drawBezierLine(point(minX, midY),
 							 end: point(maxX, midY))
@@ -102,41 +102,41 @@ class Mesh: UIView {
 	}
 
 	func animateMesh() {
-		let smallerRectForMask = CGRectMake(CGRectGetMinX(self.bounds), CGRectGetMinY(self.bounds), self.frame.size.width / 1.3, self.frame.size.height)
+		let smallerRectForMask = CGRect(x: self.bounds.minX, y: self.bounds.minY, width: self.frame.size.width / 1.3, height: self.frame.size.height)
 		let mask = CAShapeLayer()
 		let maskPath = UIBezierPath(rect: smallerRectForMask)
 		
-		mask.path = maskPath.CGPath
-		mask.fillColor = UIColor.blackColor().CGColor
+		mask.path = maskPath.cgPath
+		mask.fillColor = UIColor.black.cgColor
 		
 		self.layer.mask = mask
 			
-		let oldBounds = CGRectMake(mask.bounds.origin.x + 200, mask.bounds.origin.y, mask.bounds.width, mask.bounds.height)
-		let newBounds = CGRectMake(oldBounds.origin.x - 500, oldBounds.origin.y, oldBounds.width, oldBounds.height)
+		let oldBounds = CGRect(x: mask.bounds.origin.x + 200, y: mask.bounds.origin.y, width: mask.bounds.width, height: mask.bounds.height)
+		let newBounds = CGRect(x: oldBounds.origin.x - 500, y: oldBounds.origin.y, width: oldBounds.width, height: oldBounds.height)
 			
 		let moveToNewPos = CABasicAnimation(keyPath: "bounds")
-		moveToNewPos.fromValue = NSValue(CGRect: oldBounds)
-		moveToNewPos.toValue = NSValue(CGRect: newBounds)
+		moveToNewPos.fromValue = NSValue(cgRect: oldBounds)
+		moveToNewPos.toValue = NSValue(cgRect: newBounds)
 		moveToNewPos.duration = 1.2
 		moveToNewPos.repeatCount = .infinity
 		
 		let	fadeAnimationTo = CABasicAnimation(keyPath: "opacity")
-		fadeAnimationTo.fromValue = NSNumber(float: 0.6)
-		fadeAnimationTo.toValue = NSNumber(float: 0.0)
+		fadeAnimationTo.fromValue = NSNumber(value: 0.6 as Float)
+		fadeAnimationTo.toValue = NSNumber(value: 0.0 as Float)
 		fadeAnimationTo.duration = 1.2
 		fadeAnimationTo.repeatCount = .infinity
 		
 		let	fadeAnimationFro = CABasicAnimation(keyPath: "opacity")
-		fadeAnimationFro.fromValue = NSNumber(float: 0.0)
-		fadeAnimationFro.toValue = NSNumber(float: 0.6)
+		fadeAnimationFro.fromValue = NSNumber(value: 0.0 as Float)
+		fadeAnimationFro.toValue = NSNumber(value: 0.6 as Float)
 		fadeAnimationFro.duration = 1.2
 		fadeAnimationFro.repeatCount = .infinity
 		
 		self.layer.mask?.bounds = newBounds
 			
-		self.layer.mask?.addAnimation(moveToNewPos, forKey: "bounds")
-		self.layer.mask?.addAnimation(fadeAnimationFro, forKey: "opacity")
-		self.layer.mask?.addAnimation(fadeAnimationTo, forKey: "opacity")
+		self.layer.mask?.add(moveToNewPos, forKey: "bounds")
+		self.layer.mask?.add(fadeAnimationFro, forKey: "opacity")
+		self.layer.mask?.add(fadeAnimationTo, forKey: "opacity")
 	}
 	
 //	func findCenterOfRect (rect: CGRect) -> CGPoint {

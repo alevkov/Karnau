@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 class MapView: UIView {
 	let groupErr: UInt = 0b0010
@@ -17,13 +41,13 @@ class MapView: UIView {
 	var mintermButtons: [UIButton] = [UIButton]()
 	var offMintermButtons: [UIButton] = [UIButton]()
 	var solutions: [QMProductSum]? = [QMProductSum]()
-	private var selectedMintermButtons: [UInt : UIButton] = [UInt : UIButton]()
-	private var selectedProductSum: QMProductSum = QMProductSum(withProducts: [], magnitude: 0)
-	private var isAttemptingWrapAround: Bool = false
+	fileprivate var selectedMintermButtons: [UInt : UIButton] = [UInt : UIButton]()
+	fileprivate var selectedProductSum: QMProductSum = QMProductSum(withProducts: [], magnitude: 0)
+	fileprivate var isAttemptingWrapAround: Bool = false
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		self.opaque = false
+		self.isOpaque = false
 		self.backgroundColor = bgColor
 	}
 	
@@ -31,15 +55,15 @@ class MapView: UIView {
 		self.init(frame: frame)
 		//self.damping = 0.7
 		//self.initialSpringVelocity = 0.8
-		NSNotificationCenter.defaultCenter().addObserverForName(didResetTableOnMapViewNotification, object: nil, queue: nil) { (notification) in
+		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: didResetTableOnMapViewNotification), object: nil, queue: nil) { (notification) in
 			self.selectedProductSum = QMProductSum(withProducts: [], magnitude: 0)
 			for b in self.mintermButtons {
-				b.selected = false
+				b.isSelected = false
 				b.backgroundColor = bgColor
 			}
 			for view in self.subviews {
 				if view.tag == -1 {
-					UIView .animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { 
+					UIView .animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions(), animations: { 
 						view.alpha = 0;
 						}, completion: { (done) in
 							view.removeFromSuperview()
@@ -56,30 +80,30 @@ class MapView: UIView {
 			if (m.state == on) {
 				var mintermInMapView: UIButton
 				if magnitude > 2 {
-					mintermInMapView = UIButton(frame: CGRectMake(m.coordinate!.x - 20, m.coordinate!.y - 20, 40, 40))
+					mintermInMapView = UIButton(frame: CGRect(x: m.coordinate!.x - 20, y: m.coordinate!.y - 20, width: 40, height: 40))
 				} else {
-					mintermInMapView = UIButton(frame: CGRectMake(m.coordinate!.x - 40, m.coordinate!.y - 40, 80, 80))
+					mintermInMapView = UIButton(frame: CGRect(x: m.coordinate!.x - 40, y: m.coordinate!.y - 40, width: 80, height: 80))
 				}
-				mintermInMapView.setTitle("1", forState: UIControlState.Normal)
-				mintermInMapView.titleLabel?.textColor = UIColor.whiteColor()
+				mintermInMapView.setTitle("1", for: UIControlState())
+				mintermInMapView.titleLabel?.textColor = UIColor.white
 				mintermInMapView.tag = Int(m.minterm!.intValue)
-				mintermInMapView.userInteractionEnabled = false;
+				mintermInMapView.isUserInteractionEnabled = false;
 				self.addSubview(mintermInMapView)
 				self.mintermButtons.append(mintermInMapView)
 			} else {
 				var offMintermInMapView: UIButton
 				if magnitude > 2 {
-					offMintermInMapView = UIButton(frame: CGRectMake(m.coordinate!.x - 20, m.coordinate!.y - 20, 40, 40))
+					offMintermInMapView = UIButton(frame: CGRect(x: m.coordinate!.x - 20, y: m.coordinate!.y - 20, width: 40, height: 40))
 				} else {
-					offMintermInMapView = UIButton(frame: CGRectMake(m.coordinate!.x - 40, m.coordinate!.y - 40, 80, 80))
+					offMintermInMapView = UIButton(frame: CGRect(x: m.coordinate!.x - 40, y: m.coordinate!.y - 40, width: 80, height: 80))
 				}
 				offMintermInMapView.tag = Int((m.minterm?.intValue)!)
-				offMintermInMapView.userInteractionEnabled = false;
+				offMintermInMapView.isUserInteractionEnabled = false;
 				self.addSubview(offMintermInMapView)
 				self.offMintermButtons.append(offMintermInMapView)
 			}
 		}
-		NSNotificationCenter.defaultCenter().addObserverForName(didCallForCheckEquationNotification, object: self, queue: nil) { (notification) in
+		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: didCallForCheckEquationNotification), object: self, queue: nil) { (notification) in
 			var correct = false
 			self.selectedProductSum.print()
 			guard self.solutions != nil else { return }
@@ -91,7 +115,7 @@ class MapView: UIView {
 				}
 			}
 			let data = ["correct" : correct]
-			NSNotificationCenter.defaultCenter().postNotificationName(didCheckEquationNotification, object: self, userInfo: data)
+			NotificationCenter.default.post(name: Notification.Name(rawValue: didCheckEquationNotification), object: self, userInfo: data)
 		}
 	}
 
@@ -99,14 +123,14 @@ class MapView: UIView {
 	    fatalError("init(coder:) has not been implemented")
 	}
 	
-	private func drawMapBorders(frame: CGRect) {
-		let rectanglePath = UIBezierPath(roundedRect: CGRectMake(self.bounds.origin.x, self.bounds.origin.y	, self.bounds.width, self.bounds.height), cornerRadius: 0)
+	fileprivate func drawMapBorders(_ frame: CGRect) {
+		let rectanglePath = UIBezierPath(roundedRect: CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y	, width: self.bounds.width, height: self.bounds.height), cornerRadius: 0)
 		rectanglePath.lineWidth = 5
-		UIColor.whiteColor().setStroke()
+		UIColor.white.setStroke()
 		rectanglePath.stroke()
 	}
 	
-	private func drawRectAroundButtons(buttons: [UIButton], wrapAround: Bool) {
+	fileprivate func drawRectAroundButtons(_ buttons: [UIButton], wrapAround: Bool) {
 		var frames = [CGRect]()
 		for b in buttons {
 			frames.append(b.frame)
@@ -122,8 +146,8 @@ class MapView: UIView {
 			}
 		} else {
 			while frames.count > 1 {
-				frames[0] = CGRectUnion(frames[0], frames[1])
-				frames.removeAtIndex(1)
+				frames[0] = frames[0].union(frames[1])
+				frames.remove(at: 1)
 			}
 			let grabView = UIView(frame: frames[0])
 			grabView.addDashedBorder(normalGroupColor, animated: false)
@@ -133,54 +157,54 @@ class MapView: UIView {
 		}
 	}
 	
-	private func touchedEndedWithError() {
+	fileprivate func touchedEndedWithError() {
 		var data: [String: UInt] = [String: UInt]()
 		data["error"] = groupErr
 		for b in self.mintermButtons {
-			if b.selected {
-				b.selected = false;
-				b.backgroundColor = UIColor.clearColor()
+			if b.isSelected {
+				b.isSelected = false;
+				b.backgroundColor = UIColor.clear
 			}
 		}
 		self.isAttemptingWrapAround = false
-		NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+		NotificationCenter.default.post(name: Notification.Name(rawValue: didSelectGroupNotification), object: self, userInfo: data)
 	}
 }
 
 // Geometry
 extension MapView {
-	override func drawRect(rect: CGRect) {
+	override func draw(_ rect: CGRect) {
 		self.drawMapBorders(rect)
 	}
 }
 
 // Touch Handlers
 extension MapView {
-	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.isAttemptingWrapAround = false
 	}
 	
-	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		let touch = event?.allTouches()?.first
-		let touchLocation = touch?.locationInView(self)
+	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let touch = event?.allTouches?.first
+		let touchLocation = touch?.location(in: self)
 		for b in self.mintermButtons {
-			if CGRectContainsPoint(b.frame, touchLocation!){
+			if b.frame.contains(touchLocation!){
 				if self.isAttemptingWrapAround == true {
 					b.backgroundColor = wrapAroundGroupColor
 				} else {
 					b.backgroundColor = UIColor(hex: 0x50E3C2, alpha: 0.8)
 				}
 				
-				b.selected = true;
+				b.isSelected = true;
 			}
 		}
-		if !CGRectContainsPoint(self.bounds, touchLocation!) {
+		if !self.bounds.contains(touchLocation!) {
 			print(touchLocation!)
-			let options: UIViewAnimationOptions = [.CurveEaseInOut]
+			let options: UIViewAnimationOptions = UIViewAnimationOptions()
 			var rotationAndPerspectiveTransform = CATransform3DIdentity
 			rotationAndPerspectiveTransform.m34 = 1.0 / -500
-			rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, 20 * CGFloat(M_PI) / 180, 1.0, 0.0, 0.0)
-			UIView.animateWithDuration(0.5, delay: 0.0, options: options, animations: {
+			rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, 20 * CGFloat(Double.pi) / 180, 1.0, 0.0, 0.0)
+			UIView.animate(withDuration: 0.5, delay: 0.0, options: options, animations: {
 				self.alpha = 0.3
 				self.layer.transform = rotationAndPerspectiveTransform
 				}, completion: nil)
@@ -188,20 +212,20 @@ extension MapView {
 		}
 	}
 	
-	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.alpha = 1
 		self.layer.transform = CATransform3DIdentity
-		let touch = event?.allTouches()?.first
-		let touchLocation = touch?.locationInView(self)
+		let touch = event?.allTouches?.first
+		let touchLocation = touch?.location(in: self)
 		// check if we landed outside of the map upon releasing touch
-		guard CGRectContainsPoint(self.bounds, touchLocation!) else {
+		guard self.bounds.contains(touchLocation!) else {
 			self.touchedEndedWithError()
 			return
 		}
 		var table = [UInt]()
 		var group = [UIButton]()
 		for b in self.mintermButtons {
-			if b.selected {
+			if b.isSelected {
 				table.append(UInt(b.tag))
 				group.append(b)
 				b.backgroundColor = bgColor
@@ -211,7 +235,7 @@ extension MapView {
 		guard table.count > 0 else { return }
 		var equation = QMCore.minimizer.computePrimeProducts(table, magnitude: self.magnitude!)
 		var data: [String: QMProductSum] = [String: QMProductSum]()
-		guard log2(Double(group.count)) % 1 == 0 && equation?.last?.minCount <= 1 else {
+		guard log2(Double(group.count)).truncatingRemainder(dividingBy: 1) == 0 && equation?.last?.minCount <= 1 else {
 			self.touchedEndedWithError()
 			return
 		}
@@ -225,11 +249,11 @@ extension MapView {
 		}
 		equation?.removeAll()
 		for b in self.mintermButtons {
-			if b.selected {
-				b.selected = false;
+			if b.isSelected {
+				b.isSelected = false;
 			}
 		}
 		self.isAttemptingWrapAround = false
-		NSNotificationCenter.defaultCenter().postNotificationName(didSelectGroupNotification, object: self, userInfo: data)
+		NotificationCenter.default.post(name: Notification.Name(rawValue: didSelectGroupNotification), object: self, userInfo: data)
 	}
 }

@@ -10,7 +10,7 @@ import Foundation
 
 /* An abstract representation of a boolean expression as a sum of products */
 class QMProductSum : NSObject {
-	private let vars = ["A", "B", "C", "D", "E", "F"]
+	fileprivate let vars = ["A", "B", "C", "D", "E", "F"]
 	internal var products : [QMMinterm] = []
 	internal var strRepresentationOfProducts: [String] = []
 	/* format: "ABC + ABC + ABC + . . ." */
@@ -28,7 +28,7 @@ class QMProductSum : NSObject {
 		self.products = withProducts
 	}
 	
-	func addProduct(product: QMMinterm) {
+	func addProduct(_ product: QMMinterm) {
 		self.products.append(product)
 	}
 	
@@ -57,7 +57,7 @@ class QMProductSum : NSObject {
 	}
 	
 	func convertToStringArray() {
-		self.strRepresentationOfProducts = self.stringValue.componentsSeparatedByString("+")
+		self.strRepresentationOfProducts = self.stringValue.components(separatedBy: "+")
 	}
 	
 	func print () {

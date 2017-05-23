@@ -24,90 +24,90 @@ class ConfigViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		/// Dial view setup
-		self.vardialView = CKCircleView(frame: CGRectMake(0, 0, 150, 150))
-		self.vardialView.frame.origin = CGPointMake(CGRectGetMidX(vardialView.frame), CGRectGetMidY(vardialView.frame))
-		if UIScreen.mainScreen().bounds.width <= 320 {
-			vardialView.frame = CGRectMake(CGRectGetMidX(self.view.frame) - vardialView.frame.width/2, CGRectGetMidY(self.view.frame) - vardialView.frame.width * 1.00, vardialView.frame.width, vardialView.frame.height)
+		self.vardialView = CKCircleView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+		self.vardialView.frame.origin = CGPoint(x: vardialView.frame.midX, y: vardialView.frame.midY)
+		if UIScreen.main.bounds.width <= 320 {
+			vardialView.frame = CGRect(x: self.view.frame.midX - vardialView.frame.width/2, y: self.view.frame.midY - vardialView.frame.width * 1.00, width: vardialView.frame.width, height: vardialView.frame.height)
 		} else {
-			vardialView.frame = CGRectMake(CGRectGetMidX(self.view.frame) - vardialView.frame.width/2, CGRectGetMidY(self.view.frame) - vardialView.frame.width * 1.00, vardialView.frame.width, vardialView.frame.height)
+			vardialView.frame = CGRect(x: self.view.frame.midX - vardialView.frame.width/2, y: self.view.frame.midY - vardialView.frame.width * 1.00, width: vardialView.frame.width, height: vardialView.frame.height)
 		}
 		self.view.backgroundColor = bgColor
 		self.vardialView.letterScale = true;
 		self.vardialView.arcColor = UIColor(hex: 0x50E3C2, alpha: 1.0)
 		self.vardialView.backColor =  UIColor(hex: 0x50E3C2, alpha: 1.0)
-		self.vardialView.dialColor = UIColor.whiteColor()
+		self.vardialView.dialColor = UIColor.white
 		self.vardialView.arcRadius = 80;
 		self.vardialView.minNum = 1;
 		self.vardialView.maxNum = 4;
-		self.vardialView.labelColor = UIColor.whiteColor()
+		self.vardialView.labelColor = UIColor.white
 		self.vardialView.labelFont = UIFont(name: "Lantinghei SC", size: 22)
 		// return value on switch completion and store it
 		self.vardialView.switchCompletion = { (count)  in
-			UIView.animateWithDuration(0.5, animations: { () -> Void in
-				self.vardialView.transform = CGAffineTransformMakeScale(2, 2)
-				self.vardialView.transform = CGAffineTransformMakeScale(1, 1)
+			UIView.animate(withDuration: 0.5, animations: { () -> Void in
+				self.vardialView.transform = CGAffineTransform(scaleX: 2, y: 2)
+				self.vardialView.transform = CGAffineTransform(scaleX: 1, y: 1)
 				})
 			self.count = count + 1
 		}
 		self.view.addSubview(vardialView)
 		goButton.layer.borderWidth = 1
-		goButton.layer.borderColor = UIColor.whiteColor().CGColor
+		goButton.layer.borderColor = UIColor.white.cgColor
 		backButton.layer.borderWidth = 1
-		backButton.layer.borderColor = UIColor.whiteColor().CGColor
-		slider.frame = CGRectMake(CGRectGetMidX(self.vardialView.frame) - 100, CGRectGetMidY(self.vardialView.frame) + 200, 200, 20)
+		backButton.layer.borderColor = UIColor.white.cgColor
+		slider.frame = CGRect(x: self.vardialView.frame.midX - 100, y: self.vardialView.frame.midY + 200, width: 200, height: 20)
 		slider.maxCount = 4
 		slider.trackColor = UIColor(hex: 0x50E3C2, alpha: 1.0)
 		slider.tintColor =  UIColor(hex: 0x50E3C2, alpha: 1.0)
 		self.view.addSubview(slider)
 	}
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		self.count = 2
-		UIView.animateWithDuration(0.4, animations: { () -> Void in
-			self.vardialView.moveCircleToAngle(15, with: nil)
-			}) { (flag) -> Void in
-				UIView.animateWithDuration(0.4, animations: { () -> Void in
-					self.vardialView.moveCircleToAngle(0, with: nil)
-					}) { (flag) -> Void in
-				}
-		}
+		UIView.animate(withDuration: 0.4, animations: { () -> Void in
+			self.vardialView.moveCircle(toAngle: 15, with: nil)
+			}, completion: { (flag) -> Void in
+				UIView.animate(withDuration: 0.4, animations: { () -> Void in
+					self.vardialView.moveCircle(toAngle: 0, with: nil)
+					}, completion: { (flag) -> Void in
+				}) 
+		}) 
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
-		UIView.animateWithDuration(0.4, animations: { () -> Void in
-			self.vardialView.moveCircleToAngle(0, with: nil)
+	override func viewWillDisappear(_ animated: Bool) {
+		UIView.animate(withDuration: 0.4, animations: { () -> Void in
+			self.vardialView.moveCircle(toAngle: 0, with: nil)
 		})
 	}
 	
-	@IBAction func goButtonAction(sender: AnyObject) {
+	@IBAction func goButtonAction(_ sender: AnyObject) {
 		let count = (Double(self.count) * Double(slider.index + 1)) / 1.3
 		let table = makeList(Int(count), cap: 2^^Int(self.count))
-		let mapView = StoryBoardManager.sharedManager.instantiateViewControllerWithIdentifier("MapView") as? MapViewController
+		let mapView = StoryBoardManager.sharedManager.instantiateViewController(withIdentifier: "MapView") as? MapViewController
 		mapView!.table = table
 		mapView!.magnitude = Int(self.count)
-		let  trans = UIViewAnimationTransition.FlipFromRight
+		let  trans = UIViewAnimationTransition.flipFromRight
 		UIView.beginAnimations("trans", context: nil)
-		UIView.setAnimationTransition(trans, forView: UIApplication.sharedApplication().keyWindow!, cache: true)
+		UIView.setAnimationTransition(trans, for: UIApplication.shared.keyWindow!, cache: true)
 		UIView.setAnimationDuration(0.3)
-		self.presentViewController(mapView!, animated: false, completion: nil)
+		self.present(mapView!, animated: false, completion: nil)
 		UIView.commitAnimations()
 	}
 	
 	
-	@IBAction func backButton(sender: AnyObject) {
-		self.dismissViewControllerAnimated(false, completion: nil)
+	@IBAction func backButton(_ sender: AnyObject) {
+		self.dismiss(animated: false, completion: nil)
 	}
 	
-	override func prefersStatusBarHidden() -> Bool {
+	override var prefersStatusBarHidden : Bool {
 		return true
 	}
 	
-	func makeList(n:Int, cap: Int) -> [UInt] {
+	func makeList(_ n:Int, cap: Int) -> [UInt] {
 		var result: [UInt] = []
 		for _ in 0..<n {
 			result.append(UInt(arc4random_uniform(UInt32(cap))))
 		}
-		result.sortInPlace({ $1 > $0 })
+		result.sort(by: { $1 > $0 })
 		return uniq(result)
 	}
 

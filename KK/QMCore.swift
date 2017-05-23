@@ -13,6 +13,19 @@
 ***/
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 /*
 -- Will be introduced to the scene as an object instance
@@ -33,33 +46,33 @@ class QMCore: NSObject {
 	class var minimizer: QMCore {
 		return qm
 	}
-	private let tags = "abcdefghklmnpqrstuvwxyz"
+	fileprivate let tags = "abcdefghklmnpqrstuvwxyz"
 	var magnitude : UInt = 0
 	lazy var solutions = [GroupType]()
 	lazy var equations = [QMProductSum]()
 	
 	
-	private func sortedKeys (group: AnyObject) -> [UInt] {
+	fileprivate func sortedKeys (_ group: AnyObject) -> [UInt] {
 	
 		var keys : [UInt] = []
 		if let mingroup = group as? OrderType {
 			for (k, _) in (mingroup) {
 				keys.append(k)
 			}
-			keys.sortInPlace({ $1 > $0 })
+			keys.sort(by: { $1 > $0 })
 			return keys
 		} else if let solutions = group as? [Int: [String]] {
 			for (k, _) in (solutions) {
 				keys.append(UInt(k))
 			}
-			keys.sortInPlace({ $1 > $0 })
+			keys.sort(by: { $1 > $0 })
 			return keys
 		}
 		return []
 	}
 	
 	
-	private func splitBuffer (buffer: [AnyObject], orderGroup: OrderType, magnitude: UInt) -> OrderType {
+	fileprivate func splitBuffer (_ buffer: [AnyObject], orderGroup: OrderType, magnitude: UInt) -> OrderType {
 		var order: OrderType = orderGroup
 		for i in buffer {
 			if let intKey = i as? UInt {
@@ -70,10 +83,10 @@ class QMCore: NSObject {
 			}
 			else {
 				if let impl = i as? QMMinterm {
-					if order[hashBitCount(nonnul: impl.stringValue)] == nil {
-						order[hashBitCount(nonnul: impl.stringValue)] = GroupType()
+					if order[hashBitCount(nonnul: impl.stringValue as AnyObject)] == nil {
+						order[hashBitCount(nonnul: impl.stringValue as AnyObject)] = GroupType()
 					}
-					order[hashBitCount(nonnul: impl.stringValue)]?.append(impl)
+					order[hashBitCount(nonnul: impl.stringValue as AnyObject)]?.append(impl)
 				}
 			}
 		}
@@ -81,14 +94,14 @@ class QMCore: NSObject {
 	}
 	
 	
-	private func deriveNthOrder(buffer: [AnyObject], inout order: OrderType, inout residual: OrderType, magnitude: UInt) -> OrderType {
+	fileprivate func deriveNthOrder(_ buffer: [AnyObject], order: inout OrderType, residual: inout OrderType, magnitude: UInt) -> OrderType {
 		if buffer.count == 0 {
 			return order
 		}
 		order = OrderType()
 		var temp = [AnyObject]()
 		order = splitBuffer(buffer, orderGroup: order, magnitude: magnitude) // O(n)
-		for key in sortedKeys(order) {
+		for key in sortedKeys(order as AnyObject) {
 			guard let group = order[key] as GroupType?
 				else { print("error"); break}
 			for minterm1 in group {
@@ -112,10 +125,10 @@ class QMCore: NSObject {
 		for (_, v) in order {
 			for minterm in v {
 				if !minterm.paired {
-					if residual[hashBitCount(nonnul: minterm.stringValue)] == nil {
-						residual[hashBitCount(nonnul: minterm.stringValue)] = GroupType()
+					if residual[hashBitCount(nonnul: minterm.stringValue as AnyObject)] == nil {
+						residual[hashBitCount(nonnul: minterm.stringValue as AnyObject)] = GroupType()
 					}
-					residual[hashBitCount(nonnul: minterm.stringValue)]?.append(minterm)
+					residual[hashBitCount(nonnul: minterm.stringValue as AnyObject)]?.append(minterm)
 				}
 			}
 		}
@@ -123,7 +136,7 @@ class QMCore: NSObject {
 	}
 	
 	
-	func computePrimeProducts (withMin: [UInt], magnitude: UInt) -> [QMProductSum]? {
+	func computePrimeProducts (_ withMin: [UInt], magnitude: UInt) -> [QMProductSum]? {
 		var withMinterms = withMin
 		let timer = ParkBenchTimer() // start timer for algoithm
 		var order = OrderType()
@@ -133,7 +146,7 @@ class QMCore: NSObject {
 		var primesArray = GroupType()
 		var petrick = [[String]]()
 		self.magnitude = magnitude
-		deriveNthOrder(withMinterms, order: &order, residual: &residual, magnitude: magnitude)
+		deriveNthOrder(withMinterms as [AnyObject], order: &order, residual: &residual, magnitude: magnitude)
 		for (_, v) in residual {
 			for m in v {
 				primes[m.stringValue] = m
@@ -154,7 +167,7 @@ class QMCore: NSObject {
 		if primesArray.count >= 1 && withMinterms.count > 0 {
 			var primeCount = 0
 			for (_, v) in primes {
-				v.tag = String(tags[tags.startIndex.advancedBy(primeCount)])
+				v.tag = String(tags[tags.characters.index(tags.startIndex, offsetBy: primeCount)])
 				primeCount = primeCount + 1
 			}
 			for min in withMinterms {
@@ -177,10 +190,10 @@ class QMCore: NSObject {
 				return equations
 			}
 			for s in petrick[0] {
-				let ss = s.characters.sort()
+				let ss = s.characters.sorted()
 				exp.append(String(ss))
 			}
-			exp.sortInPlace({ $1.characters.count > $0.characters.count })
+			exp.sort(by: { $1.characters.count > $0.characters.count })
 			var petrickDict = [Int: [String]]()
 			for s in exp {
 				if petrickDict[s.characters.count] == nil {
@@ -193,7 +206,7 @@ class QMCore: NSObject {
 			for p in primesArray {
 				primeDict[p.tag] = p
 			}
-			let keys = sortedKeys(petrickDict)
+			let keys = sortedKeys(petrickDict as AnyObject)
 			let k = keys[0]
 			let extras = petrickDict[Int(k)]
 			/* extras contains a string array with strings with the smallest number of letter tags */
@@ -209,7 +222,7 @@ class QMCore: NSObject {
 				}
 				extrasByCountOfTerms[key]?.append(e)
 			}
-			let minkey = sortedKeys(extrasByCountOfTerms)[0]
+			let minkey = sortedKeys(extrasByCountOfTerms as AnyObject)[0]
 			for (k, v) in extrasByCountOfTerms {
 				if (UInt(k) == minkey) {
 					for term in uniq(v) {
@@ -249,7 +262,7 @@ class QMCore: NSObject {
 		}
 	}
 	
-	private func convertMintermArrayToUInt (array: GroupType) -> Array<UInt> {
+	fileprivate func convertMintermArrayToUInt (_ array: GroupType) -> Array<UInt> {
 		var b = Array<UInt>()
 		for a in array {
 			b.append(a.intValue)
@@ -257,7 +270,7 @@ class QMCore: NSObject {
 		return b
 	}
 	
-	private func reducePrimes( inout primes: GroupType, inout table: [UInt], inout ePrimes: PrimeType) -> GroupType {
+	fileprivate func reducePrimes( _ primes: inout GroupType, table: inout [UInt], ePrimes: inout PrimeType) -> GroupType {
 		var minGroupForEssentialPrimes = [UInt]()
 		var x = [UInt]()
 		for m in primes {
@@ -275,8 +288,8 @@ class QMCore: NSObject {
 			for p in primes {
 				if convertMintermArrayToUInt(p.matches).contains(x) {
 					ePrimes[p.stringValue] = p
-					if table.indexOf(x) != nil {
-						table.removeAtIndex(table.indexOf(x)!)
+					if table.index(of: x) != nil {
+						table.remove(at: table.index(of: x)!)
 					}
 					
 				}
@@ -286,15 +299,15 @@ class QMCore: NSObject {
 		for p in primes {
 			for (_, q) in ePrimes {
 				if p.stringValue == q.stringValue {
-					primes.removeAtIndex(primes.indexOf(q)!)
+					primes.remove(at: primes.index(of: q)!)
 				}
 			}
 		}
 		for (_,q) in ePrimes {
 			for match in convertMintermArrayToUInt(q.matches) {
 				if table.contains(match) {
-					if table.indexOf(match) != nil {
-						table.removeAtIndex(table.indexOf(match)!)
+					if table.index(of: match) != nil {
+						table.remove(at: table.index(of: match)!)
 					}
 				}
 			}
@@ -302,7 +315,7 @@ class QMCore: NSObject {
 		return reducePrimes(&primes, table: &table, ePrimes: &ePrimes)
 	}
 	
-	private func petrickify(inout expression: [[String]]) -> [[String]]? {
+	fileprivate func petrickify(_ expression: inout [[String]]) -> [[String]]? {
 		if expression.count == 1  {
 			return expression
 		}
@@ -310,15 +323,15 @@ class QMCore: NSObject {
 			return nil
 		}
 		expression[0] &= expression[1]
-		expression.removeAtIndex(1)
+		expression.remove(at: 1)
 		return petrickify(&expression)
 	}
 	
-	private func countVars (forMinterm: QMMinterm) -> Int {
-		return Int(self.magnitude) - (forMinterm.stringValue.componentsSeparatedByString("-").count - 1)
+	fileprivate func countVars (_ forMinterm: QMMinterm) -> Int {
+		return Int(self.magnitude) - (forMinterm.stringValue.components(separatedBy: "-").count - 1)
 	}
 	
-	private func hashBitCount (nonnul value: AnyObject) -> UInt {
+	fileprivate func hashBitCount (nonnul value: AnyObject) -> UInt {
 		if let n = value as? UInt {
 			var num = n;
 			var count: UInt = 0;
@@ -341,14 +354,14 @@ class QMCore: NSObject {
 		
 	}
 	
-	private func grayCodeDiff (value1: AnyObject, value2: AnyObject) throws -> QMMinterm? {
+	fileprivate func grayCodeDiff (_ value1: AnyObject, value2: AnyObject) throws -> QMMinterm? {
 		guard let min1 = value1 as? QMMinterm
-			else { throw Error.UnknownType }
+			else { return nil }
 		guard let min2 = value2 as? QMMinterm
-			else { throw Error.UnknownType }
+			else { return nil }
 		if min1.intValue != implicantFlag && min2.intValue != implicantFlag {
 			let comparator = min1.intValue ^ min2.intValue
-			if log2(Double(comparator)) % 1 == 0 {
+			if log2(Double(comparator)).truncatingRemainder(dividingBy: 1) == 0 {
 				let im = QMMinterm(min1: min1, min2: min2, idx: UInt(log2(Double(comparator))))
 				im.matches.append(min1)
 				im.matches.append(min2)
@@ -358,7 +371,7 @@ class QMCore: NSObject {
 			}
 		} else {
 			let comparator = min1.stringValue ^ min2.stringValue
-			if log2(Double(comparator)) % 1 == 0 {
+			if log2(Double(comparator)).truncatingRemainder(dividingBy: 1) == 0 {
 				let im = QMMinterm(min1: min1, min2: min2, idx: UInt(log2(Double(comparator))))
 				for m in min1.matches {
 					im.matches.append(m)
@@ -373,8 +386,8 @@ class QMCore: NSObject {
 		}
 	}
 	
-	private func hashFunction (value: UInt) -> UInt {
-		let key = hashBitCount(nonnul: value)
+	fileprivate func hashFunction (_ value: UInt) -> UInt {
+		let key = hashBitCount(nonnul: value as AnyObject)
 		return key
 	}
 }

@@ -21,29 +21,29 @@ class QMMap: NSObject {
 		for m in (0...Int(range) - 1) {
 			let min = QMMinterm(i: UInt(m), m: magnitude)
 			let c = QMCoordiate(minterm: min, state: off)
-			self.minterms.insert(c, atIndex: m)
+			self.minterms.insert(c, at: m)
 		}
 		for m in minterms {
 			self.minterms[Int(m)].state = on
 		}
 	}
 	
-	func point(a: CGFloat, _ b: CGFloat) -> CGPoint {
-		return CGPointMake(a, b)
+	func point(_ a: CGFloat, _ b: CGFloat) -> CGPoint {
+		return CGPoint(x: a, y: b)
 	}
 	
 	func initCoordinates() {
 		let w = self.bounds!.width
 		switch self.magnitude {
 		case 2:
-			let orig = point(CGRectGetMaxX(self.bounds!) * 0.25, CGRectGetMaxY(self.bounds!) * 0.25)
+			let orig = point(self.bounds!.maxX * 0.25, self.bounds!.maxY * 0.25)
 			self.minterms[0].coordinate = orig
 			self.minterms[1].coordinate = point(orig.x + w / 2, orig.y)
 			self.minterms[2].coordinate = point(orig.x, orig.y + self.bounds!.height / 2)
 			self.minterms[3].coordinate = point(orig.x + w / 2, orig.y + self.bounds!.height / 2)
 			break
 		case 3:
-			let orig = point(CGRectGetMaxX(self.bounds!) * 0.25, CGRectGetMaxY(self.bounds!) * 0.125)
+			let orig = point(self.bounds!.maxX * 0.25, self.bounds!.maxY * 0.125)
 			self.minterms[0].coordinate = orig
 			self.minterms[1].coordinate = point(orig.x + w / 2, orig.y)
 			self.minterms[2].coordinate = point(orig.x, w * 0.375 + orig.y)
@@ -54,7 +54,7 @@ class QMMap: NSObject {
 			self.minterms[5].coordinate = point(orig.x + w / 2, orig.y + w * 1.125)
 			break
 		case 4:
-			let orig = point(CGRectGetMaxX(self.bounds!) * 0.125, CGRectGetMaxY(self.bounds!) * 0.125)
+			let orig = point(self.bounds!.maxX * 0.125, self.bounds!.maxY * 0.125)
 			self.minterms[0].coordinate = orig
 			self.minterms[1].coordinate = point(orig.x + w * 0.25, orig.y)
 			self.minterms[3].coordinate = point(orig.x + w * 0.5, orig.y)
