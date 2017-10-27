@@ -140,7 +140,7 @@ class MapView: UIView {
 			for f in frames {
 				let grabView = UIView(frame: f)
 				grabView.addDashedBorder(normalGroupColor, animated: true)
-				grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+				grabView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
 				grabView.tag = -1
 				self.addSubview(grabView)
 			}
@@ -151,7 +151,7 @@ class MapView: UIView {
 			}
 			let grabView = UIView(frame: frames[0])
 			grabView.addDashedBorder(normalGroupColor, animated: false)
-			grabView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+			grabView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
 			grabView.tag = -1
 			self .addSubview(grabView)
 		}

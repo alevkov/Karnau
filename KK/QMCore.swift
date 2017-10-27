@@ -146,6 +146,7 @@ class QMCore: NSObject {
 		var primesArray = GroupType()
 		var petrick = [[String]]()
 		self.magnitude = magnitude
+        
 		deriveNthOrder(withMinterms as [AnyObject], order: &order, residual: &residual, magnitude: magnitude)
 		for (_, v) in residual {
 			for m in v {
@@ -162,6 +163,7 @@ class QMCore: NSObject {
 		if primesArray.count > 1 {
 			reducePrimes(&primesArray, table: &withMinterms, ePrimes: &ePrimes)
 		}
+        // we must find only the essential primes in the prime matrix
 		//print(primesArray.count)
 		var em = GroupType()
 		if primesArray.count >= 1 && withMinterms.count > 0 {
@@ -184,7 +186,7 @@ class QMCore: NSObject {
 			var exp = [String]()
 			let ccf = petrickify(&petrick)
 			
-			/* if we encounter a cyclical PI cover,
+			/* if we encounter a cyclical prime implicant cover (i.e. number of elements exceeds limit)
 				then abandon ship */
 			if ccf == nil {
 				return equations
@@ -295,7 +297,7 @@ class QMCore: NSObject {
 				}
 			}
 		}
-		/* remove EP's from prime table */
+		/* remove essential primes from prime table */
 		for p in primes {
 			for (_, q) in ePrimes {
 				if p.stringValue == q.stringValue {
@@ -320,9 +322,11 @@ class QMCore: NSObject {
 			return expression
 		}
 		if expression[0].count > 100000 {
+            // equation too complex to be simplifed using petrick's method
 			return nil
 		}
 		expression[0] &= expression[1]
+        // reduce expression in petrick's form until only one element is left
 		expression.remove(at: 1)
 		return petrickify(&expression)
 	}

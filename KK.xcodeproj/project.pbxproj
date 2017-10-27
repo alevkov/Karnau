@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A39579E1C8643A0006079F6 /* QMCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B981C724244006DFAD7 /* QMCore.swift */; };
 		3A6AE2B61D9AA56E002DACE6 /* QMProductSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE2B51D9AA56E002DACE6 /* QMProductSum.swift */; };
 		3A8A0B731C72420E006DFAD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B721C72420E006DFAD7 /* AppDelegate.swift */; };
 		3A8A0B751C72420E006DFAD7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B741C72420E006DFAD7 /* MenuViewController.swift */; };
@@ -15,7 +14,6 @@
 		3A8A0B7B1C72420E006DFAD7 /* KK.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B791C72420E006DFAD7 /* KK.xcdatamodeld */; };
 		3A8A0B7D1C72420E006DFAD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0B7C1C72420E006DFAD7 /* Assets.xcassets */; };
 		3A8A0B801C72420E006DFAD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8A0B7E1C72420E006DFAD7 /* LaunchScreen.storyboard */; };
-		3A8A0B8B1C72420E006DFAD7 /* KKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B8A1C72420E006DFAD7 /* KKUITests.swift */; };
 		3A8A0B991C724244006DFAD7 /* QMCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B981C724244006DFAD7 /* QMCore.swift */; };
 		3A8A0B9B1C72424E006DFAD7 /* QMMinterm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B9A1C72424E006DFAD7 /* QMMinterm.swift */; };
 		3A8A0B9D1C724256006DFAD7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A0B9C1C724256006DFAD7 /* Extensions.swift */; };
@@ -66,7 +64,6 @@
 		3A8A0B7F1C72420E006DFAD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8A0B811C72420E006DFAD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A8A0B861C72420E006DFAD7 /* KKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A8A0B8A1C72420E006DFAD7 /* KKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKUITests.swift; sourceTree = "<group>"; };
 		3A8A0B8C1C72420E006DFAD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A8A0B981C724244006DFAD7 /* QMCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMCore.swift; sourceTree = "<group>"; };
 		3A8A0B9A1C72424E006DFAD7 /* QMMinterm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMMinterm.swift; sourceTree = "<group>"; };
@@ -164,7 +161,6 @@
 		3A8A0B891C72420E006DFAD7 /* KKUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3A8A0B8A1C72420E006DFAD7 /* KKUITests.swift */,
 				3A8A0B8C1C72420E006DFAD7 /* Info.plist */,
 			);
 			path = KKUITests;
@@ -355,12 +351,12 @@
 					3A8A0B6E1C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = K7Z768Y9KY;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 					};
 					3A8A0B851C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = K7Z768Y9KY;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						TestTargetID = 3A8A0B6E1C72420E006DFAD7;
 					};
 				};
@@ -494,8 +490,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A39579E1C8643A0006079F6 /* QMCore.swift in Sources */,
-				3A8A0B8B1C72420E006DFAD7 /* KKUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,7 +623,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -647,7 +642,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -658,7 +654,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KKUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = KK;
 				USES_XCTRUNNER = YES;
 			};
@@ -671,7 +668,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KKUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = KK;
 				USES_XCTRUNNER = YES;
 			};
