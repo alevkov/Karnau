@@ -39,7 +39,7 @@ class QMProductSum : NSObject {
 			if strval != "" {
 				strval += "+"
 			}
-			for i in 0 ..< p.stringValue.characters.count {
+			for i in 0 ..< p.stringValue.count {
 				if p.stringValue[i] == Character("1") {
 					strval += self.vars[i]
 				}

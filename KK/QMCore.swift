@@ -169,7 +169,7 @@ class QMCore: NSObject {
 		if primesArray.count >= 1 && withMinterms.count > 0 {
 			var primeCount = 0
 			for (_, v) in primes {
-				v.tag = String(tags[tags.characters.index(tags.startIndex, offsetBy: primeCount)])
+				v.tag = String(tags[tags.index(tags.startIndex, offsetBy: primeCount)])
 				primeCount = primeCount + 1
 			}
 			for min in withMinterms {
@@ -192,16 +192,16 @@ class QMCore: NSObject {
 				return equations
 			}
 			for s in petrick[0] {
-				let ss = s.characters.sorted()
+				let ss = s.sorted()
 				exp.append(String(ss))
 			}
-			exp.sort(by: { $1.characters.count > $0.characters.count })
+			exp.sort(by: { $1.count > $0.count })
 			var petrickDict = [Int: [String]]()
 			for s in exp {
-				if petrickDict[s.characters.count] == nil {
-					petrickDict[s.characters.count] = [String]()
+				if petrickDict[s.count] == nil {
+					petrickDict[s.count] = [String]()
 				}
-				petrickDict[s.characters.count]?.append(s)
+				petrickDict[s.count]?.append(s)
 			}
 			var primeDict = [String: QMMinterm]()
 			var petrickPrimes = [GroupType]()
@@ -213,23 +213,23 @@ class QMCore: NSObject {
 			let extras = petrickDict[Int(k)]
 			/* extras contains a string array with strings with the smallest number of letter tags */
 			var extrasByCountOfTerms = [Int: [String]]()
-			for e in extras! {
+			for extra in extras! {
 				var key = 0
-				for c in e.characters {
+				for c in extra {
 					print(primeDict[String(c)]!.stringValue)
 					key += countVars(primeDict[String(c)]!)
 				}
 				if extrasByCountOfTerms[key] == nil {
 					extrasByCountOfTerms[key] = [String]()
 				}
-				extrasByCountOfTerms[key]?.append(e)
+				extrasByCountOfTerms[key]?.append(extra)
 			}
 			let minkey = sortedKeys(extrasByCountOfTerms as AnyObject)[0]
 			for (k, v) in extrasByCountOfTerms {
 				if (UInt(k) == minkey) {
 					for term in uniq(v) {
 						var x = GroupType()
-						for c in term.characters {
+						for c in term {
 							x.append(primeDict[String(c)]!)
 						}
 						petrickPrimes.append(x)
@@ -344,9 +344,9 @@ class QMCore: NSObject {
 				count += 1;
 			}
 			return count;
-		} else if let s = value as? String {
+		} else if let strVal = value as? String {
 			var count: UInt = 0
-			for c in s.characters {
+			for c in strVal {
 				if c == "1" {
 					count += 1;
 				}
