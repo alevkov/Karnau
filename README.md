@@ -1,6 +1,3 @@
-# KK
-A puzzle game for iOS based around the practice of simplifying boolean expressions.
-
-The problem: to make solving Karnaugh Maps manually a rewarding experience.
-
-Based on the Quine-McCluskey simplification algorithm, implemented in Swift. (See QMCore.swift)
+# Karnau
+A puzzle game for iOS based on Karnaugh's manual method of simplifying boolean expressions.
+An implementation of the Quine-McCluskey simplification algorithm is provided.
