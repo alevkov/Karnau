@@ -10,11 +10,7 @@ An implementation of the Quine-McCluskey simplification algorithm is provided.
 - To wrap around to the other table, tab and drag above or below the square and drag the mouse over the desired sister squares.
 - Press 'Check' to validate the solution.
 
-<img src="./img/img.6.25.11.png" width="100" alt="1">
-<img src="./img/img.6.25.13.png" width="100" alt="2">
-<img src="./img/img.6.25.21.png" width="100" alt="3">
-<img src="./img/img.6.25.24.png" width="100" alt="4">
-<img src="./img/img.6.25.46.png" width="100" alt="5">
+<img src="./img/img.6.25.11.png" width="200" alt="1"><img src="./img/img.6.25.13.png" width="200" alt="2"><img src="./img/img.6.25.21.png" width="200" alt="3"><img src="./img/img.6.25.24.png" width="200" alt="4"><img src="./img/img.6.25.46.png" width="200" alt="5">
 
 
 ## Install and run on macOS
