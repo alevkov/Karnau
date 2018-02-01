@@ -2,6 +2,8 @@
 A puzzle game for iOS based on Karnaugh's manual method of simplifying boolean expressions.
 An implementation of the Quine-McCluskey simplification algorithm is provided.
 
+Link to extended abstract describing the modified algorithm: https://www.slideshare.net/slideshow/embed_code/key/sXklhWvG2PBqO
+
 ## Tutorial
 - Install and run on macOS with XCode.app
 - Press 'Start'
