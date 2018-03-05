@@ -9,12 +9,12 @@
 import Foundation
 
 class QMCoordiate: NSObject {
-	var coordinate: CGPoint?
-	var minterm: QMMinterm?
-	var state: Bool?
-	
-	init(minterm: QMMinterm, state: Bool) {
-		self.minterm = minterm
-		self.state = state
-	}
+  var coordinate: CGPoint?
+  var minterm: QMMinterm?
+  var state: Bool?
+  
+  init(minterm: QMMinterm, state: Bool) {
+    self.minterm = minterm
+    self.state = state
+  }
 }
