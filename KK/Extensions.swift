@@ -13,12 +13,12 @@ import UIKit
 
 extension String {
 	subscript (i: Int) -> Character {
-		return self[self.characters.index(self.startIndex, offsetBy: i)]
+		return self[self.index(self.startIndex, offsetBy: i)]
 	}
 	
 	subscript (r: Range<Int>) -> String {
-		let start = characters.index(startIndex, offsetBy: r.lowerBound)
-		let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
+		let start = self.index(startIndex, offsetBy: r.lowerBound)
+		let end = self.index(start, offsetBy: r.upperBound - r.lowerBound)
 		return String(self[start..<end])
 	}
 }
@@ -56,12 +56,12 @@ func ^^ (radix: Int, power: Int) -> Int {
 // Logical ops for string type
 
 func ^ (left: String, right: String) -> UInt {
-	if left.characters.count != right.characters.count {
+	if left.count != right.count {
 		return 0
 	}
 	var strResult = ""
 	var intResult : UInt
-	for i in 0 ..< left.characters.count {
+	for i in 0 ..< left.count {
 		if left[i] == right[i] {
 			strResult += "0"
 		} else {
@@ -78,7 +78,7 @@ func & (left: String, right: String) -> String {
 	}
 	else {
 		var result = left
-		for r in right.characters {
+		for r in right {
 			if !result.contains(String(r)) {
 				result.append(r)
 			}
@@ -108,9 +108,9 @@ func | (left: String, right: String) -> String? {
 	if left == right {
 		return left
 	}
-	if Set(left.characters).isSubset(of: Set(right.characters)) {
+	if Set(left).isSubset(of: Set(right)) {
 		return left
-	} else if Set(right.characters).isSubset(of: Set(right.characters)) {
+	} else if Set(right).isSubset(of: Set(right)) {
 		return left
 	} else {
 		return nil
@@ -132,7 +132,7 @@ extension UIView {
 		shapeLayer.lineWidth = 2
 		shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
 		self.alpha = 0.0
-		let options: UIViewAnimationOptions = animated == true ? [.autoreverse, .repeat] : UIViewAnimationOptions()
+		let options: UIView.AnimationOptions = animated == true ? [.autoreverse, .repeat] : UIView.AnimationOptions()
 			UIView.animate(withDuration: 0.7, delay: 0.0, options: options, animations: {
 				self.alpha = animated == true ? 0.5 : 1
 			}, completion: nil)

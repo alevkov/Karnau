@@ -146,7 +146,7 @@ class QMCore: NSObject {
     var petrick = [[String]]()
     self.magnitude = magnitude
     
-    deriveNthOrder(withMinterms as [AnyObject], order: &order, residual: &residual, magnitude: magnitude)
+    let _ = deriveNthOrder(withMinterms as [AnyObject], order: &order, residual: &residual, magnitude: magnitude)
     for (_, v) in residual {
       for m in v {
         primes[m.stringValue] = m
@@ -160,7 +160,7 @@ class QMCore: NSObject {
     }
     //print(primesArray.count)
     if primesArray.count > 1 {
-      reducePrimes(&primesArray, table: &withMinterms, ePrimes: &ePrimes)
+      let _ = reducePrimes(&primesArray, table: &withMinterms, ePrimes: &ePrimes)
     }
     // we must find only the essential primes in the prime matrix
     //print(primesArray.count)
@@ -289,8 +289,8 @@ class QMCore: NSObject {
       for p in primes {
         if convertMintermArrayToUInt(p.matches).contains(x) {
           ePrimes[p.stringValue] = p
-          if table.index(of: x) != nil {
-            table.remove(at: table.index(of: x)!)
+          if table.firstIndex(of: x) != nil {
+            table.remove(at: table.firstIndex(of: x)!)
           }
           
         }
@@ -300,15 +300,15 @@ class QMCore: NSObject {
     for p in primes {
       for (_, q) in ePrimes {
         if p.stringValue == q.stringValue {
-          primes.remove(at: primes.index(of: q)!)
+          primes.remove(at: primes.firstIndex(of: q)!)
         }
       }
     }
     for (_,q) in ePrimes {
       for match in convertMintermArrayToUInt(q.matches) {
         if table.contains(match) {
-          if table.index(of: match) != nil {
-            table.remove(at: table.index(of: match)!)
+          if table.firstIndex(of: match) != nil {
+            table.remove(at: table.firstIndex(of: match)!)
           }
         }
       }

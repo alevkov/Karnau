@@ -63,7 +63,7 @@ class MapView: UIView {
 			}
 			for view in self.subviews {
 				if view.tag == -1 {
-					UIView .animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions(), animations: { 
+					UIView .animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: { 
 						view.alpha = 0;
 						}, completion: { (done) in
 							view.removeFromSuperview()
@@ -84,7 +84,7 @@ class MapView: UIView {
 				} else {
 					mintermInMapView = UIButton(frame: CGRect(x: m.coordinate!.x - 40, y: m.coordinate!.y - 40, width: 80, height: 80))
 				}
-				mintermInMapView.setTitle("1", for: UIControlState())
+				mintermInMapView.setTitle("1", for: UIControl.State())
 				mintermInMapView.titleLabel?.textColor = UIColor.white
 				mintermInMapView.tag = Int(m.minterm!.intValue)
 				mintermInMapView.isUserInteractionEnabled = false;
@@ -200,7 +200,7 @@ extension MapView {
 		}
 		if !self.bounds.contains(touchLocation!) {
 			print(touchLocation!)
-			let options: UIViewAnimationOptions = UIViewAnimationOptions()
+			let options: UIView.AnimationOptions = UIView.AnimationOptions()
 			var rotationAndPerspectiveTransform = CATransform3DIdentity
 			rotationAndPerspectiveTransform.m34 = 1.0 / -500
 			rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, 20 * CGFloat(Double.pi) / 180, 1.0, 0.0, 0.0)

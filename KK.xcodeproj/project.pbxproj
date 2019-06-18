@@ -42,6 +42,7 @@
 		3ADFE1A01C7A61180041861E /* StepSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFE19F1C7A61180041861E /* StepSlider.m */; };
 		4DEEF1FD5A37D2C0BBE33B5C /* Pods_KK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84C8F2C84F983A99EE1BBA6 /* Pods_KK.framework */; };
 		A7C7DB8FC6F8BC2F7480F423 /* Pods_KKUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B306CD2C0DB1CB271EA5033C /* Pods_KKUITests.framework */; };
+		D9FFB28122B98E6A00CEF3F0 /* KKUITests in Resources */ = {isa = PBXBuildFile; fileRef = D9FFB28022B98E6A00CEF3F0 /* KKUITests */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +68,6 @@
 		3A8A0B7F1C72420E006DFAD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8A0B811C72420E006DFAD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A8A0B861C72420E006DFAD7 /* KKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A8A0B8C1C72420E006DFAD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A8A0B981C724244006DFAD7 /* QMCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMCore.swift; sourceTree = "<group>"; };
 		3A8A0B9A1C72424E006DFAD7 /* QMMinterm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMMinterm.swift; sourceTree = "<group>"; };
 		3A8A0B9C1C724256006DFAD7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -101,6 +101,7 @@
 		6BB1C7DDE7066ED8CC7D43E9 /* Pods-KK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KK.release.xcconfig"; path = "Pods/Target Support Files/Pods-KK/Pods-KK.release.xcconfig"; sourceTree = "<group>"; };
 		B306CD2C0DB1CB271EA5033C /* Pods_KKUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KKUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9EF5CE71D7E9D3F03133D8 /* Pods-KK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KK/Pods-KK.debug.xcconfig"; sourceTree = "<group>"; };
+		D9FFB28022B98E6A00CEF3F0 /* KKUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = KKUITests; sourceTree = "<group>"; };
 		F84C8F2C84F983A99EE1BBA6 /* Pods_KK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,8 +128,8 @@
 		3A8A0B661C72420E006DFAD7 = {
 			isa = PBXGroup;
 			children = (
+				D9FFB28022B98E6A00CEF3F0 /* KKUITests */,
 				3A8A0B711C72420E006DFAD7 /* KK */,
-				3A8A0B891C72420E006DFAD7 /* KKUITests */,
 				3A8A0B701C72420E006DFAD7 /* Products */,
 				49BED065A9F25F954400C1A0 /* Pods */,
 				817A31DCAE5622D19E7D8D22 /* Frameworks */,
@@ -161,14 +162,6 @@
 				3A8A0B791C72420E006DFAD7 /* KK.xcdatamodeld */,
 			);
 			path = KK;
-			sourceTree = "<group>";
-		};
-		3A8A0B891C72420E006DFAD7 /* KKUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3A8A0B8C1C72420E006DFAD7 /* Info.plist */,
-			);
-			path = KKUITests;
 			sourceTree = "<group>";
 		};
 		3A8A0B951C724215006DFAD7 /* View Controllers */ = {
@@ -362,7 +355,7 @@
 					3A8A0B6E1C72420E006DFAD7 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = K7Z768Y9KY;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					3A8A0B851C72420E006DFAD7 = {
@@ -378,6 +371,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -398,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8A0BB81C724721006DFAD7 /* trench.otf in Resources */,
+				D9FFB28122B98E6A00CEF3F0 /* KKUITests in Resources */,
 				3A8A0BB91C724721006DFAD7 /* Lantinghei.ttc in Resources */,
 				3A8F86061C740F63001231B5 /* Logo@2.xib in Resources */,
 				3A8A0BBA1C724721006DFAD7 /* PEPSI_pl.ttf in Resources */,
@@ -693,8 +688,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -714,8 +708,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./KK/KK-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

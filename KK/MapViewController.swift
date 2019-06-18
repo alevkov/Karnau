@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		self.equationLabel.text = ""
-		self.resetTableButton.setTitle("reset", for: UIControlState())
+		self.resetTableButton.setTitle("reset", for: UIControl.State())
 		self.view.backgroundColor = bgColor
 		if self.magnitude == 2 || self.magnitude == 4 || self.magnitude == 5 {
 			self.map = MapView(frame: CGRect(x: self.view.frame.midX - mapSizeSquare / 2,
@@ -86,8 +86,8 @@ class MapViewController: UIViewController {
 			return
 		}
 		if data["error"] != nil {
-			let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-			alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+			let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
 			self.present(alert, animated: true, completion: nil)
 			return
 		}
@@ -103,13 +103,13 @@ class MapViewController: UIViewController {
 			return
 		}
 		if data["correct"] == false {
-			let alert = UIAlertController(title: "Incorrect Solution", message: "Try a different approach!", preferredStyle: UIAlertControllerStyle.alert)
-			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			let alert = UIAlertController(title: "Incorrect Solution", message: "Try a different approach!", preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 			self.present(alert, animated: true, completion: nil)
 			return
 		} else {
-			let alert = UIAlertController(title: "Solution is Accepted", message: "Nice job!", preferredStyle: UIAlertControllerStyle.alert)
-			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+			let alert = UIAlertController(title: "Solution is Accepted", message: "Nice job!", preferredStyle: UIAlertController.Style.alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
 			self.present(alert, animated: true, completion: nil)
 		}
 	}

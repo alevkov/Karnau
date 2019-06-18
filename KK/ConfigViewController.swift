@@ -85,7 +85,7 @@ class ConfigViewController: UIViewController {
 		let mapView = StoryBoardManager.sharedManager.instantiateViewController(withIdentifier: "MapView") as? MapViewController
 		mapView!.table = table
 		mapView!.magnitude = Int(self.count)
-		let  trans = UIViewAnimationTransition.flipFromRight
+		let  trans = UIView.AnimationTransition.flipFromRight
 		UIView.beginAnimations("trans", context: nil)
 		UIView.setAnimationTransition(trans, for: UIApplication.shared.keyWindow!, cache: true)
 		UIView.setAnimationDuration(0.3)

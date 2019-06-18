@@ -68,7 +68,7 @@ class MenuViewController: UIViewController {
 	@IBAction func engineerPressed(_ sender: AnyObject) {
 		do {
 			try animateMenuButton(engineerButton) { (data: Bool) -> Void in
-				let trans = UIViewAnimationTransition.flipFromRight
+				let trans = UIView.AnimationTransition.flipFromRight
 				UIView.beginAnimations("trans", context: nil)
 				UIView.setAnimationTransition(trans, for: UIApplication.shared.keyWindow!, cache: true)
 				UIView.setAnimationDuration(0.3)
