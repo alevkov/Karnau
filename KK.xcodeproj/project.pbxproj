@@ -310,7 +310,6 @@
 				3A8A0B6C1C72420E006DFAD7 /* Frameworks */,
 				3A8A0B6D1C72420E006DFAD7 /* Resources */,
 				F7E84B1AAAB16930BCF22F4F /* [CP] Embed Pods Frameworks */,
-				4321B088A48556B33F2E1CC7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,8 +328,6 @@
 				3A8A0B821C72420E006DFAD7 /* Sources */,
 				3A8A0B831C72420E006DFAD7 /* Frameworks */,
 				3A8A0B841C72420E006DFAD7 /* Resources */,
-				235A3DF773A00D8551401B01 /* [CP] Embed Pods Frameworks */,
-				6A91FE2FB63C70083D5C9887 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,51 +414,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		235A3DF773A00D8551401B01 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KKUITests/Pods-KKUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4321B088A48556B33F2E1CC7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KK/Pods-KK-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6A91FE2FB63C70083D5C9887 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KKUITests/Pods-KKUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		770D7D75EB0E729509021101 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,7 +456,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KK/Pods-KK-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KK/Pods-KK-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FLKAutoLayout/FLKAutoLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ORStackView/ORStackView.framework",
 			);
@@ -515,7 +467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KK/Pods-KK-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KK/Pods-KK-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
